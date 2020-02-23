@@ -82,6 +82,10 @@ a:link { -webkit-tap-highlight-color: transparent }
 input:-moz-placeholder { color: black }
 textarea:-moz-placeholder { color: black }
 
+p {
+	margin: 0;
+}
+
 img,
 svg {
 	vertical-align: bottom;
@@ -204,14 +208,21 @@ svg {
 
 /* start main */
 .main {
+	--b: 55px;
 	position: absolute;
-	padding: 55px;
+	padding: var(--b);
 	height: 100vh;
 	width: 100%;
 	left: 0;
 	top: 0;
 }
+@media only screen and (max-height: 840px) {
+	.main {
+		--b: 30px;
+	}
+}
 .main .contain {
+	text-align: center;
 	position: relative;
 	height: 100%;
 }
@@ -219,59 +230,146 @@ svg {
 	background-color: #FFFF00;
 	padding: 24px 20px 16px;
 	text-align: center;
-	position: absolute;
+	position: fixed;
 	min-width: 150px;
 	cursor: pointer;
 	line-height: 1;
-	right: 0;
-	top: 0;
+	right: var(--b);
+	top: var(--b);
 
 }
 .main .link {
-	position: absolute;
-	bottom: 0;
-	right: 0;
+	position: fixed;
+	bottom: var(--b);
+	right: var(--b);
 }
 /* end main */
 
 
-/*#globe {
-	transition: opacity .9s ease-out, visibility .9s ease-out;
-	transition-timing-function: cubic-bezier(.2, .84, .83, 1.01), cubic-bezier(.2, .84, .83, 1.01);
-	transform: translate(-50%, -50%);
-	visibility: hidden;
-	max-height: 50vh;
-	position: fixed;
-	width: 100%;
-	opacity: 0;
-	left: 50%;
-	top: 50%;
 
-	visibility: visible;
-	opacity: 1;
-}
-#globe:before {
-	padding-top: 100%;
-	display: block;
-	content: ' ';
-	width: 100%;
-}*/
-#globeSvg {
-	transform: translate(-50%, -50%);
-	vertical-align: top;
-	position: absolute;
+#globe {
 	max-width: 100%;
-	height: auto;
 	width: 840px;
-	left: 50%;
-	top: 50%;
+}
+@media only screen and (min-height: 841px) {
+	#globe {
+		transform: translate(-50%, -50%);
+		position: absolute;
+		left: 50%;
+		top: 50%;
+	}
+}
+@media only screen and (max-height: 840px) {
+	#globe {
+		display: inline-block;
+		position: relative;
+	}
+}
+#globeSvg {
+	vertical-align: top;
+	height: auto;
+	width: 100%;
+}
+@media only screen and (max-height: 840px) {
+	#globeSvg {
+		margin-top: calc(var(--b) * -1);
+		height: 100vh;
+		width: auto;
+	}
 }
 #globe .graticule,
 #globe .outline {
 	stroke-opacity: 1;
-	stroke: #eee;
+	stroke-width: .25;
+	stroke: #525252;
 	fill: none;
 }
-#globe .outline {
-	pointer-events: all;
+#globeSvg .ball {
+	pointer-events: none;
+	opacity: .25;
+}
+#globe .result {
+	background-color: white;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	padding: 60px 120px;
+	white-space: nowrap;
+	left: 50%;
+	top: 50%;
+}
+#globe .select-word {
+	transform: translate(-50%, -50%);
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
+#globe .select-word .message p+p {
+	margin-top: 12px;
+}
+#globe .selecteds {
+	display: inline-flex;
+	margin-top: 30px;
+	color: #B3B3B3;
+}
+#globe .selected {
+	position: relative;
+	margin: 0 13px;
+	padding-left: 18px;
+}
+#globe .selected::before {
+    background-color: #B3B3B3;
+	position: absolute;
+	content: ' ';
+	bottom: 2px;
+	height: 1px;
+	width: 100%;
+	left: 0;
+}
+#globe .selected .close {
+	position: absolute;
+	cursor: pointer;
+	font-size: 0;
+	height: 20px;
+	width: 20px;
+	left: 0;
+	top: 0;
+}
+#globe .selected .close::before,
+#globe .selected .close::after {
+    background-color: #9e9e9e;
+    display: block;
+    content: ' ';
+    height: 1px;
+    width: 10px;
+}
+#globe .selected .close::before {
+	transform: translateY(9px) rotate(45deg);
+}
+#globe .selected .close::after {
+	transform: translateY(-11px) rotate(-45deg);
+    margin-top: 19px;
+}
+#globeSvg .keywords {
+	font-family: var(--ff-head);
+	font-weight: bold;
+	font-size: 14px;
+	color: #525252;
+}
+#globeSvg .keyword {
+	transition: opacity .25s ease-out;
+}
+#globeSvg .keywords:not(.disable) .keyword {
+	cursor: pointer;
+}
+#globeSvg .keyword:hover {
+	opacity: .8;
+}
+#globeSvg .keyword.on {
+	opacity: .25;
+}
+#globeSvg .keyword .text {
+	transition: transform .25s ease-out;
+}
+#globeSvg .keyword:hover .text {
+	transform: translateX(-2px) scale(1.05);
 }
