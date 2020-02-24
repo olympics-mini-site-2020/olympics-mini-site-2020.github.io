@@ -86,8 +86,8 @@
 				var rndKeywords = selectedKeywords.sort(function(a, b) { return 0.5 - Math.random() });
 				var result = new Array(
 					genLine(rndKeywords[0], 5),
-					genLine(rndKeywords[0], 7),
-					genLine(rndKeywords[0], 5)
+					genLine(rndKeywords[1], 7),
+					genLine(rndKeywords[2], 5)
 				);
 				globe.append('div').attr('class', 'head result').html(result.join('<br />'));
 				// console.log(result);
