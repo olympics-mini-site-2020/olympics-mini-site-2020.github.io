@@ -19,22 +19,23 @@
 		var front = d3.geoOrthographic()
 			.translate([ballSize / 2, ballSize / 2])
 			.scale(ballSize / 2)
+			.clipAngle(90)
 			.rotate([origin.x, origin.y, origin.z]);
 		var frontPath = d3.geoPath().projection(front);
 		var globe = d3.select(globeContainer);
 		var globeSvg = globe.append('svg').attrs({
-			'id': 'globeSvg',
-			'viewBox': '0 0 ' + fullSize + ' ' + fullSize
+			id: 'globeSvg',
+			viewBox: '0 0 ' + fullSize + ' ' + fullSize
 		});
 
 
 
 		var ballPos = fullSize / 2 - ballSize / 2;
 		var ball = globeSvg.append('g').attrs({
-			'width': ballSize,
-			'height': ballSize,
-			'class': 'ball',
-			'transform': 'translate(' + ballPos + ', ' + ballPos + ')'
+			width: ballSize,
+			height: ballSize,
+			class: 'ball',
+			transform: 'translate(' + ballPos + ', ' + ballPos + ')'
 		}).datum({
 			x: 0,
 			y: 0
@@ -44,10 +45,10 @@
 
 		var graticule = d3.geoGraticule().step([30, 30]);
 		ball.append('circle').attrs({
-			'cx': ballSize / 2,
-			'cy': ballSize / 2,
-			'r': ballSize / 2,
-			'fill': '#f2f2f2'
+			cx: ballSize / 2,
+			cy: ballSize / 2,
+			r: ballSize / 2,
+			fill: '#f2f2f2'
 		});
 		ball.append('path').datum(graticule).attr('class', 'graticule');
 		ball.append('path').datum({ type: 'Sphere' }).attr('class', 'outline');
@@ -209,8 +210,8 @@
 				globe.append('div').attr('class', 'head result').html(result.join('<br />'));
 			};
 			var keywords = globeSvg.append('g').attrs({
-				'class': 'keywords',
-				'transform': 'translate(' + fullSize / 2 + ', ' + fullSize / 2 + ')'
+				class: 'keywords',
+				transform: 'translate(' + fullSize / 2 + ', ' + fullSize / 2 + ')'
 			});
 
 			var r = d3.scaleLinear()
@@ -235,8 +236,8 @@
 				.enter()
 				.append('g')
 				.attrs({
-					'transform': function(d, i) { return 'rotate(' + (r(i) + 90) + ') translate(' + y(-120) + ', 0)'; },
-					'class': 'keyword'
+					transform: function(d, i) { return 'rotate(' + (r(i) + 90) + ') translate(' + y(-120) + ', 0)'; },
+					class: 'keyword'
 				}).on('click', function(d, i) {
 					if(selectedKeywords.length >= 3) return;
 					this.classList.toggle('on');
@@ -247,28 +248,28 @@
 						genHaiku();
 				});
 			keyword.append('path').attrs({
-				'd': function(d) { return line([0, 8]); },
-				'transform': function(d, i) { return 'rotate(90)'; },
-				'stroke': '#525252',
+				d: function(d) { return line([0, 8]); },
+				transform: function(d, i) { return 'rotate(90)'; },
+				stroke: '#525252',
 				'stroke-width': .25,
 				'stroke-linecap': 'round'
 			});
 			keyword.append('rect').attrs({
-				'y': -28,
-				'x': -20,
-				'width': 100,
-				'height': 60,
-				'fill': 'transparent'
+				y: -28,
+				x: -20,
+				width: 100,
+				height: 60,
+				fill: 'transparent'
 			});
 			keyword.append('g').attrs({
-				'class': 'text'
+				class: 'text'
 			}).append('text').attrs({
-				'dy': '0.31em',
+				dy: '0.31em',
 				'text-anchor': function(d, i) {
 					var deg = r(i);
 					return deg >= 0 && deg <= 180? 'end' : 'start';
 				},
-				'transform': function(d, i) {
+				transform: function(d, i) {
 					var deg = r(i);
 					return deg >= 0 && deg <= 180? 'rotate(180)' : null;
 				}
@@ -279,5 +280,5 @@
 			// genDot();
 		});
 	}
-	setupGlobe('static');
+	setupGlobe(/*'static'*/);
 })(window);
