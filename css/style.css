@@ -215,6 +215,8 @@ svg {
 	width: 100%;
 	left: 0;
 	top: 0;
+
+	/*visibility: hidden;*/
 }
 @media only screen and (max-height: 840px) {
 	.main {
@@ -285,8 +287,8 @@ svg {
 	fill: none;
 }
 #globeSvg .ball {
-	pointer-events: none;
-	opacity: .25;
+	/*pointer-events: none;*/
+	/*opacity: .25;*/
 }
 #globe .result {
 	background-color: white;
@@ -302,6 +304,8 @@ svg {
 	position: absolute;
 	left: 50%;
 	top: 50%;
+
+	visibility: hidden;
 }
 #globe .select-word .message p+p {
 	margin-top: 12px;
@@ -351,6 +355,7 @@ svg {
 }
 #globeSvg .keywords {
 	font-family: var(--ff-head);
+	letter-spacing: .1px;
 	font-weight: bold;
 	font-size: 14px;
 	color: #525252;

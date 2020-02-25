@@ -1,15 +1,25 @@
 (function(global) {
+	String.prototype.capitalize = function() {
+		return this.charAt(0).toUpperCase() + this.slice(1);
+	};
 	var globeContainer = document.getElementById('globe');
+	var fullSize = 840, ballSize = 575;
 	function setupGlobe(option) {
-		var fullSize = 840,
-			ballSize = 575,
-			velocity = 0.0025,
-			dragX = 220;
+		var dragX = 220,
+			origin = {
+				x: -35,
+				y: -30,
+				z: -25
+			},
+			easeTime = 0;
+		var timer, doRotation = true, doEase = false;
+
+
 
 		var front = d3.geoOrthographic()
 			.translate([ballSize / 2, ballSize / 2])
 			.scale(ballSize / 2)
-			.precision(.1);
+			.rotate([origin.x, origin.y, origin.z]);
 		var frontPath = d3.geoPath().projection(front);
 		var globe = d3.select(globeContainer);
 		var globeSvg = globe.append('svg').attrs({
@@ -17,38 +27,137 @@
 			'viewBox': '0 0 ' + fullSize + ' ' + fullSize
 		});
 
+
+
 		var ballPos = fullSize / 2 - ballSize / 2;
 		var ball = globeSvg.append('g').attrs({
 			'width': ballSize,
 			'height': ballSize,
 			'class': 'ball',
 			'transform': 'translate(' + ballPos + ', ' + ballPos + ')'
+		}).datum({
+			x: 0,
+			y: 0
 		});
+
+
+
+		var graticule = d3.geoGraticule().step([30, 30]);
 		ball.append('circle').attrs({
 			'cx': ballSize / 2,
 			'cy': ballSize / 2,
 			'r': ballSize / 2,
 			'fill': '#f2f2f2'
 		});
-		ball.append('path').datum(d3.geoGraticule().step([30, 30])).attr('class', 'graticule');
+		ball.append('path').datum(graticule).attr('class', 'graticule');
 		ball.append('path').datum({ type: 'Sphere' }).attr('class', 'outline');
 
+
+
 		var globePath = ball.selectAll('path');
+		var updatePaths = function() {
+			ball.selectAll('path').attr('d', frontPath);
+			// ball.selectAll('path.graticule').attr('d', frontPath);
+			// ball.selectAll('path.outline').attr('d', frontPath);
+			// ball.selectAll('path.dot').attr('d', frontPath);
+		};
 
-		globeContainer.step = (function(velocity, front, frontPath, globePath) {
-			return function(elapsed) {
-				//console.log(velocity * elapsed);
-				front.rotate([dragX + velocity * elapsed, -35, -25]);
-				globePath.attr('d', frontPath);
-			};
-		})(velocity, front, frontPath, globePath);
-		/*if(option != 'static')
-			globeContainer.timer = d3.timer(globeContainer.step);
-		else */globeContainer.step(0);
 
-		// d3.json('data/data.json', function(error, data) {
 
-		// });
+		if(option != 'static') {
+			ball.call(d3.drag()
+				.subject(function() {
+					var rotate = front.rotate();
+					return {
+						x: 8 * rotate[0],
+						y: -10 * rotate[1]
+					};
+				}).on('drag', function(d) {
+					front.rotate([d3.event.x / 8, Math.max(-30, Math.min(30, -d3.event.y / 10)), origin.z]);
+					updatePaths();
+				}).on('start', function() {
+					easeTime = 1;
+					doRotation = false;
+					clearTimeout(timer);
+				}).on('end', function() {
+					doEase = true;
+				}));
+			ball.timer = d3.timer(function() {
+				var o0 = front.rotate();
+				if(!doRotation) {
+					if(doEase) {
+						var v = d3.easeQuadOut(easeTime);
+						var t = v * .1;
+						easeTime = easeTime - .01;
+						o0[0] += t;
+						if(t < .05) {
+							doEase = false;
+							doRotation = true;
+						}
+					} else {
+						return;
+					}
+				} else {
+					o0[0] += .05;
+				}
+				front.rotate(o0);
+				updatePaths();
+			});
+		}
+		front.rotate([origin.x, origin.y, origin.z]);
+		updatePaths();
+
+
+
+		load_haiku(globe, globeSvg);
+		load_point(ball, frontPath);
+	}
+	function load_point(ball, frontPath) {
+		var genDot = function() {
+			var dots = ball.append('g').attrs({
+				'class': 'dots'
+			});
+			var v = d3.scaleLinear()
+				.domain([-360, 360])
+				.range([-180, 180]);
+			var xNum = 50;
+			var yNum = 15;
+			var circles = new Array();
+			var rs = d3.scaleLinear()
+				.domain([0, 50])
+				.range([2, 1]);
+			var xs = d3.scaleLinear()
+				.domain([0, xNum])
+				.range([-180, 180]);
+			var ys = d3.scaleLinear()
+				.domain([0, yNum])
+				.range([0, 90]);
+			for(var j = 0; j < xNum; j++) {
+				for(var k = 0; k < yNum - 2; k++) {
+					circles.push([xs(j), ys(k)]);
+				}
+			}
+			// console.log(circles);
+			// var circles = [
+			// 	[-135, 0], [-90, 0], [-45, 0], [0, 0], [45, 0], [90, 0], [135, 0], [180, 0],
+			// 	[0, -70], [0, -35], [0, 35], [0, 70],
+			// 	[180, -70], [180, -35], [180, 35], [180, 70],
+			// ];
+			// console.log(circles);
+			var geoCircle = d3.geoCircle().radius(2);
+			var u = dots.selectAll('path')
+				.data(circles.map(function(d) {
+					geoCircle.center(d).radius(rs(d[1]));
+					return geoCircle();
+				}))
+				.enter()
+				.append('path')
+				// .attr('class', 'dot')
+				.attr('d', frontPath);
+		};
+		genDot();
+	}
+	function load_haiku(globe, globeSvg) {
 		d3.csv('data/data.csv', function(data) {
 			var dataKeyWords = new Array();
 			var dataLines = {};
@@ -61,11 +170,11 @@
 					var find5 = lines[j].indexOf('(5)');
 					var find7 = lines[j].indexOf('(7)');
 					if(find5 > -1) {
-						syllable5.push(lines[j].slice(0, find5).trim());
+						syllable5.push(lines[j].slice(0, find5).trim().capitalize());
 						continue;
 					}
 					if(find7 > -1) {
-						syllable7.push(lines[j].slice(0, find7).trim());
+						syllable7.push(lines[j].slice(0, find7).trim().capitalize());
 					}
 				}
 				dataLines[data[i].keyword] = {
@@ -76,7 +185,9 @@
 			}
 			// console.log(dataLines);
 			var genLine = function(keyword, syllable) {
-				if(!dataLines[keyword] || !dataLines[keyword]['syllable' + syllable]) return;
+				if(!dataLines[keyword] 
+					|| !dataLines[keyword]['syllable' + syllable]
+					|| dataLines[keyword]['syllable' + syllable].length < 1) return false;
 				var len = dataLines[keyword]['syllable' + syllable].length;
 				var num = Math.floor(Math.random() * len);
 				return dataLines[keyword]['syllable' + syllable][num];
@@ -89,8 +200,13 @@
 					genLine(rndKeywords[1], 7),
 					genLine(rndKeywords[2], 5)
 				);
+				for(var i = 0; i < result.length; i++) {
+					if(result[i] === false) {
+						genHaiku();
+						return;
+					}
+				}
 				globe.append('div').attr('class', 'head result').html(result.join('<br />'));
-				// console.log(result);
 			};
 			var keywords = globeSvg.append('g').attrs({
 				'class': 'keywords',
@@ -159,8 +275,9 @@
 			})
 			// .attr('class', 'head')
 			.text(function(d) { return d; });
+
+			// genDot();
 		});
-		// var dataKeyWords = new Array('LGBT', 'Sportsmanship', 'Liberation', 'Diversity', 'Solidarity', 'Human', 'Athlete', 'Minority', 'Self', 'Pride', 'Harmony', 'Warmth', 'Fair/fairness', 'Equal/equality', 'Discrimination', 'Rainbow', 'Colours', 'Voice', 'Tolerance', 'Glory', 'Brave', 'Natural', 'Beauty', 'Love', 'Motion', 'Identity', 'Respect', 'Inclusive', 'Connect', 'Free/freedom');
 	}
-	setupGlobe();
+	setupGlobe('static');
 })(window);
