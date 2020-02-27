@@ -287,8 +287,32 @@ svg {
 	fill: none;
 }
 #globeSvg .ball {
-	/*pointer-events: none;*/
-	/*opacity: .25;*/
+/*	pointer-events: none;
+	opacity: .25;*/
+}
+#globeSvg .ball .dots {
+
+}
+#globeSvg .ball .dot:not(.hide) {
+	mask: url(#gradientMask);
+	fill: #ccc;
+	/*animation: example 20s linear 0s infinite alternate;*/
+}
+#globeSvg .ball .dot:not(.hide):hover {
+	fill: red;
+}
+@keyframes example {
+	0% { fill: yellow; }
+	14% { fill: orange; }
+	28% { fill: red; }
+	42% { fill: green; }
+	58% { fill: indigo; }
+	72% { fill: blue; }
+	100% { fill: purple; }
+}
+#globeSvg .ball .hide {
+	pointer-events: none;
+	fill: transparent;
 }
 #globe .result {
 	background-color: white;
@@ -321,7 +345,7 @@ svg {
 	padding-left: 18px;
 }
 #globe .selected::before {
-    background-color: #B3B3B3;
+	background-color: #B3B3B3;
 	position: absolute;
 	content: ' ';
 	bottom: 2px;
@@ -340,22 +364,21 @@ svg {
 }
 #globe .selected .close::before,
 #globe .selected .close::after {
-    background-color: #9e9e9e;
-    display: block;
-    content: ' ';
-    height: 1px;
-    width: 10px;
+	background-color: #9e9e9e;
+	display: block;
+	content: ' ';
+	height: 1px;
+	width: 10px;
 }
 #globe .selected .close::before {
 	transform: translateY(9px) rotate(45deg);
 }
 #globe .selected .close::after {
 	transform: translateY(-11px) rotate(-45deg);
-    margin-top: 19px;
+	margin-top: 19px;
 }
 #globeSvg .keywords {
 	font-family: var(--ff-head);
-	letter-spacing: .1px;
 	font-weight: bold;
 	font-size: 14px;
 	color: #525252;

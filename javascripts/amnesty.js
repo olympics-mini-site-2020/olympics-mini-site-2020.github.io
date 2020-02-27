@@ -1,8 +1,13 @@
-(function(global) {
+(function(global, doc) {
+	function roundUp(n, rnd) {
+		if(!rnd) rnd = 1000;
+		var dec;
+		return (dec = n - (n |= 0))? ((dec * rnd + (dec < 0 ? -0.5 : 0.5)) | 0) / rnd + n : n;
+	}
 	String.prototype.capitalize = function() {
 		return this.charAt(0).toUpperCase() + this.slice(1);
 	};
-	var globeContainer = document.getElementById('globe');
+	var globeContainer = doc.getElementById('globe');
 	var fullSize = 840, ballSize = 575;
 	function setupGlobe(option) {
 		var dragX = 220,
@@ -23,7 +28,7 @@
 			.rotate([origin.x, origin.y, origin.z]);
 		var frontPath = d3.geoPath().projection(front);
 		var globe = d3.select(globeContainer);
-		var globeSvg = globe.append('svg').attrs({
+		var svg = globe.append('svg').attrs({
 			id: 'globeSvg',
 			viewBox: '0 0 ' + fullSize + ' ' + fullSize
 		});
@@ -31,7 +36,7 @@
 
 
 		var ballPos = fullSize / 2 - ballSize / 2;
-		var ball = globeSvg.append('g').attrs({
+		var ball = svg.append('g').attrs({
 			width: ballSize,
 			height: ballSize,
 			class: 'ball',
@@ -52,6 +57,39 @@
 		});
 		ball.append('path').datum(graticule).attr('class', 'graticule');
 		ball.append('path').datum({ type: 'Sphere' }).attr('class', 'outline');
+
+
+
+		// Create the svg:defs element and the main gradient definition.
+		var svgDefs = svg.append('svg:defs').call(function(defs) {
+			// Appending the gradient
+			defs.append('svg:radialGradient')
+				.attr('id', 'radialGradient')
+				.call(function (gradient) {
+					gradient.append('svg:stop')
+						.attr('offset', '0%')
+						.attr('stop-color', 'white')
+						.attr('stop-opacity', '.5');
+					gradient.append('svg:stop')
+						.attr('offset', '40%')
+						.attr('stop-color', 'white')
+						.attr('stop-opacity', '0');
+				});
+			// Appending the mask
+			defs.append('svg:mask')
+				.attr('id', 'gradientMask')
+				.attr('width', ballSize)
+				.attr('height', ballSize)
+				.attr('x', 0)
+				.attr('y', 0)
+				.call(function(mask) {
+					mask.append('svg:circle')
+						.attr('cx', ballSize / 2)
+						.attr('cy', ballSize / 2)
+						.attr('r', ballSize)
+						.attr('fill', 'url(#radialGradient)')
+				});
+		});
 
 
 
@@ -83,34 +121,34 @@
 				}).on('end', function() {
 					doEase = true;
 				}));
-			ball.timer = d3.timer(function() {
-				var o0 = front.rotate();
-				if(!doRotation) {
-					if(doEase) {
-						var v = d3.easeQuadOut(easeTime);
-						var t = v * .1;
-						easeTime = easeTime - .01;
-						o0[0] += t;
-						if(t < .05) {
-							doEase = false;
-							doRotation = true;
-						}
-					} else {
-						return;
-					}
-				} else {
-					o0[0] += .05;
-				}
-				front.rotate(o0);
-				updatePaths();
-			});
+			// ball.timer = d3.timer(function() {
+			// 	var o0 = front.rotate();
+			// 	if(!doRotation) {
+			// 		if(doEase) {
+			// 			var v = d3.easeQuadOut(easeTime);
+			// 			var t = v * .1;
+			// 			easeTime = easeTime - .01;
+			// 			o0[0] += t;
+			// 			if(t < .05) {
+			// 				doEase = false;
+			// 				doRotation = true;
+			// 			}
+			// 		} else {
+			// 			return;
+			// 		}
+			// 	} else {
+			// 		o0[0] += .05;
+			// 	}
+			// 	front.rotate(o0);
+			// 	updatePaths();
+			// });
 		}
 		front.rotate([origin.x, origin.y, origin.z]);
 		updatePaths();
 
 
 
-		load_haiku(globe, globeSvg);
+		load_haiku(globe, svg);
 		load_point(ball, frontPath);
 	}
 	function load_point(ball, frontPath) {
@@ -118,15 +156,13 @@
 			var dots = ball.append('g').attrs({
 				'class': 'dots'
 			});
-			var v = d3.scaleLinear()
-				.domain([-360, 360])
-				.range([-180, 180]);
+			var geoCircle = d3.geoCircle().radius(2).precision(28);
 			var xNum = 50;
 			var yNum = 15;
 			var circles = new Array();
-			var rs = d3.scaleLinear()
-				.domain([0, 50])
-				.range([2, 1]);
+			// var rs = d3.scaleLinear()
+			// 	.domain([0, 50])
+			// 	.range([2, 1]);
 			var xs = d3.scaleLinear()
 				.domain([0, xNum])
 				.range([-180, 180]);
@@ -134,32 +170,44 @@
 				.domain([0, yNum])
 				.range([0, 90]);
 			for(var j = 0; j < xNum; j++) {
-				for(var k = 0; k < yNum - 2; k++) {
-					circles.push([xs(j), ys(k)]);
+				for(var k = 0; k < yNum - 1; k++) {
+					var xs = d3.scaleLinear()
+						.domain([0, xNum - k * 3])
+						.range([-180, 180]);
+					var d = [xs(j), ys(k)];
+					geoCircle.center(d)/*.radius(rs(k))*/;
+					var circle = geoCircle();
+					if(Math.random() > .7) {
+						circle._hide = true;
+					}
+					circles.push(circle);
 				}
 			}
-			// console.log(circles);
-			// var circles = [
-			// 	[-135, 0], [-90, 0], [-45, 0], [0, 0], [45, 0], [90, 0], [135, 0], [180, 0],
-			// 	[0, -70], [0, -35], [0, 35], [0, 70],
-			// 	[180, -70], [180, -35], [180, 35], [180, 70],
-			// ];
-			// console.log(circles);
-			var geoCircle = d3.geoCircle().radius(2);
-			var u = dots.selectAll('path')
-				.data(circles.map(function(d) {
-					geoCircle.center(d).radius(rs(d[1]));
-					return geoCircle();
-				}))
+			for(var m = xNum; m > 0; m--) {
+				for(var n = yNum - 2; n > 0; n--) {
+					var xs = d3.scaleLinear()
+						.domain([0, xNum - n * 3])
+						.range([-180, 180]);
+					var d = [xs(m), ys(n) * -1];
+					geoCircle.center(d)/*.radius(rs(k))*/;
+					var circle = geoCircle();
+					if(Math.random() > .7) {
+						circle._hide = true;
+					}
+					circles.push(circle);
+				}
+			}
+			dots.selectAll('path')
+				.data(circles)
 				.enter()
 				.append('path')
-				// .attr('class', 'dot')
+				.attr('class', function(d) { return d._hide? 'dot hide' : 'dot'; })
 				.attr('d', frontPath);
 		};
 		genDot();
 	}
-	function load_haiku(globe, globeSvg) {
-		d3.csv('data/data.csv', function(data) {
+	function load_haiku(globe, svg) {
+		d3.csv('data/data.csv').then(function(data) {
 			var dataKeyWords = new Array();
 			var dataLines = {};
 			for(var i = 0; i < data.length; i++) {
@@ -209,7 +257,7 @@
 				}
 				globe.append('div').attr('class', 'head result').html(result.join('<br />'));
 			};
-			var keywords = globeSvg.append('g').attrs({
+			var keywords = svg.append('g').attrs({
 				class: 'keywords',
 				transform: 'translate(' + fullSize / 2 + ', ' + fullSize / 2 + ')'
 			});
@@ -280,5 +328,10 @@
 			// genDot();
 		});
 	}
-	setupGlobe(/*'static'*/);
-})(window);
+	function load_test(ball) {
+		d3.json('https://raw.githubusercontent.com/ofrohn/d3-celestial/master/data/stars.6.json').then(function(data) {
+			ball.test = data;
+		});
+	}
+	setupGlobe('static');
+})(window, document);
