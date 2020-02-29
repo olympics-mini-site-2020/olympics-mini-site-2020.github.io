@@ -344,7 +344,7 @@ function setupLanding() {
 		d3.select('html').classed('enter', true);
 	});
 	// landing.classed('show', true);
-	// d3.select('html').classed('enter', true);//temp
+	d3.select('html').classed('dark-mode', true);//temp
 }
 function setupLinkAmnesty() {
 	var logoAmnesty = doc.querySelector('#logoAmnesty');
