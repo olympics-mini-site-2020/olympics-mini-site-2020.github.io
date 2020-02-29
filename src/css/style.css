@@ -412,12 +412,12 @@ html.enter .main {
 	opacity: .25;*/
 }
 #globeSvg .ball .dots {
-
+	mask: url(#gradientMask);
+	/*fill: url(#radialGradientColor);*/
 }
 #globeSvg .ball .dot:not(.hide) {
-	/*mask: url(#gradientMask);*/
 	fill: #ccc;
-	/*animation: example 20s linear 0s infinite alternate;*/
+	animation: example 20s linear 0s infinite alternate;
 }
 #globeSvg .ball .dot:not(.hide):hover {
 	fill: red;

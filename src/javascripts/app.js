@@ -14,7 +14,7 @@ String.prototype.capitalize = function() {
 	return this.charAt(0).toUpperCase() + this.slice(1);
 };
 var globeContainer = doc.getElementById('globe');
-var fullSize = 840, ballSize = 575;
+var fullSize = 840, ballSize = 575, ballSizeHalf = ballSize / 2;
 function setupGlobe(option) {
 	var dragX = 220,
 		origin = {
@@ -23,13 +23,13 @@ function setupGlobe(option) {
 			z: -25
 		},
 		easeTime = 0;
-	var timer, doRotation = true, doEase = false;
+	var timer, doRotation = true;
 
 
 
 	var front = d3.geoOrthographic()
-		.translate([ballSize / 2, ballSize / 2])
-		.scale(ballSize / 2)
+		.translate([ballSizeHalf, ballSizeHalf])
+		.scale(ballSizeHalf)
 		.clipAngle(90)
 		.rotate([origin.x, origin.y, origin.z]);
 	var frontPath = d3.geoPath().projection(front);
@@ -41,7 +41,7 @@ function setupGlobe(option) {
 
 
 
-	var ballPos = fullSize / 2 - ballSize / 2;
+	var ballPos = fullSize / 2 - ballSizeHalf;
 	var ball = svg.append('g').attrs({
 		width: ballSize,
 		height: ballSize,
@@ -56,9 +56,9 @@ function setupGlobe(option) {
 
 	var graticule = d3.geoGraticule().step([30, 30]).precision(8);
 	ball.append('circle').attrs({
-		cx: ballSize / 2,
-		cy: ballSize / 2,
-		r: ballSize / 2,
+		cx: ballSizeHalf,
+		cy: ballSizeHalf,
+		r: ballSizeHalf,
 		fill: '#f2f2f2'
 	});
 	ball.append('path').datum(graticule).attr('class', 'graticule');
@@ -89,9 +89,9 @@ function setupGlobe(option) {
 			.attr('x', 0)
 			.attr('y', 0)
 			.call(function(mask) {
-				mask.append('svg:circle')
-					.attr('cx', ballSize / 2)
-					.attr('cy', ballSize / 2)
+				svg.mask = mask.append('svg:circle')
+					.attr('cx', ballSizeHalf)
+					.attr('cy', ballSizeHalf)
 					.attr('r', ballSize)
 					.attr('fill', 'url(#radialGradient)')
 			});
@@ -116,41 +116,35 @@ function setupGlobe(option) {
 		// 	front.rotate(o0);
 		// 	updatePaths();
 		// });
-		ball.call(d3.drag()
-			.subject(function() {
-				var rotate = front.rotate();
-				return {
-					x: 8 * rotate[0],
-					y: -10 * rotate[1]
-				};
-			}).on('drag', function(d) {
-				front.rotate([d3.event.x / 8, Math.max(-30, Math.min(30, -d3.event.y / 10)), origin.z]);
-				updatePaths();
-			}).on('start', function() {
-				easeTime = 1;
-				doRotation = false;
-				clearTimeout(timer);
-			}).on('end', function() {
-				doRotation = true;
-				doEase = true;
-			}));
+		// ball.call(d3.drag()
+		// 	.subject(function() {
+		// 		var rotate = front.rotate();
+		// 		return {
+		// 			x: 8 * rotate[0],
+		// 			y: -10 * rotate[1]
+		// 		};
+		// 	}).on('drag', function(d) {
+		// 		front.rotate([d3.event.x / 8, Math.max(-30, Math.min(30, -d3.event.y / 10)), origin.z]);
+		// 		updatePaths();
+		// 	}).on('start', function() {
+		// 		doRotation = false;
+		// 		clearTimeout(timer);
+		// 	}).on('end', function() {
+		// 		doRotation = true;
+		// 	}));
+		ball.on('mousemove', function() {
+			svg.mask.attr('cx', ballSizeHalf + (d3.event.x - fullSize / 2 - ballSizeHalf) * .2)
+				.attr('cy', ballSizeHalf + (d3.event.y - fullSize / 2 - ballSizeHalf) * .2 + ballSize * .15);
+			// console.log(d3.event.x, d3.event.y);
+			// doRotation = false;
+		}).on('mouseout', function(e) {
+			// doRotation = true;
+		});
 		// ball.timer = d3.timer(function() {
 		// 	var o0 = front.rotate();
 		// 	if(!doRotation) {
-		// 		if(doEase) {
-		// 			var v = d3.easeQuadOut(easeTime);
-		// 			var t = v * .1;
-		// 			easeTime = easeTime - .01;
-		// 			o0[0] += t;
-		// 			if(t < .05) {
-		// 				doEase = false;
-		// 				doRotation = true;
-		// 			}
-		// 		} else {
-		// 			return;
-		// 		}
 		// 	} else {
-		// 		o0[0] += .1;
+		// 		o0[0] += .05;
 		// 	}
 		// 	front.rotate(o0);
 		// 	updatePaths();
@@ -170,7 +164,7 @@ function load_point(ball, frontPath) {
 		var dots = ball.append('g').attrs({
 			'class': 'dots'
 		});
-		var geoCircle = d3.geoCircle().radius(2.5).precision(28);
+		var geoCircle = d3.geoCircle().radius(2.5).precision(22);
 		var xNum = 50;
 		var yNum = 15;
 		var circles = new Array();
@@ -191,7 +185,7 @@ function load_point(ball, frontPath) {
 				var d = [xs(j), ys(k)];
 				geoCircle.center(d);
 				var circle = geoCircle();
-				if(Math.random() > .6) {
+				if(Math.random() > .5) {
 					circle._hide = true;
 				}
 				circles.push(circle);
@@ -205,7 +199,7 @@ function load_point(ball, frontPath) {
 				var d = [xs(m), ys(n) * -1];
 				geoCircle.center(d);
 				var circle = geoCircle();
-				if(Math.random() > .6) {
+				if(Math.random() > .5) {
 					circle._hide = true;
 				}
 				circles.push(circle);
