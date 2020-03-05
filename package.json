@@ -1,0 +1,36 @@
+{
+  "name": "amnesty-olympics-mini-site-2020",
+  "version": "1.0.0",
+  "description": "Olympics Mini Site 2020",
+  "main": "index.html",
+  "scripts": {
+    "copy-vendor-js": "./scripts/copy-vendor-js.sh",
+    "minify:js": "uglifyjs javascripts/vendor/*.js -o javascripts/vendor.min.js",
+    "clean": "rm -rf javascripts/vendor.min.js",
+    "start": "http-server",
+    "build:js": "npm run clean && npm run copy-vendor-js && npm run minify:js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olympics-mini-site-2020/olympics-mini-site-2020.github.io.git"
+  },
+  "keywords": [
+    "olympics 2020"
+  ],
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/olympics-mini-site-2020/issues"
+  },
+  "homepage": "https://github.com/olympics-mini-site-2020#readme",
+  "devDependencies": {
+    "autoprefixer": "^6.3.4",
+    "cssmin": "^0.4.3",
+    "http-server": "^0.9.0",
+    "jshint": "^2.9.1",
+    "uglify-js": "^2.6.2"
+  },
+  "dependencies": {
+    "iframe-resizer": "3"
+  }
+}
