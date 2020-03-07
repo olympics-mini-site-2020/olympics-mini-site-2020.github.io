@@ -416,6 +416,9 @@ section.main .contain {
 #parts {
 	/*visibility: hidden;*/
 }
+html.show-other #parts {
+	pointer-events: none;
+}
 #parts .by {
 	font-size: var(--fs-small);
 	bottom: var(--edge);
@@ -880,6 +883,10 @@ section.main .contain {
 #other .name {
 	font-weight: bold;
 	font-size: var(--fs-main);
+	max-width: 100px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
 #other .num {
 	letter-spacing: .1px;
