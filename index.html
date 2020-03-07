@@ -459,7 +459,10 @@ Her eyes, Primroses.</div>
 <script src="https://d3js.org/topojson.v1.min.js" defer></script>
 <script type="text/javascript">
 var posturl = 'https://haiku-musubi.fordemo.site/handler.php';
-document.write('<script src="javascripts/vendor.min.js?r=' + Math.random() * 1000000 + '" charset="utf-8" defer></script>');
+var script = document.createElement("script");
+script.setAttribute('src', 'javascripts/vendor.min.js?r=' + Math.random() * 1000000);
+script.setAttribute('defer', null);
+document.body.appendChild(script);
 </script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -472,7 +475,6 @@ document.write('<script src="javascripts/vendor.min.js?r=' + Math.random() * 100
   gtag('config', 'UA-116298107-9');
 </script>
 
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e5a9bfe73f3a2c9"></script>
+<script async type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e5a9bfe73f3a2c9"></script>
 </body>
 </html>
