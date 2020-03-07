@@ -439,10 +439,20 @@ section.main .contain {
 }
 #parts .btn.create:not(.again),
 #parts .btn.tosign {
+	transition: background-color .25s ease-out, color .25s ease-out;
 	background-color: #FFFF00;
 }
+#parts .btn.create:not(.again):hover,
+#parts .btn.tosign:hover {
+	background-color: var(--color-fg);
+	color: var(--color-bg);
+}
+#parts .btn.tosign {
+	top: calc(var(--edge) + 90px);
+}
 #parts .btn.goback,
-#parts .btn.tohome {
+#parts .btn.tohome,
+#parts .btn.create.again {
 	border-color: var(--color-fg);
 }
 
@@ -879,7 +889,7 @@ section.main .contain {
 #other .box {
 	background-color: rgba(255, 255, 255, .75);
 	display: flex;
-	padding: 14px;
+	padding: 16px 14px 12px;
 }
 #other .pic {
 	text-align: center;
