@@ -22,217 +22,214 @@ $(function () {
 	var API_DATA = {
 		keywords: [],
 		lines: {},
-		color: {},
-
-		ytViews: [],
-		tracks: [],
-		counts: [],
-		news: []
+		linesIdx: {},
+		color: {}
 	};
 	function setupGlobe(option) {
-		var dragX = 220,
-			origin = {
-				x: -35,
-				y: -30,
-				z: -25
-			},
-			easeTime = 0;
-		var timer, doRotation = true, doEase = false;
+		// var dragX = 220,
+		// 	origin = {
+		// 		x: -35,
+		// 		y: -30,
+		// 		z: -25
+		// 	},
+		// 	easeTime = 0;
+		// var timer, doRotation = true, doEase = false;
 
 
 
-		var front = d3.geoOrthographic()
-			.translate([ballSize / 2, ballSize / 2])
-			.scale(ballSize / 2)
-			.clipAngle(90)
-			.rotate([origin.x, origin.y, origin.z]);
-		var frontPath = d3.geoPath().projection(front);
-		var globe = d3.select(globeContainer);
-		var svg = globe.append('svg').attrs({
-			id: 'globeSvg',
-			viewBox: '0 0 ' + fullSize + ' ' + fullSize
-		});
+		// var front = d3.geoOrthographic()
+		// 	.translate([ballSize / 2, ballSize / 2])
+		// 	.scale(ballSize / 2)
+		// 	.clipAngle(90)
+		// 	.rotate([origin.x, origin.y, origin.z]);
+		// var frontPath = d3.geoPath().projection(front);
+		// var globe = d3.select(globeContainer);
+		// var svg = globe.append('svg').attrs({
+		// 	id: 'globeSvg',
+		// 	viewBox: '0 0 ' + fullSize + ' ' + fullSize
+		// });
 
 
 
-		var ballPos = fullSize / 2 - ballSize / 2;
-		var ball = svg.append('g').attrs({
-			width: ballSize,
-			height: ballSize,
-			class: 'ball',
-			transform: 'translate(' + ballPos + ', ' + ballPos + ')'
-		}).datum({
-			x: 0,
-			y: 0
-		});
+		// var ballPos = fullSize / 2 - ballSize / 2;
+		// var ball = svg.append('g').attrs({
+		// 	width: ballSize,
+		// 	height: ballSize,
+		// 	class: 'ball',
+		// 	transform: 'translate(' + ballPos + ', ' + ballPos + ')'
+		// }).datum({
+		// 	x: 0,
+		// 	y: 0
+		// });
 
 
 
-		var graticule = d3.geoGraticule().step([30, 30]);
-		ball.append('circle').attrs({
-			cx: ballSize / 2,
-			cy: ballSize / 2,
-			r: ballSize / 2,
-			fill: '#f2f2f2'
-		});
-		ball.append('path').datum(graticule).attr('class', 'graticule');
-		ball.append('path').datum({ type: 'Sphere' }).attr('class', 'outline');
+		// var graticule = d3.geoGraticule().step([30, 30]);
+		// ball.append('circle').attrs({
+		// 	cx: ballSize / 2,
+		// 	cy: ballSize / 2,
+		// 	r: ballSize / 2,
+		// 	fill: '#f2f2f2'
+		// });
+		// ball.append('path').datum(graticule).attr('class', 'graticule');
+		// ball.append('path').datum({ type: 'Sphere' }).attr('class', 'outline');
 
 
 
-		// Create the svg:defs element and the main gradient definition.
-		var svgDefs = svg.append('svg:defs').call(function(defs) {
-			// Appending the gradient
-			defs.append('svg:radialGradient')
-				.attr('id', 'radialGradient')
-				.call(function (gradient) {
-					gradient.append('svg:stop')
-						.attr('offset', '0%')
-						.attr('stop-color', 'white')
-						.attr('stop-opacity', '.5');
-					gradient.append('svg:stop')
-						.attr('offset', '40%')
-						.attr('stop-color', 'white')
-						.attr('stop-opacity', '0');
-				});
-			// Appending the mask
-			defs.append('svg:mask')
-				.attr('id', 'gradientMask')
-				.attr('width', ballSize)
-				.attr('height', ballSize)
-				.attr('x', 0)
-				.attr('y', 0)
-				.call(function(mask) {
-					mask.append('svg:circle')
-						.attr('cx', ballSize / 2)
-						.attr('cy', ballSize / 2)
-						.attr('r', ballSize)
-						.attr('fill', 'url(#radialGradient)')
-				});
-		});
+		// // Create the svg:defs element and the main gradient definition.
+		// var svgDefs = svg.append('svg:defs').call(function(defs) {
+		// 	// Appending the gradient
+		// 	defs.append('svg:radialGradient')
+		// 		.attr('id', 'radialGradient')
+		// 		.call(function (gradient) {
+		// 			gradient.append('svg:stop')
+		// 				.attr('offset', '0%')
+		// 				.attr('stop-color', 'white')
+		// 				.attr('stop-opacity', '.5');
+		// 			gradient.append('svg:stop')
+		// 				.attr('offset', '40%')
+		// 				.attr('stop-color', 'white')
+		// 				.attr('stop-opacity', '0');
+		// 		});
+		// 	// Appending the mask
+		// 	defs.append('svg:mask')
+		// 		.attr('id', 'gradientMask')
+		// 		.attr('width', ballSize)
+		// 		.attr('height', ballSize)
+		// 		.attr('x', 0)
+		// 		.attr('y', 0)
+		// 		.call(function(mask) {
+		// 			mask.append('svg:circle')
+		// 				.attr('cx', ballSize / 2)
+		// 				.attr('cy', ballSize / 2)
+		// 				.attr('r', ballSize)
+		// 				.attr('fill', 'url(#radialGradient)')
+		// 		});
+		// });
 
 
 
-		var globePath = ball.selectAll('path');
-		var updatePaths = function() {
-			ball.selectAll('path').attr('d', frontPath);
-			// ball.selectAll('path.graticule').attr('d', frontPath);
-			// ball.selectAll('path.outline').attr('d', frontPath);
-			// ball.selectAll('path.dot').attr('d', frontPath);
-		};
+		// var globePath = ball.selectAll('path');
+		// var updatePaths = function() {
+		// 	ball.selectAll('path').attr('d', frontPath);
+		// 	// ball.selectAll('path.graticule').attr('d', frontPath);
+		// 	// ball.selectAll('path.outline').attr('d', frontPath);
+		// 	// ball.selectAll('path.dot').attr('d', frontPath);
+		// };
 
 
 
-		if(option != 'static') {
-			ball.call(d3.drag()
-				.subject(function() {
-					var rotate = front.rotate();
-					return {
-						x: 8 * rotate[0],
-						y: -10 * rotate[1]
-					};
-				}).on('drag', function(d) {
-					front.rotate([d3.event.x / 8, Math.max(-30, Math.min(30, -d3.event.y / 10)), origin.z]);
-					updatePaths();
-				}).on('start', function() {
-					easeTime = 1;
-					doRotation = false;
-					clearTimeout(timer);
-				}).on('end', function() {
-					doEase = true;
-				}));
-			// ball.timer = d3.timer(function() {
-			// 	var o0 = front.rotate();
-			// 	if(!doRotation) {
-			// 		if(doEase) {
-			// 			var v = d3.easeQuadOut(easeTime);
-			// 			var t = v * .1;
-			// 			easeTime = easeTime - .01;
-			// 			o0[0] += t;
-			// 			if(t < .05) {
-			// 				doEase = false;
-			// 				doRotation = true;
-			// 			}
-			// 		} else {
-			// 			return;
-			// 		}
-			// 	} else {
-			// 		o0[0] += .05;
-			// 	}
-			// 	front.rotate(o0);
-			// 	updatePaths();
-			// });
-		}
-		front.rotate([origin.x, origin.y, origin.z]);
-		updatePaths();
+		// if(option != 'static') {
+		// 	ball.call(d3.drag()
+		// 		.subject(function() {
+		// 			var rotate = front.rotate();
+		// 			return {
+		// 				x: 8 * rotate[0],
+		// 				y: -10 * rotate[1]
+		// 			};
+		// 		}).on('drag', function(d) {
+		// 			front.rotate([d3.event.x / 8, Math.max(-30, Math.min(30, -d3.event.y / 10)), origin.z]);
+		// 			updatePaths();
+		// 		}).on('start', function() {
+		// 			easeTime = 1;
+		// 			doRotation = false;
+		// 			clearTimeout(timer);
+		// 		}).on('end', function() {
+		// 			doEase = true;
+		// 		}));
+		// 	// ball.timer = d3.timer(function() {
+		// 	// 	var o0 = front.rotate();
+		// 	// 	if(!doRotation) {
+		// 	// 		if(doEase) {
+		// 	// 			var v = d3.easeQuadOut(easeTime);
+		// 	// 			var t = v * .1;
+		// 	// 			easeTime = easeTime - .01;
+		// 	// 			o0[0] += t;
+		// 	// 			if(t < .05) {
+		// 	// 				doEase = false;
+		// 	// 				doRotation = true;
+		// 	// 			}
+		// 	// 		} else {
+		// 	// 			return;
+		// 	// 		}
+		// 	// 	} else {
+		// 	// 		o0[0] += .05;
+		// 	// 	}
+		// 	// 	front.rotate(o0);
+		// 	// 	updatePaths();
+		// 	// });
+		// }
+		// front.rotate([origin.x, origin.y, origin.z]);
+		// updatePaths();
 
 
 
-		load_haiku(globe, svg);
-		load_point(ball, frontPath);
+		// load_haiku(globe, svg);
+		// load_point(ball, frontPath);
 	}
 	function load_point(ball, frontPath) {
-		var genDot = function() {
-			var dots = ball.append('g').attr({
-				'class': 'dots'
-			});
-			var geoCircle = d3.geoCircle().radius(2).precision(28);
-			var xNum = 50;
-			var yNum = 15;
-			var circles = new Array();
-			// var rs = d3.scaleLinear()
-			// 	.domain([0, 50])
-			// 	.range([2, 1]);
-			var xs = d3.scaleLinear()
-				.domain([0, xNum])
-				.range([-180, 180]);
-			var ys = d3.scaleLinear()
-				.domain([0, yNum])
-				.range([0, 90]);
-			for(var j = 0; j < xNum; j++) {
-				for(var k = 0; k < yNum - 1; k++) {
-					var xs = d3.scaleLinear()
-						.domain([0, xNum - k * 3])
-						.range([-180, 180]);
-					var d = [xs(j), ys(k)];
-					geoCircle.center(d)/*.radius(rs(k))*/;
-					var circle = geoCircle();
-					if(Math.random() > .7) {
-						circle._hide = true;
-					}
-					circles.push(circle);
-				}
-			}
-			for(var m = xNum; m > 0; m--) {
-				for(var n = yNum - 2; n > 0; n--) {
-					var xs = d3.scaleLinear()
-						.domain([0, xNum - n * 3])
-						.range([-180, 180]);
-					var d = [xs(m), ys(n) * -1];
-					geoCircle.center(d)/*.radius(rs(k))*/;
-					var circle = geoCircle();
-					if(Math.random() > .7) {
-						circle._hide = true;
-					}
-					circles.push(circle);
-				}
-			}
-			dots.selectAll('path')
-				.data(circles)
-				.enter()
-				.append('path')
-				.attr('class', function(d) { return d._hide? 'dot hide' : 'dot'; })
-				.attr('d', frontPath);
-		};
-		genDot();
+		// var genDot = function() {
+		// 	var dots = ball.append('g').attr({
+		// 		'class': 'dots'
+		// 	});
+		// 	var geoCircle = d3.geoCircle().radius(2).precision(28);
+		// 	var xNum = 50;
+		// 	var yNum = 15;
+		// 	var circles = new Array();
+		// 	// var rs = d3.scaleLinear()
+		// 	// 	.domain([0, 50])
+		// 	// 	.range([2, 1]);
+		// 	var xs = d3.scaleLinear()
+		// 		.domain([0, xNum])
+		// 		.range([-180, 180]);
+		// 	var ys = d3.scaleLinear()
+		// 		.domain([0, yNum])
+		// 		.range([0, 90]);
+		// 	for(var j = 0; j < xNum; j++) {
+		// 		for(var k = 0; k < yNum - 1; k++) {
+		// 			var xs = d3.scaleLinear()
+		// 				.domain([0, xNum - k * 3])
+		// 				.range([-180, 180]);
+		// 			var d = [xs(j), ys(k)];
+		// 			geoCircle.center(d).radius(rs(k));
+		// 			var circle = geoCircle();
+		// 			if(Math.random() > .7) {
+		// 				circle._hide = true;
+		// 			}
+		// 			circles.push(circle);
+		// 		}
+		// 	}
+		// 	for(var m = xNum; m > 0; m--) {
+		// 		for(var n = yNum - 2; n > 0; n--) {
+		// 			var xs = d3.scaleLinear()
+		// 				.domain([0, xNum - n * 3])
+		// 				.range([-180, 180]);
+		// 			var d = [xs(m), ys(n) * -1];
+		// 			geoCircle.center(d)/*.radius(rs(k))*/;
+		// 			var circle = geoCircle();
+		// 			if(Math.random() > .7) {
+		// 				circle._hide = true;
+		// 			}
+		// 			circles.push(circle);
+		// 		}
+		// 	}
+		// 	dots.selectAll('path')
+		// 		.data(circles)
+		// 		.enter()
+		// 		.append('path')
+		// 		.attr('class', function(d) { return d._hide? 'dot hide' : 'dot'; })
+		// 		.attr('d', frontPath);
+		// };
+		// genDot();
 	}
-	function genLine(keyword, syllable) {
+	function genLine(keyword, syllable, line, keywordId) {
 		if(!API_DATA.lines[keyword] 
-			|| !API_DATA.lines[keyword]['syllable' + syllable]
-			|| API_DATA.lines[keyword]['syllable' + syllable].length < 1) return false;
-		var len = API_DATA.lines[keyword]['syllable' + syllable].length;
+			|| !API_DATA.lines[keyword]['s' + syllable]
+			|| API_DATA.lines[keyword]['s' + syllable].length < 1) return false;
+		var len = API_DATA.lines[keyword]['s' + syllable].length;
 		var num = Math.floor(Math.random() * len);
-		return API_DATA.lines[keyword]['syllable' + syllable][num];
+		API_DATA.linesIdx[line] = keywordId + '-' + num;
+		return API_DATA.lines[keyword]['s' + syllable][num];
 	}
 	function genHaiku() {
 		if(!APP_DATA.selectedKeywords || APP_DATA.selectedKeywords.filter(selectedKeywordsCheck).length < 3) return;
@@ -242,9 +239,9 @@ $(function () {
 			rndKeywords.push(API_DATA.keywords[v]);
 		});
 		var result = new Array(
-			genLine(rndKeywords[0], 5),
-			genLine(rndKeywords[1], 7),
-			genLine(rndKeywords[2], 5)
+			genLine(rndKeywords[0], 5, 0, rndKeywordId[0]),
+			genLine(rndKeywords[1], 7, 1, rndKeywordId[1]),
+			genLine(rndKeywords[2], 5, 2, rndKeywordId[2])
 		);
 		for(var i = 0; i < result.length; i++) {
 			if(result[i] === false) {
@@ -255,6 +252,16 @@ $(function () {
 	}
 	function selectedKeywordsCheck(val) {
 		return val !== false;
+	}
+	function sendData() {
+		$.post('handler.php', {
+			name: doc.getElementById('nickname').value,
+			region: doc.getElementById('comefrom').value,
+			prayers: doc.getElementById('prayers').value,
+			line1: API_DATA.linesIdx[0],
+			line2: API_DATA.linesIdx[1],
+			line3: API_DATA.linesIdx[2]
+		});//.done(function(data) { console.log(data) });
 	}
 	function setupHaiku(data) {
 		var svg = d3.select('#front').append('svg')
@@ -277,8 +284,8 @@ $(function () {
 				}
 			}
 			API_DATA.lines[data[i].keyword] = {
-				syllable5: syllable5,
-				syllable7: syllable7
+				s5: syllable5,
+				s7: syllable7
 			};
 			API_DATA.color[data[i].keyword] = data[i].color;
 			API_DATA.color[i] = data[i].color;
@@ -308,7 +315,7 @@ $(function () {
 			selected.append('div')
 				.attr('class', 'close')
 				.on('click', function(d) {
-					let key = APP_DATA.selectedKeywords.indexOf(j);
+					var key = APP_DATA.selectedKeywords.indexOf(j);
 					// APP_DATA.selectedKeywords.splice(key, 1);
 					APP_DATA.selectedKeywords[key] = false;
 					selected.remove();
@@ -415,388 +422,29 @@ $(function () {
 				callback(data);
 		});
 	}
-	var CURRENT_REGION = 0;
-	var REGIONS = [
-		{
-			id : 0,
-			area : 'ALL',
-		},
-		{
-			id : 1,
-			area : 'JAPAN'
-		},
-		{
-			id : 2,
-			area : 'ASIA'
-		},
-		{
-			id : 3,
-			area : 'USA / CANADA / LATIN AMERICA'
-		},
-		{
-			id : 4,
-			area : 'EUROPE'
-		}
-	];
-	var TRACK_GROUP = [
-		[1, 2],
-		[3, 4, 6],
-		[5]
-	];
-	var aID = null;
-	var getYTData = function (complete) {
-		var data = {"view_counts":[1062367,1452877,2142577,2777963,1103959,279326,14668844]};
-		// if(complete) complete(); return;
-		// if(aID) aID.abort();
-		// aID = $.ajax({
-		// 	url: API_BASE + 'api/youtube',
-		// 	dataType: 'json',
-		// 	type:'GET',
-		// 	success : function (data) {
-				aID = null;
-				//console.log(data)
-				var total = 0;
-				for(var i = 0; i < data.view_counts.length; i++){
-					total += data.view_counts[i];
-				}
-				API_DATA.ytViews[0] = total;
-				API_DATA.ytViews[1] = data.view_counts[0] + data.view_counts[1];
-				if(data.view_counts.length >= 7) {
-					API_DATA.ytViews[1] += data.view_counts[6];
-				}
-				API_DATA.ytViews[2] = data.view_counts[2] + data.view_counts[3] + data.view_counts[4];
-				API_DATA.ytViews[3] = data.view_counts[5];
-				if(complete) complete();
-		// 	},
-		// 	error : function () {
-
-		// 	}
-		// })
-	};
-	var USE_DUMMY_DATA = true;
 	var map = new WorldMap();
-	var SPOTIFY_TSV = 'SPOTIFY_TSV.tsv';
-	var API_SONG_IDS = [1, 2, 3, 4, 6, 5];
-	var API_SONG_CURRENT = 0;
-	var getTrackData = function (complete) {
-		// if(complete) complete(); return;
-		if(aID) aID.abort();
-		//var region = "";
-
-		var _url = 'javascripts/vendor/music.json';
-		_url = 'https://face-my-fears.jp/api/music/' + API_SONG_IDS[API_SONG_CURRENT];
-		aID = $.ajax({
-			url: _url,
-			type:'GET',
-			dataType: 'json',
-			success : function (data) {
-				aID = null;
-				//if(data.jp) { 
-				API_DATA.tracks[API_SONG_IDS[API_SONG_CURRENT]] = data;
-				//}
-				//console.log(data)
-				API_SONG_CURRENT++;
-				if(API_SONG_IDS.length == API_SONG_CURRENT) {
-					if(complete) complete();
-				} else {
-					getTrackData(complete);
-				}
-			},
-			error : function () {
-
-			}
-		})
-	};
-	var createCounts = function () {
-		var total_data = {
-			streams : 0,
-			rank : null
-		}
-		var getRank = function (a, b) {
-			if(a == null && b == null) {
-				return {
-					rank : null,
-					text : '-'
-				}
-			} else if(a == null && b != null) {
-				return b;
-			} else if(a != null && b == null) {
-				return a;
-			} else {
-				if(a.rank == null && b.rank == null) {
-					return {
-						rank : null,
-						text : '-'
-					}
-				} else if(a.rank == null) {
-					return b;
-				} else if(b.rank == null) {
-					return a;
-				}
-				return (a.rank < b.rank) ? a : b;
-			}
-		}
-
-		var getCount = function (a, b) {
-			if(b != null) {
-				return a.spotify_stream_count + b.spotify_stream_count;
-			}
-			return a.spotify_stream_count;
-		}
-
-		var _trackID = 1;
-		var N = 0;
-		var all_data = {
-			streams : 0,
-			rank : null,
-			text : '',
-			code : ''
-		}
-
-		API_DATA.counts[0] = [];
-		for(var i = 0; i < API_SONG_IDS.length; i++) {
-			var trackID = _trackID;//TRACK_GROUP[_trackID-1][N];
-			var data1 = API_DATA.tracks[API_SONG_IDS[i]];
-			//var data2 = null;
-			//var data2 = (API_SONG_IDS[i+1]) ? API_DATA.tracks[API_SONG_IDS[i+1]] : null;
-			
-			//console.log(data1)
-			if(!API_DATA.counts[trackID]) {
-				API_DATA.counts[trackID] = [];
-			}
-			for (var j = 1; j < REGIONS.length; j++) {
-				if(!data1.jp) break;
-				
-				//console.log(REGIONS[j].area)
-				var codes = map.getCodes(REGIONS[j].area);
-				//console.log(REGIONS[j].area, codes)
-				//console.log(codes)
-				for(var t = 0; t < codes.length; t++) {
-					var code = codes[t];
-					if(USE_DUMMY_DATA) {
-						var ar1 = {
-							rank : Math.floor(1 + Math.random() * 100),
-							text : 'Apple Music / TOP 100',
-							code : code
-						};
-						var ar2 = {
-							rank : Math.floor(1 + Math.random() * 100),
-							text : 'Apple Music / ' + ((code == 'jp') ? 'J-POP' : 'World'),
-							code : code
-						};
-						var ar3 = {
-							rank : Math.floor(1 + Math.random() * 100),
-							text : 'Apple Music / Electro',
-							code : code
-						};
-						var ar4 = {
-							rank : Math.floor(1 + Math.random() * 100),
-							text : 'Apple Music / Dance',
-							code : code
-						};
-
-						var sr1 = {
-							rank : Math.floor(1 + Math.random() * 100),
-							text : 'Spotify / TOP 200',
-							code : code
-						};
-						var sr2 = {
-							rank : Math.floor(1 + Math.random() * 50),
-							text : 'Spotify / VIRAL 50',
-							code : code
-						};
-
-						var ar = getRank(ar1, ar2);
-						ar = getRank(ar, ar3);
-						ar = getRank(ar, ar4);
-
-						var sr = getRank(sr1, sr2);
-						var r = getRank(ar1, sr1);
-						r = getRank(sr2, r);
-						r = getRank(ar3, r);
-						r = getRank(ar4, r);
-						r = getRank(ar2, r);
-					} else {
-						
-								var ar1 = {
-									rank : data1[code].apple_rank,
-									text : 'Apple Music / TOP 100',
-									code : code
-								};
-								var ar2 = {
-									rank : data1[code].apple_jpop_world_rank,
-									text : 'Apple Music / ' + ((code == 'jp') ? 'J-POP' : 'World'),
-									code : code
-								};
-								var ar3 = {
-									rank : data1[code].apple_electro_rank,
-									text : 'Apple Music / Electro',
-									code : code
-								};
-								var ar4 = {
-									rank : data1[code].apple_dance_rank,
-									text : 'Apple Music / Dance',
-									code : code
-								};
-
-								var sr1 = {
-									rank : data1[code].spotify_rank,
-									text : 'Spotify / TOP 200',
-									code : code
-								};
-								var sr2 = {
-									rank : data1[code].spotify_viral_rank,
-									text : 'Spotify / VIRAL 50',
-									code : code
-								};
-
-								var ar = getRank(ar1, ar2);
-								ar = getRank(ar, ar3);
-								ar = getRank(ar, ar4);
-
-								var sr = getRank(sr1, sr2);
-								var r = getRank(ar1, sr1);
-								r = getRank(sr2, r);
-								r = getRank(ar3, r);
-								r = getRank(ar4, r);
-								r = getRank(ar2, r);
-					}
-
-					if(USE_DUMMY_DATA) {
-						var c = 0;//Math.floor(Math.random() * 6000000);
-					} else {
-						var c = 0;//getCount(data1[code], null);
-					}
-					//console.log(getCount(data1, data2))
-					if(!API_DATA.counts[trackID][code]) {
-						API_DATA.counts[trackID][code] = {
-							streams : c,
-							rank : r,
-							apple_rank : ar,
-							spotify_rank : sr,
-							text : '',
-							code : ''
-						}
-					} else {
-						//API_DATA.counts[trackID][code].streams += c;
-						API_DATA.counts[trackID][code].rank = getRank(r, API_DATA.counts[trackID][code].rank)
-						API_DATA.counts[trackID][code].apple_rank = getRank(ar, API_DATA.counts[trackID][code].apple_rank)
-						API_DATA.counts[trackID][code].spotify_rank = getRank(sr, API_DATA.counts[trackID][code].spotify_rank)
-					}
-
-					if(!API_DATA.counts[trackID][REGIONS[j].area]) {
-						API_DATA.counts[trackID][REGIONS[j].area] = {
-							streams : 0,
-							rank : null,
-							apple_rank : null,
-							spotify_rank : null,
-							text : '',
-							code : ''
-						}
-					}
-					//API_DATA.counts[trackID][REGIONS[j].area].streams += API_DATA.counts[trackID][code].streams;
-					API_DATA.counts[trackID][REGIONS[j].area].rank = getRank(API_DATA.counts[trackID][REGIONS[j].area].rank, API_DATA.counts[trackID][code].rank);
-					API_DATA.counts[trackID][REGIONS[j].area].apple_rank = getRank(API_DATA.counts[trackID][REGIONS[j].area].apple_rank, API_DATA.counts[trackID][code].apple_rank);
-					API_DATA.counts[trackID][REGIONS[j].area].spotify_rank = getRank(API_DATA.counts[trackID][REGIONS[j].area].spotify_rank, API_DATA.counts[trackID][code].spotify_rank);
-					API_DATA.counts[trackID][REGIONS[j].area].code = code;
-
-
-					//all_data.streams += c;
-				
-				}
-				
-				all_data.rank = getRank(all_data.rank, API_DATA.counts[trackID][REGIONS[j].area].rank);
-			}
-			
-			N++;
-			if(TRACK_GROUP[_trackID - 1].length == N) {
-				API_DATA.counts[trackID]['ALL'] = all_data;
-				console.log(trackID)
-				all_data = {
-					streams : 0,
-					rank : null,
-					text : '',
-					code : ''
-				}
-				_trackID++;
-				N=0;
-			}
-		}
-		//API_DATA.tracks[API_SONG_IDS[API_SONG_CURRENT]]
-	};
-	var addTSVData = function (complete) {
-		d3.tsv(SPOTIFY_TSV, function(error, data) {
-			//console.log(data)
-			$(data).each(function (i, d) {
-				var code = d['国id'];
-				var region = d['リージョン'];
-	
-	
-				var P1 = '1: Face My Fears (Japanese Version)';
-				var P2 = '2: Face My Fears (English Version)';
-				var P3 = '3: Don’t Think Twice';
-				var P4 = '4: 誓い（Face My Fears収録）';
-				var P5 = '5: Too Proud featuring XZT, Suboi, EK (L1 Remix)';
-				var P6 = '6: Chikai（初恋収録）';
-				
-				if(d[P1] == '' || isNaN(d[P1])) d[P1] = 0;
-				if(d[P2] == '' || isNaN(d[P2])) d[P2] = 0;
-				if(d[P3] == '' || isNaN(d[P3])) d[P3] = 0;
-				if(d[P4] == '' || isNaN(d[P4])) d[P4] = 0;
-				if(d[P5] == '' || isNaN(d[P5])) d[P5] = 0;
-				if(d[P6] == '' || isNaN(d[P6])) d[P6] = 0;
-	
-				var count1 = parseInt(d[P1]) + parseInt(d[P2]);
-				var count2 = parseInt(d[P3]) + parseInt(d[P4]) + parseInt(d[P6]);
-				var count3 = parseInt(d[P5]);
-				//console.log(code, count1, count2, count3)
-
-				if(API_DATA.counts[1][code]) API_DATA.counts[1][code].streams += count1;
-				if(API_DATA.counts[2][code]) API_DATA.counts[2][code].streams += count2;
-				if(API_DATA.counts[3][code]) API_DATA.counts[3][code].streams += count3;
-
-				if(API_DATA.counts[1][region]) API_DATA.counts[1][region].streams += count1;
-				if(API_DATA.counts[2][region]) API_DATA.counts[2][region].streams += count2;
-				if(API_DATA.counts[3][region]) API_DATA.counts[3][region].streams += count3;
-
-				if(API_DATA.counts[1]['ALL']) API_DATA.counts[1]['ALL'].streams += count1;
-				if(API_DATA.counts[2]['ALL']) API_DATA.counts[2]['ALL'].streams += count2;
-				if(API_DATA.counts[3]['ALL']) API_DATA.counts[3]['ALL'].streams += count3;
-			})
-
-
-			if(complete) complete();
-		});
-	};
 	function setupGlobe2(option) {
 		var getAPIData = function(complete) {
-			getYTData(function() {
-				getTrackData(function() {
-					if(complete) complete();
-				});
-			});
+			if(complete) complete(); return;
 		};
-		// $(map).on(WorldMap.Events.INIT, function () {
-		// 	addTSVData();
-		// 	createCounts();
-		// 	setTimeout(function () {
-		// 		map.start();
-		// 		$('#loading').hide();
-		// 	}, 1000)
-		// })
-		// getAPIData(function () {
-		// 	setTimeout(function () {
-		// 		map.create();
-		// 		// map.clearData();
-		// 		setTimeout(function () {
-		// 			try {//console.log(API_DATA.counts[1]);
-		// 				map.setTrackData(API_DATA.counts[1]);
-		// 			} catch (e) {
-
-		// 			}
-		// 		}, 800)
-		// 	}, 1000)
-		// });
+		$(map).on(WorldMap.Events.INIT, function () {
+			setTimeout(function () {
+				map.start();
+			}, 1000);
+		});
+		getAPIData(function () {
+			setTimeout(function () {
+				map.create();
+				// map.clearData();
+				setTimeout(function () {
+					try {//console.log(API_DATA.counts[1]);
+						map.setTrackData(/*API_DATA.counts[1]*/);
+					} catch (e) {
+						console.log(e);
+					}
+				}, 800);
+			}, 1000);
+		});
 	}
 	function setupInlineSvg() {
 		var logoAmnesty = doc.querySelector('#logoAmnesty');
@@ -826,11 +474,11 @@ $(function () {
 				steps()
 			}
 		});
-		$('#front .textarea textarea').on('keypress', function(e) {
-			if(e.keyCode == 13) {
-				$('#front .select-word .btn.create').trigger('click');
-			}
-		});
+		// $('#front .textarea textarea').on('keypress', function(e) {
+		// 	if(e.keyCode == 13) {
+		// 		$('#front .select-word .btn.create').trigger('click');
+		// 	}
+		// });
 		$('#front .select-word .btn.next').on('click', function() {
 			if(this.classList.contains('disabled')) return;
 			var tl = new TimelineLite();
@@ -864,6 +512,8 @@ $(function () {
 		};
 		$('#front .select-word .btn.create').on('click', function() {
 			if(!APP_DATA.result) return;
+			sendData();
+			doc.getElementById('prayers').value = '';
 			$('#front .result').html(APP_DATA.result.join('<br />'));
 			var tl = new TimelineLite();
 			var randomColor = randomColorGen();
@@ -885,10 +535,12 @@ $(function () {
 				'#front .select-word .create-another'
 			], { display: 'inline-block', autoAlpha: 0 });
 			tl.to(this, .7, { autoAlpha: 0 }, 0);
-			tl.to('#front .knot', 1.4, { top: '46%' });
+			// tl.to('#front .knot', 1.4, { top: '46%' });
+			tl.to('#front .knot', 1.4, { y: 168 });
 			tl.to('#front .knot .st4', .4, { fill: randomColor });
 			tl.add('r', '+=2');
-			tl.to('#front .knot', 1, { top: '30%' }, 'r');
+			// tl.to('#front .knot', 1, { top: '30%' }, 'r');
+			tl.to('#front .knot', 1, { y: 34 }, 'r');
 			tl.to('#front .result', 1, { autoAlpha: 1 }, 'r+=.4');
 			tl.add('f', '+=2');
 			tl.staggerTo([
@@ -897,7 +549,8 @@ $(function () {
 				'#front .select-word .create-another'
 			], 1, { autoAlpha: 1, y: 0 }, .1, 'f');
 			tl.to('#front .result', 1, { y: '0%' }, 'f');
-			tl.to('#front .knot', 1, { top: '22%' }, 'f');
+			// tl.to('#front .knot', 1, { top: '22%' }, 'f');
+			tl.to('#front .knot', 1, { y: -4 }, 'f');
 			if(global.addthis_share) {
 				global.addthis_share.title = APP_DATA.result.join('\n') + '\n\n' + document.title;
 				global.addthis_share.url = window.location.href;
@@ -911,7 +564,10 @@ $(function () {
 		$('#front .select-word .btn.sign').on('click', function() {
 			var tl = new TimelineLite();
 			tl.set('section.petition iframe', { autoAlpha: 0 });
-			tl.to('section.main', 1, { autoAlpha: 0 });
+			tl.to([
+				'#visual',
+				'section.main'
+			], 1, { autoAlpha: 0 });
 			tl.set('html', { className: '+=dark-mode' }, .5);
 			tl.to([
 				'section.petition'
@@ -949,7 +605,9 @@ $(function () {
 			setTimeout(function() {
 				// console.log(temp);
 				$('#front .share').append(temp.children());
-				addthis.layers.refresh();
+				if(global.addthis_share) {
+					addthis.layers.refresh();
+				}
 			}, 250);
 			STARTED_HAIKU = true;
 			steps();
@@ -958,6 +616,7 @@ $(function () {
 	function steps() {
 		var tl = new TimelineLite();
 		if(PLAYED) {
+			$('html').addClass('at-page');
 			tl.to([
 				'#parts .btn.create',
 				'#parts .temp',
@@ -969,12 +628,19 @@ $(function () {
 			tl.to([
 				'#parts .btn.tohome'
 			], 1, { autoAlpha: 1 }, 0);
-			tl.to('#tempBg', 1, { autoAlpha: .5 }, 0);
+			tl.to([
+				'#visual',
+				'#tempBg'
+			], 1, { autoAlpha: .5 }, 0);
 			STEP_HAIKU = 2;
 		}
 		if(STEP_HAIKU == 0) {
+			$('html').addClass('at-page');
 			tl.staggerTo('#frontSvg .keyword .in', 1, { autoAlpha: 0 }, .015, 0);
-			tl.to('#tempBg', 1, { autoAlpha: .5 }, 0);
+			tl.to([
+				'#visual',
+				'#tempBg'
+			], 1, { autoAlpha: .5 }, 0);
 			tl.to([
 				'#parts .btn.create',
 				'#parts .temp'
@@ -1049,6 +715,7 @@ $(function () {
 				'#parts .by'
 			], 1, { autoAlpha: 1 });
 			tl.to([
+				'#visual',
 				'#parts .btn:not(.goback)',
 				'#parts .part-site .temp'
 			], 1, { autoAlpha: 0 }, 0);
@@ -1064,7 +731,10 @@ $(function () {
 				'#parts .by'
 			], 1, { autoAlpha: 0 });
 			tl.set('html', { className: '-=dark-mode' }, 0);
-			tl.to('section.main', 1, { autoAlpha: 1 });
+			tl.to([
+				'#visual',
+				'section.main'
+			], 1, { autoAlpha: 1 });
 			tl.to([
 				'#parts .part-site .temp'
 			], 1, { autoAlpha: 1 }, 1);
@@ -1098,6 +768,7 @@ $(function () {
 			], { fill: '#f2f2f2' });
 			var tl = new TimelineLite();
 			tl.set([
+				'#visual',
 				'#tempBg',
 				'#front .knot',
 				'#front .steps *'
@@ -1116,15 +787,18 @@ $(function () {
 				$('#front .share').append(temp.children());
 				addthis.layers.refresh();
 			}, 250);
+			$('html').removeClass('at-page');
 			STEP_HAIKU = 0;
 			STARTED_HAIKU = false;
 		});
 	}
 	function setupLanding() {
 		$('section.landing .btn.enter').on('click', function() {
+			$('html').removeClass('at-page');
 			var tl = new TimelineLite();
 			tl.to('section.landing', 1, { autoAlpha: 0 });
 			tl.to('#parts .btn.create', 1, { autoAlpha: 1 });
+			tl.staggerFrom('#frontSvg .keyword .in', 5, { autoAlpha: 0 }, .02, '-=.5');
 		});
 		var tl = new TimelineLite();
 		tl.to('#mask', 2, { autoAlpha: 0 }, 0);
@@ -1140,7 +814,7 @@ $(function () {
 		tl.set('section.landing .musubi', { className: '+=colorful' }, 1.5);
 		tl.from([
 			'section.landing .btn.enter'
-		], 3, { autoAlpha: 0, y: 10 }, '-=2');
+		], 3, { autoAlpha: 0, y: 10 }, '-=1.5');
 	}
 	function init() {
 		loadHaiku(setupHaiku);

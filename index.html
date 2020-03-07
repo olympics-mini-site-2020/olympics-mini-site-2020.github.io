@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="at-page no-js">
 <head>
 <meta charset="UTF-8" />
 <title>Haiku Musubi - Amnesty International</title>
@@ -33,21 +33,22 @@
 <section class="main">
 	<div class="contain">
 		<div id="front">
-			<div id="tempBg"></div>
-			<svg class="knot" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="0 0 100 76.6"></svg>
+			<!-- <div id="tempBg"></div> -->
+
+			<svg class="knot good" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="0 0 100 76.6"></svg>
 			
 			<div class="steps">
 				<div class="head step" step="0">
 					<div class="question">How do we <br />call you?</div>
 					<div class="answer">
-						<input class="head txtbox" type="text" placeholder="Start typing..." maxlength="16" />
+						<input class="head txtbox" id="nickname" type="text" placeholder="Start typing..." maxlength="16" />
 						<img class="icon-enter" src="images/enter.svg" />
 					</div>
 				</div>
 				<div class="head step" step="1">
 					<div class="question">Nice to meet you! <br />Where are you from?</div>
 					<div class="answer">
-						<input class="head txtbox" type="text" list="suggestions" placeholder="Start typing..." maxlength="50" />
+						<input class="head txtbox" id="comefrom" type="text" list="suggestions" placeholder="Start typing..." maxlength="50" />
 						<img class="icon-enter" src="images/enter.svg" />
 						<datalist id="suggestions">
 							<option value="Afghanistan">AF</option>
@@ -287,7 +288,7 @@
 						<div class="head tips">Select keywords around the globe</div>
 						<div class="selecteds"></div>
 						<div class="head prayers">Athletes have been suffering a great deal of ineuqality from our society. Take this chance to write down your prayers for them.</div>
-						<div class="textarea"><textarea placeholder="Start typing..." maxlength="200"></textarea></div>
+						<div class="textarea"><textarea id="prayers" placeholder="Start typing..." maxlength="200"></textarea></div>
 						<div class="head result"></div>
 						<div class="share"><div class="addthis_inline_share_toolbox"></div></div>
 					</div>
@@ -297,6 +298,23 @@
 					<div><div class="head create-another">CREATE ANOTHER ONE</div></div>
 				</div>
 			</div>
+		</div>
+	</div>
+
+	<div id="othermask"></div>
+	<div id="other">
+		<div class="top">
+			<div class="head name">SAOIRSE</div>
+			<div class="num">Haiku No. 135/4750</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<svg class="knot" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="0 0 100 76.6"></svg>
+				<div class="reg">HKG</div>
+			</div>
+			<div class="lines">The west wind whispered,<br />
+And touched the eyelids of spring:<br />
+Her eyes, Primroses.</div>
 		</div>
 	</div>
 </section>
@@ -436,14 +454,13 @@
 	</defs>
 </svg>
 
-<canvas id="canvas" width="1024" height="512" fill="0xffffff"></canvas>
-
+<script type="text/javascript">
+var posturl = 'https://haiku-musubi.fordemo.site/handler.php';
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
 <script src="https://d3js.org/d3.v4.min.js" defer></script>
 <script src="https://d3js.org/topojson.v1.min.js" defer></script>
 <script src="javascripts/vendor.min.js" charset="utf-8" defer></script>
-
-<script src="javascripts/amnesty.js" charset="utf-8" defer></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116298107-9"></script>
