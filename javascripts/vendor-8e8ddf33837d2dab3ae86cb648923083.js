@@ -15884,17 +15884,17 @@ TWEEN.Interpolation = {
 
 		function getMaxPrecision( precision ) {
 
-			console.log(precision, gl, gl.getShaderPrecisionFormat);
+			console.log(precision, gl, gl.getShaderPrecisionFormat, gl.getShaderPrecisionFormat( 35633, 36338 ));
 
-			if ( gl.getShaderPrecisionFormat === undefined ) {
+			// if ( gl.getShaderPrecisionFormat === undefined ) {
 
-				gl.getShaderPrecisionFormat = function () {
+			// 	gl.getShaderPrecisionFormat = function () {
 
-					return { 'rangeMin': 1, 'rangeMax': 1, 'precision': 1 };
+			// 		return { 'rangeMin': 1, 'rangeMax': 1, 'precision': 1 };
 
-				};
+			// 	};
 
-			}
+			// }
 
 			if ( precision === 'highp' ) {
 
