@@ -224,6 +224,10 @@ section.landing .btn.enter .inner {
 	padding-top: 24px;
 	width: 150px;
 }
+html.is-win section.landing .btn.enter .inner {
+	padding-bottom: 17px;
+	padding-top: 22px;
+}
 section.landing .btn.enter .inner::before {
 	transition: transform .25s ease-out;
 	transition-timing-function: var(--easeOutCubic);
@@ -439,6 +443,10 @@ html.show-other #parts {
 	right: var(--edge);
 	top: var(--edge);
 	visibility: hidden;
+}
+html.is-win #parts .btn {
+	padding-bottom: 17px;
+	padding-top: 21px;
 }
 #parts .btn.create:not(.again),
 #parts .btn.tosign {
