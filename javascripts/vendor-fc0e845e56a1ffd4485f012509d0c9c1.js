@@ -15884,8 +15884,8 @@ TWEEN.Interpolation = {
 
 		function getMaxPrecision( precision ) {
 
-			if ( precision === 'highp' ) {
-console.log(precision, gl, gl.getShaderPrecisionFormat, gl.getShaderPrecisionFormat( 35633, 36338 ));
+			if ( precision === 'highp' ) {return 'highp';
+//console.log(precision, gl, gl.getShaderPrecisionFormat, gl.getShaderPrecisionFormat( 35633, 36338 ));
 				if ( gl.getShaderPrecisionFormat( 35633, 36338 ).precision > 0 &&
 				     gl.getShaderPrecisionFormat( 35632, 36338 ).precision > 0 ) {
 
