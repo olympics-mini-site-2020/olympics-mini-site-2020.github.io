@@ -377,6 +377,7 @@ section.petition .contain {
 
 
 #visual {
+	background-color: var(--color-bg);
 	position: fixed;
 	z-index: -1;
 	left: 0;
@@ -790,6 +791,10 @@ html.is-win #parts .btn {
 	min-width: 150px;
 	cursor: pointer;
 	line-height: 1;
+}
+html.is-win #front .select-word .btn {
+    padding-bottom: 17px;
+    padding-top: 21px;
 }
 /*#front .select-word .btn.next,
 #front .select-word .btn.create,
