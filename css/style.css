@@ -301,20 +301,88 @@ section.landing .musubi .line-color::after {
 }
 section.landing .musubi .line-color::before {
 	background-image: url('../images/line-left.svg');
-	transform-origin: right;
+	transform-origin: left;
 	right: 50%;
 }
 section.landing .musubi .line-color::after {
 	background-image: url('../images/line-right.svg');
-	transform-origin: left;
+	transform-origin: right;
 	left: 50%;
 }
 section.landing .musubi.colorful .line-color::before,
 section.landing .musubi.colorful .line-color::after {
 	transform: scaleX(1);
 }
-section.landing .knot {
+section.landing .knot2 {
 	position: relative;
+	/*width: 80vw;*/
+}
+section.landing .knot2 .st1,
+section.landing .knot2 .st2,
+section.landing .knot2 .st3,
+section.landing .knot2 .st4 {
+	transition: fill 3s ease-out 1.3s, stroke 3s ease-out 1.3s;
+	transition-timing-function: var(--easeOutCubic);
+	fill: #f2f2f2;
+	stroke: #525252;
+	stroke-width: .25;
+}
+section.landing .musubi.colorful .knot2 .st1,
+section.landing .musubi.colorful .knot2 .st2,
+section.landing .musubi.colorful .knot2 .st3,
+section.landing .musubi.colorful .knot2 .st4 {
+	stroke: none;
+}
+section.landing .musubi.colorful .knot2 .st1 {
+	fill: #009f3d;
+}
+section.landing .musubi.colorful .knot2 .st2 {
+	fill: #f4c300;
+}
+section.landing .musubi.colorful .knot2 .st3 {
+	fill: #df0024;
+}
+section.landing .musubi.colorful .knot2 .st4 {
+	fill: #0085c7;
+}
+section.landing .knot-shape2 .st1,
+section.landing .knot-shape2 .st2,
+section.landing .knot-shape2 .st3,
+section.landing .knot-shape2 .st4 {
+	fill: #f2f2f2;
+	stroke: #525252;
+	stroke-width: .25;
+}
+section.landing .knot-shape2 .color ellipse {
+	transition: stroke-dashoffset 1s ease-out .8s;
+	fill: none;
+}
+section.landing .knot-shape2 .left-top.color ellipse {
+	stroke-dasharray: 400;
+	stroke-dashoffset: 400;
+}
+section.landing .musubi.colorful .left-top.color ellipse {
+	stroke-dashoffset: 290;
+}
+section.landing .knot-shape2 .right-top.color ellipse {
+	transition-delay: .9s;
+	stroke-dasharray: 200;
+	stroke-dashoffset: 290;
+}
+section.landing .musubi.colorful .right-top.color ellipse {
+	stroke-dashoffset: 390;
+}
+section.landing .knot-shape2 .color .ct1 {
+	stroke: #009f3d;
+}
+section.landing .knot-shape2 .color .ct2 {
+	stroke: #f4c300;
+}
+section.landing .knot-shape2 .color .ct3 {
+	stroke: #df0024;
+}
+section.landing .knot-shape2 .color .ct4 {
+	stroke: #0085c7;
 }
 /* end landing */
 
@@ -377,6 +445,7 @@ section.petition .contain {
 
 
 #visual {
+	background-color: var(--color-bg);
 	position: fixed;
 	z-index: -1;
 	left: 0;
@@ -555,6 +624,7 @@ html.is-win #parts .btn {
 
 
 #front {
+	overflow: hidden;
 	max-width: 100%;
 	width: 840px;
 }
@@ -592,7 +662,12 @@ html.is-win #parts .btn {
 	left: 50%;
 	top: 26%;
 }
+@keyframes tune {
+	to { transform: rotate(-360deg); }
+}
 #frontSvg {
+	animation: tune 300s linear 0s infinite forwards;
+	transform-origin: center;
 	vertical-align: top;
 	height: auto;
 	width: 100%;
@@ -790,6 +865,10 @@ html.is-win #parts .btn {
 	min-width: 150px;
 	cursor: pointer;
 	line-height: 1;
+}
+html.is-win #front .select-word .btn {
+    padding-bottom: 17px;
+    padding-top: 21px;
 }
 /*#front .select-word .btn.next,
 #front .select-word .btn.create,

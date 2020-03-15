@@ -1,20 +1,39 @@
 <!DOCTYPE html>
 <title>Haiku Musubi - Amnesty International</title>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
 <style type="text/css">
 body {
-	min-height: 100vh;
+	position: relative;
 	margin: 0;
+}
+#iframe {
+	width: 100%;
+    height: 100%;
+    display: block;
+    position: fixed;
+    border: none;
+    top: 0;
+    left: 0;
 }
 </style>
 <body>
-<iframe src="https://olympics-mini-site-2020.github.io/index.html" style="width:100%; height: 100vh" scrolling="no" frameborder="0" style="border:0;"></iframe>
+<iframe id="iframe" scrolling="no" frameborder="0"></iframe>
 
-<script type="text/javascript" src="https://olympics-mini-site-2020.github.io/javascripts/vendor-external/iframeResizer.js"></script>
+<script type="text/javascript">
+(function(doc) {
+	var src = 'https://olympics-mini-site-2020.github.io/index.html';
+	var iframe = doc.getElementById('iframe');
+	iframe.setAttribute('src', src + '?r=' + Math.random() * 1000000);
+})(document);
+</script>
+<!-- <script type="text/javascript" src="https://olympics-mini-site-2020.github.io/javascripts/vendor-external/iframeResizer.js"></script>
 <script>
 iFrameResize({ heightCalculationMethod: 'lowestElement' }, document.querySelector('iframe'));
-</script>
+</script> -->
 </body>
 </html>
