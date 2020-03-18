@@ -2,7 +2,7 @@
 <html lang="en" class="at-page no-js">
 <head>
 <meta charset="UTF-8" />
-<title>Haiku Musubi - Amnesty International</title>
+<title>HAIKU POEM - Amnesty International</title>
 <meta name="description" content="" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,7 +12,7 @@
 <meta http-equiv="Expires" content="0" />
 <link rel="icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="css/normalize.css" />
-<link rel="stylesheet" href="css/style-98de4db9c3a727e36d38e7b49e2979d5.css" />
+<link rel="stylesheet" href="css/style-78760473f1308dfa5bf3b97e1e21012e.css" />
 <style type="text/css">
 #mask {
 	background-color: #FBFBFB;
@@ -37,19 +37,27 @@
 	<div class="contain">
 		<div id="front">
 			<!-- <div id="tempBg"></div> -->
+			<svg id="gc" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 661.25 661.25">
+				<!-- <use xlink:href="#gradientCircle" /> -->
+				<circle id="gcCircle" cx="330.625" cy="330.625" r="325.625" fill="none" stroke="url(#linear)" stroke-width="5" stroke-dasharray="2100" stroke-dashoffset="2100" />
+			</svg>
 
 			<svg class="knot good" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="0 0 100 76.6"></svg>
 			
+			<div id="frontSvgOuter">
+				<div class="draghandle"><div class="border"></div></div>
+			</div>
+			<div id="ballhandle"></div>
 			<div class="steps">
 				<div class="head step" step="0">
-					<div class="question">What is your nickname?</div>
+					<div class="question">What is your name?<br />(or nickname)</div>
 					<div class="answer">
 						<input class="head txtbox" id="nickname" type="text" placeholder="Start typing..." maxlength="16" />
 						<img class="icon-enter" src="images/enter.svg" />
 					</div>
 				</div>
 				<div class="head step" step="1">
-					<div class="question">Nice to meet you! <br />Where are you from?</div>
+					<div class="question"><div class="line1">Nice to meet you!</div><div class="line2">Where are you from?</div></div>
 					<div class="answer">
 						<input class="head txtbox" id="comefrom" type="text" list="suggestions" placeholder="Start typing..." maxlength="50" />
 						<img class="icon-enter" src="images/enter.svg" />
@@ -282,22 +290,27 @@
 				</div>
 				<div class="step" step="2">
 					<div class="head message">
-						<p>A Haiku is a short, non-rhyming Japanese poem. <br />It starts with 5 syllables, 7 syllables and then 5 syllables again.</p>
-						<p>Choose 3 themes you <br />care about the most.</p>
+						<p>A Haiku is a short, non-rhyming Japanese poem. <br />It starts with 5 syllables, 7 syllables and then 5 <br />syllables again.</p>
 					</div>
 				</div>
 				<div class="step select-word" step="3">
 					<div class="middle">
-						<div class="head tips">Select 3 keywords around the globe</div>
+						<div class="head tips">Choose three themes you most care about.</div>
 						<div class="selecteds"></div>
 						<div class="head prayers">Would you like to say a few words about equality?</div>
 						<div class="textarea"><textarea id="prayers" placeholder="Start typing..." maxlength="200"></textarea></div>
 						<div class="head result"></div>
 						<div class="share"><div class="addthis_inline_share_toolbox"></div></div>
 					</div>
-					<div class="head btn next disabled">NEXT STEP</div>
-					<div class="head btn create">CREATE HAIKU</div>
-					<div class="head btn sign">SIGN PETITION</div>
+					<div class="head btn next disabled" role="button">
+						<div class="inner"><div class="text">NEXT STEP</div></div>
+					</div>
+					<div class="head btn create" role="button">
+						<div class="inner"><div class="text">CREATE HAIKU</div></div>
+					</div>
+					<div class="head btn sign" role="button">
+						<div class="inner"><div class="text">SIGN PETITION</div></div>
+					</div>
 					<div><div class="head create-another">CREATE ANOTHER ONE</div></div>
 				</div>
 			</div>
@@ -315,9 +328,7 @@
 				<svg class="knot" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="0 0 100 76.6"></svg>
 				<div class="reg">HKG</div>
 			</div>
-			<div class="lines">The west wind whispered,<br />
-And touched the eyelids of spring:<br />
-Her eyes, Primroses.</div>
+			<div class="lines">The west wind whispered,<br />And touched the eyelids of spring:<br />Her eyes, Primroses.</div>
 		</div>
 	</div>
 </section>
@@ -351,15 +362,15 @@ Her eyes, Primroses.</div>
 	<div class="head part-site">
 		<div class="part-site-identity colorful">
 			<svg class="knot" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="0 0 100 76.6"></svg>
-			<div class="part-site-name"># HAIKU MUSUBI</div>
+			<div class="part-site-name"># HAIKU POEM</div>
 		</div>
 		<div class="temp"></div>
 	</div>
 	<div class="head part-about">
-		<div class="hash-tags">
-			<div class="hash-tag">#HAIKUMUSUBI</div>
+		<!-- <div class="hash-tags">
+			<div class="hash-tag">#HAIKUPOEM</div>
 			<div class="hash-tag">#TOKYOOLYMPICS2020</div>
-		</div>
+		</div> -->
 		<div class="link about" role="button">WHAT IS THIS ALL ABOUT</div>
 	</div>
 	<div class="head btn create">CREATE HAIKU</div>
@@ -374,15 +385,15 @@ Her eyes, Primroses.</div>
 <!-- landing -->
 <section class="landing">
 	<div class="contain">
-		<h1 class="head"># HAIKU MUSUBI</h1>
-		<p class="desc">The Olympic Games champions a world where all individuals can play sport without discrimination of any kind.  We at Amnesty International campaign for equality for all.</p>
+		<h1 class="head"># HAIKU POEM</h1>
+		<p class="desc">We all want to see a level playing field at the Olympics but equality is yet to come in Japan especially for LGBTI people. The Tokyo Games is an opportunity for us to call on Japan to embrace equal rights.<br /><br />Create your Haiku poem for equality.</p>
 		<div class="musubi">
 			<div class="line"></div>
 			<div class="line-color"></div>
 			<svg class="knot2" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="0 0 100 76.6"></svg>
 		</div>
 		<div class="head btn enter" role="button">
-			<div class="inner"><div class="text">ENTER</div></div>
+			<div class="inner"><div class="text">CREATE POEM</div></div>
 		</div>
 	</div>
 	<a class="link amnesty" href="https://www.amnesty.org/" target="_blank">
@@ -396,12 +407,12 @@ Her eyes, Primroses.</div>
 <svg class="ref-svg">
 	<defs>
 		<clipPath id="clipLeftBottom">
-			<rect x="10.6" y="55.4" transform="rotate(-45.001 27.313 57.409) translate(33.5 0) translate(-33.5 0)" width="33.5" height="12.3"/>
+			<rect x="10.6" y="55.4" transform="rotate(-45 27.313 57.409)" width="33.5" height="12.3"/>
 		</clipPath>
 		<clipPath id="clipRightBottom">
-			<rect x="60" y="40.6" transform="rotate(-45.001 71.378 57.451) translate(0 -33.6) translate(0 33.6)" width="15" height="33.6"/>
+			<rect x="60" y="40.6" transform="rotate(-45 71.378 57.451)" width="15" height="33.6"/>
 		</clipPath>
-		<clipPath id="a">
+		<clipPath id="clipknot">
 			<rect width="98.6" height="76.6"/>
 		</clipPath>
 		<clipPath id="clipLeftTop">
@@ -421,7 +432,7 @@ Her eyes, Primroses.</div>
 		<clipPath id="clipRightTop1"><use xlink:href="#pathRightTop1" /></clipPath>
 		<clipPath id="clipRightTop2"><use xlink:href="#pathRightTop2" /></clipPath>
 		<clipPath id="clipRightTop3"><use xlink:href="#pathRightTop3" /></clipPath>
-		<g id="knot2" class="knot-shape2" clip-path="url(#a)">
+		<g id="knot2" class="knot-shape2" clip-path="url(#clipknot)">
 			<g class="left-top wnb">
 				<use xlink:href="#pathLeftTop1" class="st1" />
 				<use xlink:href="#pathLeftTop2" />
@@ -442,12 +453,68 @@ Her eyes, Primroses.</div>
 				<ellipse clip-path="url(#clipRightTop2)" cx="73.5" cy="35.4" rx="19" ry="16" stroke="black" stroke-width="13" />
 				<ellipse clip-path="url(#clipRightTop3)" class="ct4" cx="73.5" cy="35.4" rx="18" ry="16" stroke-width="13" />
 			</g>
-			<g class="left-bottom" clip-path="url(#clipLeftBottom)">
+			<g class="left-bottom wnb">
 				<rect x="10.6" y="55.4" transform="rotate(-45 27.313 57.409)" class="st3" width="33.5" height="4.1"/>
 				<rect x="13.5" y="58.3" transform="rotate(-45 30.216 60.312)" width="33.5" height="4.1"/>
 				<rect x="16.4" y="61.2" transform="rotate(-45 33.118 63.214)" class="st4" width="33.5" height="4.1"/>
 			</g>
-			<g class="right-bottom" clip-path="url(#clipRightBottom)">
+			<g class="left-bottom color" clip-path="url(#clipLeftBottom)">
+				<rect x="10.6" y="55.4" transform="rotate(-45 27.313 57.409)" class="st3" width="33.5" height="4.1"/>
+				<rect x="13.5" y="58.3" transform="rotate(-45 30.216 60.312)" width="33.5" height="4.1"/>
+				<rect x="16.4" y="61.2" transform="rotate(-45 33.118 63.214)" class="st4" width="33.5" height="4.1"/>
+			</g>
+			<g class="right-bottom wnb">
+				<rect x="69.3" y="40.6" transform="rotate(-45 71.378 57.451)" class="st1" width="4.1" height="33.6"/>
+				<rect x="66.4" y="43.5" transform="rotate(-45 68.474 60.354)" width="4.1" height="33.6"/>
+				<rect x="63.5" y="46.4" transform="rotate(-45 65.569 63.257)" class="st2" width="4.1" height="33.6"/>
+			</g>
+			<g class="right-bottom color" clip-path="url(#clipRightBottom)">
+				<rect x="69.3" y="40.6" transform="rotate(-45 71.378 57.451)" class="st1" width="4.1" height="33.6"/>
+				<rect x="66.4" y="43.5" transform="rotate(-45 68.474 60.354)" width="4.1" height="33.6"/>
+				<rect x="63.5" y="46.4" transform="rotate(-45 65.569 63.257)" class="st2" width="4.1" height="33.6"/>
+			</g>
+			<g class="center">
+				<g class="north">
+					<path line="1" class="st2" d="M37.7,38.3l-2.9-2.9l14.5-14.5c0.6-0.6,1.5-0.6,2.1,0l1.8,1.8L37.7,38.3z"/>
+				</g>
+				<g class="west">
+					<path line="1" class="st4" d="M31.9,36.2l1.8-1.8l15.6,15.6l-2.9,2.9L31.9,38.3C31.3,37.7,31.3,36.8,31.9,36.2z"/>
+					<rect line="2" x="38" y="30.9" transform="rotate(-45 40.092 37.778)" width="4.1" height="13.8"/>
+					<path line="3" class="st3" d="M36.7,31.4l1.8-1.8c0.6-0.6,1.5-0.6,2.1,0l8.7,8.7l-2.9,2.9L36.7,31.4z"/>
+				</g>
+				<g class="south">
+					<path line="1" class="st1" d="M47.2,55.7l-1.8-1.8l15.6-15.6l2.9,2.9L49.3,55.7C48.8,56.3,47.8,56.3,47.2,55.7z"/>
+					<rect line="2" x="46.7" y="40.6" transform="rotate(-134.999 48.802 47.533)" width="4.1" height="13.8"/>
+					<path line="3" class="st2" d="M42.5,51l-1.8-1.8c-0.6-0.6-0.6-1.5,0-2.1l8.7-8.7l2.9,2.9L42.5,51z"/>
+				</g>
+				<g class="east">
+					<path line="1" class="st3" d="M49.3,26.7l2.9-2.9l14.5,14.5c0.6,0.6,0.6,1.5,0,2.1l-1.8,1.8L49.3,26.7z"/>
+					<rect line="2" x="56.5" y="31.9" transform="rotate(-45 58.557 38.823)" width="4.1" height="13.8"/>
+					<path line="3" class="st4" d="M49.3,38.3l2.9-2.9l9.8,9.8L60.1,47c-0.6,0.6-1.5,0.6-2.1,0L49.3,38.3z"/>
+				</g>
+				<g class="north">
+					<rect line="2" x="47.8" y="22.2" transform="rotate(-134.999 49.848 29.067)" width="4.1" height="13.8"/>
+					<path line="3" class="st1" d="M49.3,38.3l-2.9-2.9l9.8-9.8l1.8,1.8c0.6,0.6,0.6,1.5,0,2.1L49.3,38.3z"/>
+				</g>
+			</g>
+		</g>
+		<g id="knot" class="knot-shape" clip-path="url(#clipknot)">
+			<g class="left-top">
+				<path class="st1" d="M24.7,21.1c4.6,0,9.2,1.8,12.8,5.3l9,9l-9,9c-3.5,3.5-8.1,5.3-12.8,5.3s-9.2-1.8-12.8-5.3l0,0 c-5-5-5-13,0-17.9l0,0C15.5,22.9,20.1,21.1,24.7,21.1 M24.7,12.9c-7,0-13.6,2.7-18.6,7.7C2.2,24.6,0,29.8,0,35.4 C0,41,2.2,46.2,6.1,50.2c5,5,11.6,7.7,18.6,7.7s13.6-2.7,18.6-7.7l9-9l5.8-5.8l-5.8-5.8l-9-9C38.3,15.7,31.7,12.9,24.7,12.9 L24.7,12.9z"/>
+				<path d="M24.7,21.1c4.6,0,9.2,1.8,12.8,5.3l9,9l-9,9c-3.5,3.5-8.1,5.3-12.8,5.3s-9.2-1.8-12.8-5.3l0,0c-5-5-5-13,0-17.9l0,0 C15.5,22.9,20.1,21.1,24.7,21.1 M24.7,17c-5.9,0-11.5,2.3-15.7,6.5c-6.5,6.5-6.5,17.2,0,23.8c4.2,4.2,9.7,6.5,15.7,6.5 s11.5-2.3,15.7-6.5l9-9l2.9-2.9l-2.9-2.9l-9-9C36.2,19.3,30.6,17,24.7,17L24.7,17z"/>
+				<path class="st2" d="M24.7,25.2c3.7,0,7.2,1.4,9.9,4.1l6.1,6.1l-6.1,6.1c-2.6,2.6-6.1,4.1-9.9,4.1c-3.7,0-7.2-1.5-9.9-4.1 c-1.6-1.6-2.5-3.8-2.5-6.1c0-2.3,0.9-4.4,2.5-6.1C17.5,26.7,21,25.2,24.7,25.2 M24.7,21.1c-4.6,0-9.2,1.8-12.8,5.3l0,0 c-5,5-5,13,0,17.9l0,0c3.5,3.5,8.1,5.3,12.8,5.3s9.2-1.8,12.8-5.3l9-9l-9-9C33.9,22.9,29.3,21.1,24.7,21.1L24.7,21.1z"/>
+			</g>
+			<g class="right-top">
+				<path class="st3" d="M74,21.1c4.6,0,9.2,1.8,12.8,5.3l0,0c5,5,5,13,0,17.9l0,0c-3.5,3.5-8.1,5.3-12.8,5.3 c-4.6,0-9.2-1.8-12.8-5.3l-9-9l9-9C64.7,22.9,69.3,21.1,74,21.1 M74,12.9c-7,0-13.6,2.7-18.6,7.7l-9,9l-5.8,5.8l5.8,5.8l9,9 c5,5,11.6,7.7,18.6,7.7c7,0,13.6-2.7,18.6-7.7c8.1-8.1,8.1-21.4,0-29.6C87.6,15.7,81,12.9,74,12.9L74,12.9z"/>
+				<path d="M74,21.1c4.6,0,9.2,1.8,12.8,5.3l0,0c5,5,5,13,0,17.9l0,0c-3.5,3.5-8.1,5.3-12.8,5.3c-4.6,0-9.2-1.8-12.8-5.3l-9-9l9-9 C64.7,22.9,69.3,21.1,74,21.1 M74,17c-5.9,0-11.5,2.3-15.7,6.5l-9,9l-2.9,2.9l2.9,2.9l9,9c4.2,4.2,9.7,6.5,15.7,6.5 c5.9,0,11.5-2.3,15.7-6.5c6.5-6.5,6.5-17.2,0-23.8C85.4,19.3,79.9,17,74,17L74,17z"/>
+				<path class="st4" d="M74,25.2c3.7,0,7.2,1.5,9.9,4.1c1.6,1.6,2.5,3.8,2.5,6.1c0,2.3-0.9,4.4-2.5,6.1c-2.6,2.6-6.1,4.1-9.9,4.1 c-3.7,0-7.2-1.5-9.9-4.1L58,35.4l6.1-6.1C66.7,26.7,70.2,25.2,74,25.2 M74,21.1c-4.6,0-9.2,1.8-12.8,5.3l-9,9l9,9 c3.5,3.5,8.1,5.3,12.8,5.3c4.6,0,9.2-1.8,12.8-5.3l0,0c5-5,5-13,0-17.9l0,0C83.2,22.9,78.6,21.1,74,21.1L74,21.1z"/>
+			</g>
+			<g class="left-bottom">
+				<rect x="10.6" y="55.4" transform="rotate(-45 27.313 57.409)" class="st3" width="33.5" height="4.1"/>
+				<rect x="13.5" y="58.3" transform="rotate(-45 30.216 60.312)" width="33.5" height="4.1"/>
+				<rect x="16.4" y="61.2" transform="rotate(-45 33.118 63.214)" class="st4" width="33.5" height="4.1"/>
+			</g>
+			<g class="right-bottom">
 				<rect x="69.3" y="40.6" transform="rotate(-45 71.378 57.451)" class="st1" width="4.1" height="33.6"/>
 				<rect x="66.4" y="43.5" transform="rotate(-45 68.474 60.354)" width="4.1" height="33.6"/>
 				<rect x="63.5" y="46.4" transform="rotate(-45 65.569 63.257)" class="st2" width="4.1" height="33.6"/>
@@ -477,66 +544,46 @@ Her eyes, Primroses.</div>
 				</g>
 			</g>
 		</g>
-		<g id="knot" class="knot-shape" clip-path="url(#a)">
-			<g class="left-top">
-				<path class="st1" d="M24.7,21.1c4.6,0,9.2,1.8,12.8,5.3l9,9l-9,9c-3.5,3.5-8.1,5.3-12.8,5.3s-9.2-1.8-12.8-5.3l0,0 c-5-5-5-13,0-17.9l0,0C15.5,22.9,20.1,21.1,24.7,21.1 M24.7,12.9c-7,0-13.6,2.7-18.6,7.7C2.2,24.6,0,29.8,0,35.4 C0,41,2.2,46.2,6.1,50.2c5,5,11.6,7.7,18.6,7.7s13.6-2.7,18.6-7.7l9-9l5.8-5.8l-5.8-5.8l-9-9C38.3,15.7,31.7,12.9,24.7,12.9 L24.7,12.9z"/>
-				<path d="M24.7,21.1c4.6,0,9.2,1.8,12.8,5.3l9,9l-9,9c-3.5,3.5-8.1,5.3-12.8,5.3s-9.2-1.8-12.8-5.3l0,0c-5-5-5-13,0-17.9l0,0 C15.5,22.9,20.1,21.1,24.7,21.1 M24.7,17c-5.9,0-11.5,2.3-15.7,6.5c-6.5,6.5-6.5,17.2,0,23.8c4.2,4.2,9.7,6.5,15.7,6.5 s11.5-2.3,15.7-6.5l9-9l2.9-2.9l-2.9-2.9l-9-9C36.2,19.3,30.6,17,24.7,17L24.7,17z"/>
-				<path class="st2" d="M24.7,25.2c3.7,0,7.2,1.4,9.9,4.1l6.1,6.1l-6.1,6.1c-2.6,2.6-6.1,4.1-9.9,4.1c-3.7,0-7.2-1.5-9.9-4.1 c-1.6-1.6-2.5-3.8-2.5-6.1c0-2.3,0.9-4.4,2.5-6.1C17.5,26.7,21,25.2,24.7,25.2 M24.7,21.1c-4.6,0-9.2,1.8-12.8,5.3l0,0 c-5,5-5,13,0,17.9l0,0c3.5,3.5,8.1,5.3,12.8,5.3s9.2-1.8,12.8-5.3l9-9l-9-9C33.9,22.9,29.3,21.1,24.7,21.1L24.7,21.1z"/>
-			</g>
-			<g class="right-top">
-				<path class="st3" d="M74,21.1c4.6,0,9.2,1.8,12.8,5.3l0,0c5,5,5,13,0,17.9l0,0c-3.5,3.5-8.1,5.3-12.8,5.3 c-4.6,0-9.2-1.8-12.8-5.3l-9-9l9-9C64.7,22.9,69.3,21.1,74,21.1 M74,12.9c-7,0-13.6,2.7-18.6,7.7l-9,9l-5.8,5.8l5.8,5.8l9,9 c5,5,11.6,7.7,18.6,7.7c7,0,13.6-2.7,18.6-7.7c8.1-8.1,8.1-21.4,0-29.6C87.6,15.7,81,12.9,74,12.9L74,12.9z"/>
-				<path d="M74,21.1c4.6,0,9.2,1.8,12.8,5.3l0,0c5,5,5,13,0,17.9l0,0c-3.5,3.5-8.1,5.3-12.8,5.3c-4.6,0-9.2-1.8-12.8-5.3l-9-9l9-9 C64.7,22.9,69.3,21.1,74,21.1 M74,17c-5.9,0-11.5,2.3-15.7,6.5l-9,9l-2.9,2.9l2.9,2.9l9,9c4.2,4.2,9.7,6.5,15.7,6.5 c5.9,0,11.5-2.3,15.7-6.5c6.5-6.5,6.5-17.2,0-23.8C85.4,19.3,79.9,17,74,17L74,17z"/>
-				<path class="st4" d="M74,25.2c3.7,0,7.2,1.5,9.9,4.1c1.6,1.6,2.5,3.8,2.5,6.1c0,2.3-0.9,4.4-2.5,6.1c-2.6,2.6-6.1,4.1-9.9,4.1 c-3.7,0-7.2-1.5-9.9-4.1L58,35.4l6.1-6.1C66.7,26.7,70.2,25.2,74,25.2 M74,21.1c-4.6,0-9.2,1.8-12.8,5.3l-9,9l9,9 c3.5,3.5,8.1,5.3,12.8,5.3c4.6,0,9.2-1.8,12.8-5.3l0,0c5-5,5-13,0-17.9l0,0C83.2,22.9,78.6,21.1,74,21.1L74,21.1z"/>
-			</g>
-			<g class="left-bottom">
-				<rect x="10.6" y="55.4" transform="rotate(-45.001 27.313 57.409)" class="st3" width="33.5" height="4.1"/>
-				<rect x="13.5" y="58.3" transform="rotate(-45.001 30.216 60.312)" width="33.5" height="4.1"/>
-				<rect x="16.4" y="61.2" transform="rotate(-45.001 33.118 63.214)" class="st4" width="33.5" height="4.1"/>
-			</g>
-			<g class="right-bottom">
-				<rect x="69.3" y="40.6" transform="rotate(-45.001 71.378 57.451)" class="st1" width="4.1" height="33.6"/>
-				<rect x="66.4" y="43.5" transform="rotate(-45.001 68.474 60.354)" width="4.1" height="33.6"/>
-				<rect x="63.5" y="46.4" transform="rotate(-45.001 65.569 63.257)" class="st2" width="4.1" height="33.6"/>
-			</g>
-			<g>
-				<g class="north">
-					<path line="1" class="st2" d="M37.7,38.3l-2.9-2.9l14.5-14.5c0.6-0.6,1.5-0.6,2.1,0l1.8,1.8L37.7,38.3z"/>
-				</g>
-				<g class="west">
-					<path line="1" class="st4" d="M31.9,36.2l1.8-1.8l15.6,15.6l-2.9,2.9L31.9,38.3C31.3,37.7,31.3,36.8,31.9,36.2z"/>
-					<rect line="2" x="38" y="30.9" transform="rotate(-45.001 40.092 37.778)" width="4.1" height="13.8"/>
-					<path line="3" class="st3" d="M36.7,31.4l1.8-1.8c0.6-0.6,1.5-0.6,2.1,0l8.7,8.7l-2.9,2.9L36.7,31.4z"/>
-				</g>
-				<g class="south">
-					<path line="1" class="st1" d="M47.2,55.7l-1.8-1.8l15.6-15.6l2.9,2.9L49.3,55.7C48.8,56.3,47.8,56.3,47.2,55.7z"/>
-					<rect line="2" x="46.7" y="40.6" transform="rotate(-134.999 48.802 47.533)" width="4.1" height="13.8"/>
-					<path line="3" class="st2" d="M42.5,51l-1.8-1.8c-0.6-0.6-0.6-1.5,0-2.1l8.7-8.7l2.9,2.9L42.5,51z"/>
-				</g>
-				<g class="east">
-					<path line="1" class="st3" d="M49.3,26.7l2.9-2.9l14.5,14.5c0.6,0.6,0.6,1.5,0,2.1l-1.8,1.8L49.3,26.7z"/>
-					<rect line="2" x="56.5" y="31.9" transform="rotate(-45.001 58.557 38.823)" width="4.1" height="13.8"/>
-					<path line="3" class="st4" d="M49.3,38.3l2.9-2.9l9.8,9.8L60.1,47c-0.6,0.6-1.5,0.6-2.1,0L49.3,38.3z"/>
-				</g>
-				<g class="north">
-					<rect line="2" x="47.8" y="22.2" transform="rotate(-134.999 49.848 29.067)" width="4.1" height="13.8"/>
-					<path line="3" class="st1" d="M49.3,38.3l-2.9-2.9l9.8-9.8l1.8,1.8c0.6,0.6,0.6,1.5,0,2.1L49.3,38.3z"/>
-				</g>
-			</g>
-		</g>
+
 		<g id="logoAmnesty" class="logo amnesty">
 			<path class="st0" d="M0 0h150v63.7H0z"/>
 			<path class="st1" d="M18.3 15.3L15 33h3l.5-3.9h3.3l.5 3.9h3L22 15.3h-3.7zm.7 11.2l1.2-7.6 1.2 7.6H19zM29.5 19.2h.1L32.3 33h1.5l2.8-13.8V33h2.7V15.3h-4.1l-2.1 10.4H33l-2.1-10.4h-4V33h2.6zM48.6 25.4l-3.7-10.1h-2.8V33h2.7V22h.1l3.8 11h2.7V15.3h-2.8zM62.7 30.4h-5.5v-5.2h4v-2.7h-4V18h5.2v-2.7h-8.2V33h8.5zM66.8 19.5c0-1.1.5-1.7 1.5-1.7.7 0 1.5.4 1.6 2l2.9-.3c-.3-2.5-1.7-4.3-4.2-4.3-3 0-4.7 1.6-4.7 4.4 0 5.1 6.2 6 6.2 9.5 0 1.1-.7 1.6-1.8 1.6-1 0-1.7-.9-1.8-2.7l-2.9.4c.1 2.7 1.7 4.9 4.6 4.9 2.8 0 4.8-1.6 4.8-4.5 0-4.9-6.2-6.3-6.2-9.3M76.5 33h3V18h3v-2.7h-9V18h3zM88.3 22.1l-2.2-6.8H83l3.7 10.4V33h3.1v-7.3l3.7-10.4h-3.1zM133.9 34.2c.3-.5.3-1.2.4-1.5.2-.3.8-.2.8-.4 0-.1-.5-.2-.6-.3-.3-.2-.2-1.2-.4-1.2-.3 0-.5.7-.8.4-.5-.6-2.4-1.7-3.2-2-.3-.1.2-1.1.1-1.2-.1-.1-.5.6-1.1.5-.4-.1-.2-.9-.5-.9-.1 0-.5 1.1-.9 1-.3-.1-.8-.2-.8-.2v-2.9c0-.5-.3-.9-.7-.9h-3.1c-.9 0-.8-.6-.8-.8 0-3.8 5.5-4.4 5.5-9.4 0-2.2-1.4-3.6-3-4.9-.1-.1 0 .3 0 .5 0 2.3-8.6 3.5-8.6 8.9 0 4.7 4.7 4.9 4.7 5.6 0 .1-.3.2-.3.2H117c-.4 0-.7.2-.7.9v2.9c-.3.1-.8-.4-1-.4-.1 0-.1.9-.3 1-.2.1-3.4 1.2-3.7 1.3-.5.1-.3-.7-.6-.7-.2 0-.2.8-.8.8-.3 0-.6-.3-.9-.3-.2 0 .4.7.4.9 0 .5-1.1.7-1.1 1.1 0 .2 1-.1 1.1-.1.5 0 .5.6.7.6.2 0 .3-.7.5-.8.3-.2.7.1.9.1.3 0-.2-.7 0-.8 0 0 3.5-1.5 3.7-1.4.2.1.2.5.4.6.2.1.6-.8.6-.2v7c-.4.3-1.3.4-1.7.4-.2 0-.1-.7-.3-.7-.2 0-.5.6-.8.6-.3 0-.8-.8-1.1-.8-.2 0 .4 1 0 1.1-1.3.7-3.4 1.3-3.4 3.4 0 .4.2 1 .1 1.1-.1.2-.5.6-.5.8 0 .2.9.1 1 .4.1.1.1.8.3.8.1 0 .5-.5.8-.3 1 .6 2.8 1.3 3.6 1.7.2.1.1.7.2.8.2.1.7-.6 1.4-.2.1.1.3.3.3.5v2.3c0 .4.2.5.4.6l8.6 1.7s.8.2 1 .2c.3 0 .7 0 .6-.7v-5.3c0-.1.1-.2.2-.2.5 0 .2 1.4.4 1.4s.4-1 .7-1c.4 0 .7.4.8.3.1-.1-.1-.5-.1-.8 0-.3.7-.4 1.7-.7.8-.3 1.5-.6 1.7-.6.2 0 .3.5.5.5.1 0 .2-.7.5-.7s.8.4 1 .3c.1-.1-.3-.6 0-.9.2-.1.8-.5.8-.6 0-.1-1.1-.1-1.1-.1-.2-.1-.4-.7-.6-.7-.2 0-.2.6-.4.8-.2.2-.8-.6-1.1-.6-.1 0 .2.6.2 1 0 .5-2.8 1.3-3.2 1.3-.6 0-.6-.7-.7-.7-.2 0-.2.9-.8.9-.3 0-.4-.2-.4-.4v-6.9c0-.2.1-.5.4-.5.5 0 .5 1 .7 1 .3 0 .5-1.1 1.1-1.1.5 0 .8.6 1.1.6.2 0-.3-.7-.3-1 .2-.1 3 0 4.1-2m-18 10.6c-.5 0-.7-.9-.9-.9-.1 0 0 .8-.1.9-.1.1-3.2-1.3-3.4-1.5-.2-.2.1-.5 0-.7-.1-.2-.5-.1-.7-.2-.1-.1.1-.6 0-.7-.1-.1-.5.5-.7.2-.1-.1-.1-.3-.1-.6 0-1.8 1.9-2.5 3.1-2.9.5-.2.3.5.5.5.2.1.2-.3.5-.3.2 0 .8.3 1 .2.1-.1-.3-.5-.2-.7.2-.1 1.5-.4 1.5-.1v6.1c0 .8-.5.7-.5.7m3.2-24.8c0-4 5.9-6.2 6.3-8.2.4.4.5 1.1.5 1.6 0 2.4-4.2 6.5-4.2 9.4v.6c0 .3-.1.3-.2.3-.6.1-2.4-1.3-2.4-3.7m6 28.9c0 .6-.2.7-.7.6l-5.5-1.1c-.3-.1-.5-.3-.5-.6v-9.9c0-.3.9-.3 1-.2.3.2.2 1.1.3 1.1.2 0 .8-1 1.1-1 .5 0 .9.3 1 .3.1-.1.1-.5.3-.6.2-.1.8-.1 1.1-.2.5 0 1.5-.1 1.5-.1.4 0 .3.3.3.8v10.9zm-3.2-12.4c-.2-.3-.1-.8-.3-.8-.1 0-.5.7-.8.7-.3 0-.7-.5-.9-.5-.1 0 .1.7-.1 1-.1.2-1.5.3-1.5.2v-9.8c0-.5.3-.6.7-.6h5.1c.6 0 .9.2.9.9v8.8c.1.2-3 .3-3.1.1m7.9-1c-.2-.1-.2-.7-.3-.7-.2 0-.3.6-.6.7-.3.1-.9-.4-1-.3-.1.1.3.9-.5.9-.2 0-.4-.3-.4-.5v-6.3l.4.1c.2.1.5.2.5.5 0 .2-.1.5.1.6.1.1.2-.1.3-.1 1.1-.8 1.3.6 1.5.6.2 0 .2-.9.5-.9.2-.1 2.4 1 2.4 1.7 0 .1-.3.2-.3.3 0 .2.5.3.4.7 0 .2-.5.5-.4.7.1.1.8-.1.9-.1.1 0 .2.2.2.3-.1 1.1-3.1 2.1-3.7 1.8M15.4 37.7h1.8v10.7h-1.8zM18.9 48.4V37.7h1.7l2.2 6.1h.1v-6.1h1.6v10.7h-1.6l-2.3-6.7v6.7zM27.1 39.3h-1.8v-1.6h5.4v1.6h-1.8v9.1h-1.8zM31.5 48.4V37.7h4.9v1.6h-3V42h2.3v1.6h-2.3v3.2h3.3v1.6zM39.7 42.5h.7c.2 0 .5 0 .6-.1.2 0 .3-.1.4-.3.1-.1.2-.3.2-.5s.1-.5.1-.8c0-.6-.1-1.1-.3-1.3-.2-.2-.6-.3-1.1-.3h-.7v3.3zm0 5.9h-1.8V37.7h2.6c1 0 1.8.2 2.3.7.5.5.8 1.3.8 2.4 0 .4 0 .8-.1 1.1-.1.3-.2.6-.3.8-.1.2-.3.4-.4.5-.2.1-.3.2-.5.3l1.6 4.8H42L40.6 44h-.9v4.4zM45 48.4V37.7h1.7l2.2 6.1v-6.1h1.7v10.7H49l-2.3-6.7h-.1v6.7zM54 44.4h1.5l-.7-4.6-.8 4.6zm-.6 4h-1.8l2-10.7h2.3l2 10.7h-1.8l-.4-2.4h-2l-.3 2.4zM59.5 39.3h-1.8v-1.6h5.4v1.6h-1.8v9.1h-1.8zM64.1 37.7h1.8v10.7h-1.8zM69.2 45.8c0 .4.1.7.2.9.1.2.4.3.8.3s.6-.1.8-.3c.1-.2.2-.5.2-.9v-5.4c0-.4-.1-.7-.2-.9-.1-.2-.4-.3-.8-.3s-.6.1-.8.3c-.1.2-.2.5-.2.9v5.4zm-1.8-5.5c0-.4.1-.7.2-1.1.1-.3.3-.6.5-.9.2-.2.5-.4.9-.6.4-.1.8-.2 1.3-.2s.9.1 1.3.2.6.3.9.6c.2.2.4.5.5.9.1.3.2.7.2 1.1v5.5c0 .4-.1.7-.2 1.1-.1.3-.3.6-.5.9-.2.2-.5.4-.9.6-.4.1-.8.2-1.3.2s-.9-.1-1.3-.2-.6-.3-.9-.6c-.2-.2-.4-.5-.5-.9-.1-.3-.2-.7-.2-1.1v-5.5zM74.4 48.4V37.7h1.7l2.3 6.1v-6.1h1.7v10.7h-1.6l-2.4-6.7v6.7zM83.3 44.4h1.5l-.7-4.6-.8 4.6zm-.6 4h-1.8l2-10.7h2.3l2 10.7h-1.8l-.3-2.4h-2l-.4 2.4zM87.9 48.4V37.7h1.9v9.1h2.9v1.6z"/>
 		</g>
+
+		<linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
+			<stop offset="0%" stop-color="#0ff"/>
+			<stop offset="6.25%" stop-color="#02fffd"/>
+			<stop offset="13.5%" stop-color="#27fed8"/>
+			<stop offset="18.75%" stop-color="#5bfea4"/>
+			<stop offset="25%" stop-color="#a4fc5b"/>
+			<stop offset="31.25%" stop-color="#cffc30"/>
+			<stop offset="37.5%" stop-color="#fffb00"/>
+			<stop offset="43.75%" stop-color="#fff00b"/>
+			<stop offset="50%" stop-color="#ffe219"/>
+			<stop offset="56.25%" stop-color="#ffce2e"/>
+			<stop offset="62.5%" stop-color="#ffb448"/>
+			<stop offset="95.75%" stop-color="#ff9468"/>
+			<stop offset="100%" stop-color="#ff6e8f"/>
+		</linearGradient>
+		<clipPath id="gradientCircle">
+			<circle cx="330.625" cy="330.625" r="325.625" fill="none" stroke="url(#linear)" stroke-width="5" />
+		</clipPath>
+		<!-- <clipPath id="gradientCircle">
+			<path d="M330.63 5.75c43.86 0 86.41 8.59 126.45 25.53 38.69 16.36 73.43 39.79 103.27 69.63 29.84 29.84 53.26 64.58 69.63 103.27 16.94 40.05 25.53 82.59 25.53 126.45s-8.59 86.41-25.53 126.45c-16.36 38.69-39.79 73.43-69.63 103.27-29.84 29.84-64.58 53.26-103.27 69.63-40.05 16.94-82.59 25.53-126.45 25.53s-86.41-8.59-126.45-25.53c-38.69-16.36-73.43-39.79-103.27-69.63-29.84-29.84-53.26-64.58-69.63-103.27-16.94-40.05-25.53-82.59-25.53-126.45s8.59-86.41 25.53-126.45c16.36-38.69 39.79-73.43 69.63-103.27 29.84-29.84 64.58-53.26 103.27-69.63 40.04-16.94 82.58-25.53 126.45-25.53m0-5.75C148.03 0 0 148.03 0 330.63s148.03 330.63 330.63 330.63 330.63-148.03 330.63-330.63S513.22 0 330.63 0z"/>
+		</clipPath> -->
 	</defs>
 </svg>
+
+<canvas id="canvas"></canvas>
 
 <script type="text/javascript">
 var handleurl = 'https://haiku-musubi.fordemo.site/handler.php';
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" defer></script>
 <script src="https://d3js.org/d3.v4.min.js" defer></script>
 <script src="https://d3js.org/topojson.v1.min.js" defer></script>
-<script src="javascripts/vendor-e850ad3fa57ed35dbdc245869faec8f6.js" defer></script>
+<script src="javascripts/vendor-0c22d1864c5c4915ff1af75c885d246f.js" defer></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116298107-9"></script>
