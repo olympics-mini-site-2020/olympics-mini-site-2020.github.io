@@ -1218,7 +1218,7 @@ html.is-win #front .select-word .btn {
 #front .select-word .result {
 	font-size: var(--fs-hlarge);
 	padding-bottom: 10%;
-	padding-top: 46%;
+	padding-top: 40%;
 	line-height: 1.2;
 }
 /*#front .select-word .prayers.show,
@@ -1306,6 +1306,7 @@ html.is-win #front .select-word .btn {
 }
 #other .region {
 	/*word-break: break-all;*/
+	vertical-align: text-bottom;
 	display: inline;
 	color: black;
 }
