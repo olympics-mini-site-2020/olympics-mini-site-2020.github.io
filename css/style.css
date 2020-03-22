@@ -89,11 +89,11 @@ html.dark-mode {
 }
 
 body {
-	transition: background-color 1.2s ease-out;
-	transition-timing-function: var(--easeOutCubic);
+	/*transition: background-color 1.2s ease-out;
+	transition-timing-function: var(--easeOutCubic);*/
 	font-family: var(--ff-text);
 	font-size: var(--fs-main);
-	background-color: var(--color-bg);
+	background-color: white;
 	line-height: 1.15;
 	position: relative;
 	color: var(--color-fg);
@@ -200,7 +200,7 @@ section.landing {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	position: absolute;
+	position: fixed;
 	overflow: hidden;
 	display: flex;
 	height: 100vh;
@@ -209,6 +209,9 @@ section.landing {
 	top: 0;
 
 	/*visibility: hidden;*/
+}
+section.landing .contain {
+	padding-bottom: 2.5%;
 }
 section.landing .btn.enter {
 	display: inline-block;
@@ -307,6 +310,7 @@ section.landing .musubi .line-color::before {
 }
 section.landing .musubi .line-color::after {
 	background-image: url('../images/line-right.svg');
+	transition-delay: .1s;
 	transform-origin: right;
 	left: 50%;
 }
@@ -387,6 +391,7 @@ html.landing-in #clipLeftBottom rect {
 
 /* start about */
 section.about {
+	background-color: var(--color-bg);
 	position: absolute;
 	padding: var(--edge);
 	overflow: auto;
@@ -428,6 +433,7 @@ section.about .gosign {
 
 /* start petition */
 section.petition {
+	background-color: var(--color-bg);
 	position: absolute;
 	padding: var(--edge);
 	overflow: auto;
@@ -466,7 +472,7 @@ section.petition .contain {
 /* start main */
 section.main {
 	--b: 0;
-	position: absolute;
+	position: fixed;
 	padding: var(--b);
 	height: 100vh;
 	width: 100%;
@@ -537,10 +543,10 @@ html.is-win #parts .btn {
 #parts .btn.tosign::before {
 	content: ' ';
 	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
+	left: -1px;
+	top: -1px;
+	height: calc(100% + 2px);
+	width: calc(100% + 2px);
 	background-color: black;
 	transform-origin: bottom;
 	transform: scaleY(0);
@@ -556,6 +562,27 @@ html.is-win #parts .btn {
 #parts .btn.tohome,
 #parts .btn.create.again {
 	border-color: var(--color-fg);
+}
+#parts .btn.create.again {
+	transition: color .25s ease-out;
+}
+#parts .btn.create.again:hover {
+	color: white;
+}
+#parts .btn.create.again::before {
+	content: ' ';
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	transform-origin: bottom;
+	transform: scaleY(0);
+	transition: transform .25s ease-out;
+}
+#parts .btn.create.again:hover::before {
+	transform: scaleY(1);
 }
 #parts .btn.tohome {
 	transition: color .25s ease-out;
@@ -878,7 +905,7 @@ html.is-win #parts .btn {
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -50%) rotate(-90deg);
+	transform: translate(-50%, -50.2%) rotate(-90deg);
 }
 @media only screen and (min-height: 901px) {
 	#gc {
@@ -900,7 +927,7 @@ html.is-win #parts .btn {
 	font-size: var(--fs-xlarge);
 }
 #front .step.select-word {
-	margin-top: 8%;
+	margin-top: 13%;
 }
 #front .step .answer {
 	margin-top: 22px;
@@ -920,8 +947,11 @@ html.is-win #parts .btn {
 	height: 100%;
 	width: 21px;
 	opacity: 0;
-	top: 1px;
 	right: 0;
+	top: -4px;
+}
+html.is-win #front .step .answer .icon-enter {
+	top: 1px;
 }
 #front .step .answer.entered .icon-enter {
 	/*visibility: visible;*/
@@ -938,6 +968,8 @@ html.is-win #parts .btn {
 	width: 100%;
 	transform: scaleY(1.4);
 	opacity: 0.6;
+}
+html.is-win #front .step .answer::after {
 	margin-top: 5px;
 }
 #front .step .txtbox {
@@ -964,6 +996,7 @@ html.is-win #parts .btn {
 	font-size: 21px;
 	font-weight: bold;
 	visibility: hidden;
+	display: none;
 }
 
 
@@ -979,7 +1012,7 @@ html.is-win #parts .btn {
 	display: flex;
 	/*color: var(--color-gray);*/
 	position: absolute;
-	top: 40%;
+	top: 24%;
 	width: 100%;
 	visibility: hidden;
 	transform: translateY(-50%);
@@ -1038,7 +1071,7 @@ html.is-win #parts .btn {
 	position: absolute;
 	color: black;
 	/*top: 41%;*/
-	top: 31%;
+	top: 16%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	white-space: nowrap;
@@ -1076,7 +1109,9 @@ html.is-win #front .select-word .btn {
 	padding-top: 20px;
 }
 #front .select-word .btn.next {
-	transform: translateY(-90%);
+	transition: color .25s ease-out, opacity 2s ease-out;
+	transition-timing-function: var(--easeOutCubic);
+	transform: translateY(-175%);
 }
 #front .select-word .btn.next2 {
 	margin-top: 70px;
@@ -1111,7 +1146,8 @@ html.is-win #front .select-word .btn {
 	background-color: #ffff00;
 	border-color: #ffff00;
 	border-color: transparent;
-	margin-top: -10%;
+	transform: translateY(-170%);
+	/*margin-top: -10%;*/
 	color: black;
 }
 #front .select-word .create-another { 
@@ -1123,6 +1159,7 @@ html.is-win #front .select-word .btn {
 	margin-top: 38px;
 }
 #front .select-word .btn.disabled {
+	transition-duration: .25s, .4s;
 	cursor: default;
 	opacity: .25;
 	opacity: 0;
@@ -1181,7 +1218,7 @@ html.is-win #front .select-word .btn {
 #front .select-word .result {
 	font-size: var(--fs-hlarge);
 	padding-bottom: 10%;
-	padding-top: 23%;
+	padding-top: 33%;
 	line-height: 1.2;
 }
 /*#front .select-word .prayers.show,
@@ -1261,14 +1298,14 @@ html.is-win #front .select-word .btn {
 	font-weight: bold;
 	margin-left: 12px;
 	text-transform: uppercase;
-	max-width: 180px;
+	max-width: 150px;
 }
 #other .name {
 	vertical-align: text-bottom;
 	color: rgba(0, 0, 0, .25);
 }
 #other .region {
-	word-break: break-all;
+	/*word-break: break-all;*/
 	display: inline;
 	color: black;
 }
