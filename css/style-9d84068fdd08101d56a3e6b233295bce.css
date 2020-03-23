@@ -99,6 +99,18 @@ body {
 	color: var(--color-fg);
 	overflow: hidden;
 }
+body:-webkit-full-screen {
+	background-color: white;
+}
+body:-moz-full-screen {
+	background-color: white;
+}
+body:-ms-fullscreen {
+	background-color: white;
+}
+body:fullscreen {
+	background-color: white;
+}
 
 a { color: var(--color-fg); text-decoration: none }
 a:hover { color: var(--color-fg) }
@@ -455,7 +467,7 @@ section.petition .contain {
 
 
 #visual {
-	background-color: var(--color-bg);
+	background-color: white;
 	position: fixed;
 	z-index: -1;
 	left: 0;
