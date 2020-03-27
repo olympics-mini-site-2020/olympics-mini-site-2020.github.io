@@ -84,6 +84,10 @@
 }
 
 html {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-ms-scroll-chaining: none;
+	overscroll-behavior: none;
 	box-sizing: border-box;
 }
 html.dark-mode {
@@ -122,7 +126,7 @@ body:fullscreen {
 }
 
 a { color: var(--color-fg); text-decoration: none }
-a:hover { color: var(--color-fg) }
+html:not(.touchevents) a:hover { color: var(--color-fg) }
 a:link { -webkit-tap-highlight-color: transparent } 
 
 ::-moz-selection { background-color: var(--color-fg); color: var(--color-bg); text-shadow: none }
@@ -160,10 +164,10 @@ svg {
 .logo.amnesty .st1 {
 	fill: var(--color-bg);
 }
-.logo.amnesty:hover .st0 {
+html:not(.touchevents) .logo.amnesty:hover .st0 {
 	fill: #FFFF00;
 }
-.logo.amnesty:hover .st1 {
+html:not(.touchevents) .logo.amnesty:hover .st1 {
 	fill: black;
 }
 
@@ -276,7 +280,7 @@ section.landing .btn.enter .inner::before {
 	left: 0;
 	top: 0;
 }
-section.landing .btn.enter:hover .inner::before {
+html:not(.touchevents) section.landing .btn.enter:hover .inner::before {
 	transform: scale(1);
 }
 section.landing .btn.enter .text {
@@ -284,7 +288,7 @@ section.landing .btn.enter .text {
 	transition-timing-function: var(--easeOutCubic);
 	position: relative;
 }
-section.landing .btn.enter:hover .text {
+html:not(.touchevents) section.landing .btn.enter:hover .text {
 	color: var(--color-bg);
 }
 section.landing .desc {
@@ -504,12 +508,12 @@ section.about .btns {
 		justify-content: space-between;
 	}
 	section.about .btn.goback {
-	    border: 1px solid var(--color-fg);
-	    padding: 18px 15px 13px;
-	    text-align: center;
-	    min-width: 110px;
-	    cursor: pointer;
-	    line-height: 1;
+		border: 1px solid var(--color-fg);
+		padding: 18px 15px 13px;
+		text-align: center;
+		min-width: 110px;
+		cursor: pointer;
+		line-height: 1;
 	}
 	section.about .link.amnesty {
 		width: 110px;
@@ -553,12 +557,12 @@ section.petition .btns {
 		justify-content: space-between;
 	}
 	section.petition .btn.goback {
-	    border: 1px solid var(--color-fg);
-	    padding: 18px 15px 13px;
-	    text-align: center;
-	    min-width: 110px;
-	    cursor: pointer;
-	    line-height: 1;
+		border: 1px solid var(--color-fg);
+		padding: 18px 15px 13px;
+		text-align: center;
+		min-width: 110px;
+		cursor: pointer;
+		line-height: 1;
 	}
 	section.petition .link.amnesty {
 		width: 110px;
@@ -651,7 +655,7 @@ html.is-win #parts .btn {
 	background-color: #FFFF00;
 }
 /*#parts .btn.create:not(.again):hover,*/
-#parts .btn.tosign:hover {
+html:not(.touchevents) #parts .btn.tosign:hover {
 	/*background-color: var(--color-fg);*/
 	color: var(--color-bg);
 }
@@ -667,7 +671,7 @@ html.is-win #parts .btn {
 	transform: scaleY(0);
 	transition: transform .25s ease-out;
 }
-#parts .btn.tosign:hover::before {
+html:not(.touchevents) #parts .btn.tosign:hover::before {
 	transform: scaleY(1);
 }
 #parts .btn.tosign {
@@ -688,7 +692,7 @@ html.is-win #parts .btn {
 #parts .btn.create.again {
 	transition: color .25s ease-out;
 }
-#parts .btn.create.again:hover {
+html:not(.touchevents) #parts .btn.create.again:hover {
 	color: white;
 }
 #parts .btn.create.again::before {
@@ -703,13 +707,13 @@ html.is-win #parts .btn {
 	transform: scaleY(0);
 	transition: transform .25s ease-out;
 }
-#parts .btn.create.again:hover::before {
+html:not(.touchevents) #parts .btn.create.again:hover::before {
 	transform: scaleY(1);
 }
 #parts .btn.tohome {
 	transition: color .25s ease-out;
 }
-#parts .btn.tohome:hover {
+html:not(.touchevents) #parts .btn.tohome:hover {
 	color: white;
 }
 #parts .btn.tohome::before {
@@ -724,13 +728,13 @@ html.is-win #parts .btn {
 	transform: scaleY(0);
 	transition: transform .25s ease-out;
 }
-#parts .btn.tohome:hover::before {
+html:not(.touchevents) #parts .btn.tohome:hover::before {
 	transform: scaleY(1);
 }
 #parts .btn.goback {
 	transition: color .25s ease-out;
 }
-#parts .btn.goback:hover {
+html:not(.touchevents) #parts .btn.goback:hover {
 	color: black;
 }
 #parts .btn.goback::before {
@@ -745,7 +749,7 @@ html.is-win #parts .btn {
 	transform: scaleY(0);
 	transition: transform .25s ease-out;
 }
-#parts .btn.goback:hover::before {
+html:not(.touchevents) #parts .btn.goback:hover::before {
 	transform: scaleY(1);
 }
 
@@ -849,7 +853,7 @@ html.is-win #parts .btn {
 	border-radius: 100px !important;
 	transition: none;
 }
-#parts .at-resp-share-element .at-share-btn:hover {
+html:not(.touchevents) #parts .at-resp-share-element .at-share-btn:hover {
 	background-color: #ddd !important;
 }
 #parts .at-resp-share-element .at-icon-wrapper {
@@ -881,12 +885,12 @@ html.is-win #parts .btn {
 
 #frontSvger {
   -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Opera and Firefox */
+	-webkit-user-select: none; /* Safari */
+	 -khtml-user-select: none; /* Konqueror HTML */
+	   -moz-user-select: none; /* Old versions of Firefox */
+		-ms-user-select: none; /* Internet Explorer/Edge */
+			user-select: none; /* Non-prefixed version, currently
+								  supported by Chrome, Opera and Firefox */
 }
 /*@media only screen and (min-height: 920px) {
 	#frontSvger {
@@ -980,9 +984,9 @@ html.is-win #parts .btn {
 	pointer-events: none;
 	position: absolute;
 	width: 84%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 
 	visibility: hidden;
 	display: none;
@@ -1148,8 +1152,10 @@ html:not(.touchevents) #frontSvg .keywords:not(.disable) .keyword:not(.on):hover
 	background-size: contain;*/
 	object-fit: contain;
 	/*visibility: hidden;*/
+	/*-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;*/
 	position: absolute;
-	content: ' ';
+	/*content: ' ';*/
 	height: 100%;
 	width: 21px;
 	opacity: 0;
@@ -1261,7 +1267,7 @@ html.is-win #front .step .answer::after {
 	left: 0;
 	top: 4px;
 }
-#front .selected .close:hover {
+html:not(.touchevents) #front .selected .close:hover {
 	transform: scale(1.1);
 }
 #front .selected .close::before,
@@ -1356,7 +1362,7 @@ html.is-win #front .select-word .btn {
 		margin-top: 26px;
 	}
 }
-#front .select-word .btn:not(.disabled):hover {
+html:not(.touchevents) #front .select-word .btn:not(.disabled):hover {
 	color: var(--color-bg);
 }
 #front .select-word .btn::before {
@@ -1372,7 +1378,7 @@ html.is-win #front .select-word .btn {
 	left: -1px;
 	top: -1px;
 }
-#front .select-word .btn:not(.disabled):hover::before {
+html:not(.touchevents) #front .select-word .btn:not(.disabled):hover::before {
 	transform: scale(1);
 }
 #front .select-word .btn .text {
@@ -1482,6 +1488,12 @@ html.is-win #front .select-word .btn {
 		width: 90vw;
 	}
 }
+/*@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 414px) and (min-device-height: 622px) {
+	#front .select-word .result {
+		padding-top: 36%;
+		color: red;
+	}
+}*/
 
 
 
