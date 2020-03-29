@@ -12,7 +12,7 @@
 <meta http-equiv="Expires" content="0" />
 <link rel="icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="css/normalize.css" />
-<link rel="stylesheet" href="css/style-1c0725f2d35bebd87c3243a31ce6305b.css" />
+<link rel="stylesheet" href="css/style-beaded295c4495a62f4529bcc91dfdb2.css" />
 <style type="text/css">
 #mask {
 	background-color: #FBFBFB;
@@ -51,281 +51,282 @@
 			<div id="ballhandle"></div>
 			<div class="steps">
 				<div class="head step" step="0">
-					<div class="question">What is your name?<br />(or nickname)</div>
+					<div class="question" data-translate="What is your name">What is your name?<br />(or nickname)</div>
 					<div class="answer">
-						<input class="head txtbox" id="nickname" type="text" placeholder="Start typing..." maxlength="16" />
+						<input class="head txtbox" id="nickname" type="text" data-translate-placeholder="Start typing..." placeholder="Start typing..." maxlength="16" />
 						<img class="icon-enter" src="images/enter.png" />
 					</div>
 				</div>
 				<div class="head step" step="1">
-					<div class="question"><div class="line1">Nice to meet you!</div><div class="line2">Where are you from?</div></div>
+					<div class="question"><div class="line1" data-translate="Nice to meet you!">Nice to meet you!</div><div class="line2" data-translate="Where are you from?">Where are you from?</div></div>
 					<div class="answer">
-						<input class="head txtbox" id="comefrom" type="text" list="suggestions" placeholder="Start typing..." maxlength="50" />
+						<input class="head txtbox" id="comefrom" type="text" list="suggestions" data-translate-placeholder="Start typing..." placeholder="Start typing..." maxlength="50" />
 						<img class="icon-enter" src="images/enter.png" />
 						<datalist id="suggestions">
-							<option value="Afghanistan" data-code="AF">AF</option>
-							<option value="Albania" data-code="AL">AL</option>
-							<option value="Algeria" data-code="DZ">DZ</option>
-							<option value="American Samoa" data-code="AS">AS</option>
-							<option value="Andorra" data-code="AD">AD</option>
-							<option value="Angola" data-code="AO">AO</option>
-							<option value="Anguilla" data-code="AI">AI</option>
-							<option value="Antigua and Barbuda" data-code="AG">AG</option>
-							<option value="Antilles" data-code="AN">AN</option>
-							<option value="Argentina" data-code="AR">AR</option>
-							<option value="Armenia" data-code="AM">AM</option>
-							<option value="Aruba" data-code="AW">AW</option>
-							<option value="Australia" data-code="AU">AU</option>
-							<option value="Austria" data-code="AT">AT</option>
-							<option value="Azerbaijan" data-code="AZ">AZ</option>
-							<option value="Bahamas" data-code="BS">BS</option>
-							<option value="Bahrain" data-code="BH">BH</option>
-							<option value="Bangladesh" data-code="BD">BD</option>
-							<option value="Barbados" data-code="BB">BB</option>
-							<option value="Belarus" data-code="BY">BY</option>
-							<option value="Belgium" data-code="BE">BE</option>
-							<option value="Belize" data-code="BZ">BZ</option>
-							<option value="Benin" data-code="BJ">BJ</option>
-							<option value="Bermuda" data-code="BM">BM</option>
-							<option value="Bhutan" data-code="BT">BT</option>
-							<option value="Bolivia" data-code="BO">BO</option>
-							<option value="Bosnia and Herzegovina" data-code="BA">BA</option>
-							<option value="Botswana" data-code="BW">BW</option>
-							<option value="Brazil" data-code="BR">BR</option>
-							<option value="Brunei Darussalam" data-code="BN">BN</option>
-							<option value="Bulgaria" data-code="BG">BG</option>
-							<option value="Burkina Faso" data-code="BF">BF</option>
-							<option value="Burundi" data-code="BI">BI</option>
-							<option value="Cambodia" data-code="KH">KH</option>
-							<option value="Cameroon" data-code="CM">CM</option>
-							<option value="Canada" data-code="CA">CA</option>
-							<option value="Cape Verde" data-code="CV">CV</option>
-							<option value="Cayman Islands" data-code="KY">KY</option>
-							<option value="Central African Republic" data-code="CF">CF</option>
-							<option value="Chad" data-code="TD">TD</option>
-							<option value="Chile" data-code="CL">CL</option>
-							<option value="China" data-code="CN">CN</option>
-							<option value="Colombia" data-code="CO">CO</option>
-							<option value="Comoros" data-code="KM">KM</option>
-							<option value="Congo" data-code="CG">CG</option>
-							<option value="Cook Islands" data-code="CK">CK</option>
-							<option value="Costa Rica" data-code="CR">CR</option>
-							<option value="Cote dIvoire" data-code="CI">CI</option>
-							<option value="Croatia" data-code="HR">HR</option>
-							<option value="Cuba" data-code="CU">CU</option>
-							<option value="Cyprus" data-code="CY">CY</option>
-							<option value="Czech Republic" data-code="CZ">CZ</option>
-							<option value="Democratic Republic of the Congo" data-code="CD">CD</option>
-							<option value="Denmark" data-code="DK">DK</option>
-							<option value="Djibouti" data-code="DJ">DJ</option>
-							<option value="Dominica" data-code="DM">DM</option>
-							<option value="Dominican Republic" data-code="DO">DO</option>
-							<option value="Ecuador" data-code="EC">EC</option>
-							<option value="Egypt" data-code="EG">EG</option>
-							<option value="El Salvador" data-code="SV">SV</option>
-							<option value="Equatorial Guinea" data-code="GQ">GQ</option>
-							<option value="Eritrea" data-code="ER">ER</option>
-							<option value="Estonia" data-code="EE">EE</option>
-							<option value="Ethiopia" data-code="ET">ET</option>
-							<option value="Falkland Islands (Malvinas)" data-code="FK">FK</option>
-							<option value="Faroe Islands" data-code="FO">FO</option>
-							<option value="Fiji" data-code="FJ">FJ</option>
-							<option value="Finland" data-code="FI">FI</option>
-							<option value="France" data-code="FR">FR</option>
-							<option value="French Guiana" data-code="GF">GF</option>
-							<option value="French Polynesia" data-code="PF">PF</option>
-							<option value="Gabon" data-code="GA">GA</option>
-							<option value="Gambia" data-code="GM">GM</option>
-							<option value="Georgia" data-code="GE">GE</option>
-							<option value="Germany" data-code="DE">DE</option>
-							<option value="Ghana" data-code="GH">GH</option>
-							<option value="Gibraltar" data-code="GI">GI</option>
-							<option value="Greece" data-code="GR">GR</option>
-							<option value="Greenland" data-code="GL">GL</option>
-							<option value="Grenada" data-code="GD">GD</option>
-							<option value="Guadeloupe" data-code="GP">GP</option>
-							<option value="Guam" data-code="GU">GU</option>
-							<option value="Guatemala" data-code="GT">GT</option>
-							<option value="Guinea" data-code="GN">GN</option>
-							<option value="Guinea-Bissau" data-code="GW">GW</option>
-							<option value="Guyana" data-code="GY">GY</option>
-							<option value="Haiti" data-code="HT">HT</option>
-							<option value="Honduras" data-code="HN">HN</option>
-							<option value="Hong Kong" data-code="HK">HK</option>
-							<option value="Hungary" data-code="HU">HU</option>
-							<option value="Iceland" data-code="IS">IS</option>
-							<option value="India" data-code="IN">IN</option>
-							<option value="Indonesia" data-code="ID">ID</option>
-							<option value="Iran, Islamic Republic of" data-code="IR">IR</option>
-							<option value="Iraq" data-code="IQ">IQ</option>
-							<option value="Ireland" data-code="IE">IE</option>
-							<option value="Israel" data-code="IL">IL</option>
-							<option value="Italy" data-code="IT">IT</option>
-							<option value="Jamaica" data-code="JM">JM</option>
-							<option value="Japan" data-code="JP">JP</option>
-							<option value="Jordan" data-code="JO">JO</option>
-							<option value="Kazakhstan" data-code="KZ">KZ</option>
-							<option value="Kenya" data-code="KE">KE</option>
-							<option value="Kiribati" data-code="KI">KI</option>
-							<option value="Kuwait" data-code="KW">KW</option>
-							<option value="Kyrgyzstan" data-code="KG">KG</option>
-							<option value="Lao Peoples Democratic Republic" data-code="LA">LA</option>
-							<option value="Latvia" data-code="LV">LV</option>
-							<option value="Lebanon" data-code="LB">LB</option>
-							<option value="Lesotho" data-code="LS">LS</option>
-							<option value="Liberia" data-code="LR">LR</option>
-							<option value="Libyan Arab Jamahiriya" data-code="LY">LY</option>
-							<option value="Liechtenstein" data-code="LI">LI</option>
-							<option value="Lithuania" data-code="LT">LT</option>
-							<option value="Luxembourg" data-code="LU">LU</option>
-							<option value="Macao" data-code="MO">MO</option>
-							<option value="Macedonia, the former Yugoslav Republic of" data-code="MK">MK</option>
-							<option value="Madagascar" data-code="MG">MG</option>
-							<option value="Malawi" data-code="MW">MW</option>
-							<option value="Malaysia" data-code="MY">MY</option>
-							<option value="Maldives" data-code="MV">MV</option>
-							<option value="Mali" data-code="ML">ML</option>
-							<option value="Malta" data-code="MT">MT</option>
-							<option value="Marshall Islands" data-code="MH">MH</option>
-							<option value="Martinique" data-code="MQ">MQ</option>
-							<option value="Mauritania" data-code="MR">MR</option>
-							<option value="Mauritius" data-code="MU">MU</option>
-							<option value="Mexico" data-code="MX">MX</option>
-							<option value="Micronesia, Federated States of" data-code="FM">FM</option>
-							<option value="Moldova, Republic of" data-code="MD">MD</option>
-							<option value="Monaco" data-code="MC">MC</option>
-							<option value="Mongolia" data-code="MN">MN</option>
-							<option value="Montenegro" data-code="ME">ME</option>
-							<option value="Montserrat" data-code="MS">MS</option>
-							<option value="Morocco/Western Sahara" data-code="MA">MA</option>
-							<option value="Mozambique" data-code="MZ">MZ</option>
-							<option value="Myanmar" data-code="MM">MM</option>
-							<option value="Namibia" data-code="NA">NA</option>
-							<option value="Nauru" data-code="NR">NR</option>
-							<option value="Nepal" data-code="NP">NP</option>
-							<option value="Netherlands" data-code="NL">NL</option>
-							<option value="New Caledonia" data-code="NC">NC</option>
-							<option value="New Zealand" data-code="NZ">NZ</option>
-							<option value="Nicaragua" data-code="NI">NI</option>
-							<option value="Niger" data-code="NE">NE</option>
-							<option value="Nigeria" data-code="NG">NG</option>
-							<option value="Niue" data-code="NU">NU</option>
-							<option value="North Korea" data-code="NKO">NKO</option>
-							<option value="Norway" data-code="NO">NO</option>
-							<option value="Oman" data-code="OM">OM</option>
-							<option value="Pakistan" data-code="PK">PK</option>
-							<option value="Palau" data-code="PW">PW</option>
-							<option value="Palestinian (State of)" data-code="PS">PS</option>
-							<option value="Panama" data-code="PA">PA</option>
-							<option value="Papua New Guinea" data-code="PG">PG</option>
-							<option value="Paraguay" data-code="PY">PY</option>
-							<option value="Peru" data-code="PE">PE</option>
-							<option value="Philippines" data-code="PH">PH</option>
-							<option value="Pitcairn" data-code="PN">PN</option>
-							<option value="Poland" data-code="PL">PL</option>
-							<option value="Portugal" data-code="PT">PT</option>
-							<option value="Puerto Rico" data-code="PR">PR</option>
-							<option value="Qatar" data-code="QA">QA</option>
-							<option value="Reunion" data-code="RE">RE</option>
-							<option value="Romania" data-code="RO">RO</option>
-							<option value="Russian Federation" data-code="RU">RU</option>
-							<option value="Rwanda" data-code="RW">RW</option>
-							<option value="Saint Kitts and Nevis" data-code="KN">KN</option>
-							<option value="Saint Lucia" data-code="LC">LC</option>
-							<option value="Saint Vincent and the Grenadines" data-code="VC">VC</option>
-							<option value="Samoa" data-code="WS">WS</option>
-							<option value="San Marino" data-code="SM">SM</option>
-							<option value="Sao Tome and Principe" data-code="ST">ST</option>
-							<option value="Saudi Arabia" data-code="SA">SA</option>
-							<option value="Senegal" data-code="SN">SN</option>
-							<option value="Serbia" data-code="RS">RS</option>
-							<option value="Seychelles" data-code="SC">SC</option>
-							<option value="Sierra Leone" data-code="SL">SL</option>
-							<option value="Singapore" data-code="SG">SG</option>
-							<option value="Slovakia" data-code="SK">SK</option>
-							<option value="Slovenia" data-code="SI">SI</option>
-							<option value="Solomon Islands" data-code="SB">SB</option>
-							<option value="Somalia" data-code="SO">SO</option>
-							<option value="South Africa" data-code="ZA">ZA</option>
-							<option value="South Korea" data-code="SKO">SKO</option>
-							<option value="South Sudan" data-code="SSD">SSD</option>
-							<option value="Spain" data-code="ES">ES</option>
-							<option value="Sri Lanka" data-code="LK">LK</option>
-							<option value="Sudan" data-code="SD">SD</option>
-							<option value="Suriname" data-code="SR">SR</option>
-							<option value="Swaziland" data-code="SZ">SZ</option>
-							<option value="Sweden" data-code="SE">SE</option>
-							<option value="Switzerland" data-code="CH">CH</option>
-							<option value="Syrian Arab Republic" data-code="SY">SY</option>
-							<option value="Taiwan" data-code="TW">TW</option>
-							<option value="Tajikistan" data-code="TJ">TJ</option>
-							<option value="Tanzania, United Republic of" data-code="TZ">TZ</option>
-							<option value="Thailand" data-code="TH">TH</option>
-							<option value="Timor-Leste" data-code="TL">TL</option>
-							<option value="Togo" data-code="TG">TG</option>
-							<option value="Tonga" data-code="TO">TO</option>
-							<option value="Trinidad and Tobago" data-code="TT">TT</option>
-							<option value="Tunisia" data-code="TN">TN</option>
-							<option value="Turkey" data-code="TR">TR</option>
-							<option value="Turkmenistan" data-code="TM">TM</option>
-							<option value="Turks and Caicos Islands" data-code="TC">TC</option>
-							<option value="Tuvalu" data-code="TV">TV</option>
-							<option value="Uganda" data-code="UG">UG</option>
-							<option value="Ukraine" data-code="UA">UA</option>
-							<option value="United Arab Emirates" data-code="AE">AE</option>
-							<option value="United Kingdom" data-code="GB">GB</option>
-							<option value="United States" data-code="US">US</option>
-							<option value="Uruguay" data-code="UY">UY</option>
-							<option value="Uzbekistan" data-code="UZ">UZ</option>
-							<option value="Vanuatu" data-code="VU">VU</option>
-							<option value="Vatican" data-code="VA">VA</option>
-							<option value="Venezuela" data-code="VE">VE</option>
-							<option value="Viet Nam" data-code="VN">VN</option>
-							<option value="Virgin Islands, British" data-code="VG">VG</option>
-							<option value="Virgin Islands, U.S." data-code="VI">VI</option>
-							<option value="Yemen" data-code="YE">YE</option>
-							<option value="Zambia" data-code="ZM">ZM</option>
-							<option value="Zimbabwe" data-code="ZW">ZW</option>
+							<option data-translate-value="Afghanistan" value="Afghanistan" data-code="AF">AF</option>
+							<option data-translate-value="Albania" value="Albania" data-code="AL">AL</option>
+							<option data-translate-value="Algeria" value="Algeria" data-code="DZ">DZ</option>
+							<option data-translate-value="American Samoa" value="American Samoa" data-code="AS">AS</option>
+							<option data-translate-value="Andorra" value="Andorra" data-code="AD">AD</option>
+							<option data-translate-value="Angola" value="Angola" data-code="AO">AO</option>
+							<option data-translate-value="Anguilla" value="Anguilla" data-code="AI">AI</option>
+							<option data-translate-value="Antigua and Barbuda" value="Antigua and Barbuda" data-code="AG">AG</option>
+							<option data-translate-value="Antilles" value="Antilles" data-code="AN">AN</option>
+							<option data-translate-value="Argentina" value="Argentina" data-code="AR">AR</option>
+							<option data-translate-value="Armenia" value="Armenia" data-code="AM">AM</option>
+							<option data-translate-value="Aruba" value="Aruba" data-code="AW">AW</option>
+							<option data-translate-value="Australia" value="Australia" data-code="AU">AU</option>
+							<option data-translate-value="Austria" value="Austria" data-code="AT">AT</option>
+							<option data-translate-value="Azerbaijan" value="Azerbaijan" data-code="AZ">AZ</option>
+							<option data-translate-value="Bahamas" value="Bahamas" data-code="BS">BS</option>
+							<option data-translate-value="Bahrain" value="Bahrain" data-code="BH">BH</option>
+							<option data-translate-value="Bangladesh" value="Bangladesh" data-code="BD">BD</option>
+							<option data-translate-value="Barbados" value="Barbados" data-code="BB">BB</option>
+							<option data-translate-value="Belarus" value="Belarus" data-code="BY">BY</option>
+							<option data-translate-value="Belgium" value="Belgium" data-code="BE">BE</option>
+							<option data-translate-value="Belize" value="Belize" data-code="BZ">BZ</option>
+							<option data-translate-value="Benin" value="Benin" data-code="BJ">BJ</option>
+							<option data-translate-value="Bermuda" value="Bermuda" data-code="BM">BM</option>
+							<option data-translate-value="Bhutan" value="Bhutan" data-code="BT">BT</option>
+							<option data-translate-value="Bolivia" value="Bolivia" data-code="BO">BO</option>
+							<option data-translate-value="Bosnia and Herzegovina" value="Bosnia and Herzegovina" data-code="BA">BA</option>
+							<option data-translate-value="Botswana" value="Botswana" data-code="BW">BW</option>
+							<option data-translate-value="Brazil" value="Brazil" data-code="BR">BR</option>
+							<option data-translate-value="Brunei Darussalam" value="Brunei Darussalam" data-code="BN">BN</option>
+							<option data-translate-value="Bulgaria" value="Bulgaria" data-code="BG">BG</option>
+							<option data-translate-value="Burkina Faso" value="Burkina Faso" data-code="BF">BF</option>
+							<option data-translate-value="Burundi" value="Burundi" data-code="BI">BI</option>
+							<option data-translate-value="Cambodia" value="Cambodia" data-code="KH">KH</option>
+							<option data-translate-value="Cameroon" value="Cameroon" data-code="CM">CM</option>
+							<option data-translate-value="Canada" value="Canada" data-code="CA">CA</option>
+							<option data-translate-value="Cape Verde" value="Cape Verde" data-code="CV">CV</option>
+							<option data-translate-value="Cayman Islands" value="Cayman Islands" data-code="KY">KY</option>
+							<option data-translate-value="Central African Republic" value="Central African Republic" data-code="CF">CF</option>
+							<option data-translate-value="Chad" value="Chad" data-code="TD">TD</option>
+							<option data-translate-value="Chile" value="Chile" data-code="CL">CL</option>
+							<option data-translate-value="China" value="China" data-code="CN">CN</option>
+							<option data-translate-value="Colombia" value="Colombia" data-code="CO">CO</option>
+							<option data-translate-value="Comoros" value="Comoros" data-code="KM">KM</option>
+							<option data-translate-value="Congo" value="Congo" data-code="CG">CG</option>
+							<option data-translate-value="Cook Islands" value="Cook Islands" data-code="CK">CK</option>
+							<option data-translate-value="Costa Rica" value="Costa Rica" data-code="CR">CR</option>
+							<option data-translate-value="Cote dIvoire" value="Cote dIvoire" data-code="CI">CI</option>
+							<option data-translate-value="Croatia" value="Croatia" data-code="HR">HR</option>
+							<option data-translate-value="Cuba" value="Cuba" data-code="CU">CU</option>
+							<option data-translate-value="Cyprus" value="Cyprus" data-code="CY">CY</option>
+							<option data-translate-value="Czech Republic" value="Czech Republic" data-code="CZ">CZ</option>
+							<option data-translate-value="Democratic Republic of the Congo" value="Democratic Republic of the Congo" data-code="CD">CD</option>
+							<option data-translate-value="Denmark" value="Denmark" data-code="DK">DK</option>
+							<option data-translate-value="Djibouti" value="Djibouti" data-code="DJ">DJ</option>
+							<option data-translate-value="Dominica" value="Dominica" data-code="DM">DM</option>
+							<option data-translate-value="Dominican Republic" value="Dominican Republic" data-code="DO">DO</option>
+							<option data-translate-value="Ecuador" value="Ecuador" data-code="EC">EC</option>
+							<option data-translate-value="Egypt" value="Egypt" data-code="EG">EG</option>
+							<option data-translate-value="El Salvador" value="El Salvador" data-code="SV">SV</option>
+							<option data-translate-value="Equatorial Guinea" value="Equatorial Guinea" data-code="GQ">GQ</option>
+							<option data-translate-value="Eritrea" value="Eritrea" data-code="ER">ER</option>
+							<option data-translate-value="Estonia" value="Estonia" data-code="EE">EE</option>
+							<option data-translate-value="Ethiopia" value="Ethiopia" data-code="ET">ET</option>
+							<option data-translate-value="Falkland Islands (Malvinas)" value="Falkland Islands (Malvinas)" data-code="FK">FK</option>
+							<option data-translate-value="Faroe Islands" value="Faroe Islands" data-code="FO">FO</option>
+							<option data-translate-value="Fiji" value="Fiji" data-code="FJ">FJ</option>
+							<option data-translate-value="Finland" value="Finland" data-code="FI">FI</option>
+							<option data-translate-value="France" value="France" data-code="FR">FR</option>
+							<option data-translate-value="French Guiana" value="French Guiana" data-code="GF">GF</option>
+							<option data-translate-value="French Polynesia" value="French Polynesia" data-code="PF">PF</option>
+							<option data-translate-value="Gabon" value="Gabon" data-code="GA">GA</option>
+							<option data-translate-value="Gambia" value="Gambia" data-code="GM">GM</option>
+							<option data-translate-value="Georgia" value="Georgia" data-code="GE">GE</option>
+							<option data-translate-value="Germany" value="Germany" data-code="DE">DE</option>
+							<option data-translate-value="Ghana" value="Ghana" data-code="GH">GH</option>
+							<option data-translate-value="Gibraltar" value="Gibraltar" data-code="GI">GI</option>
+							<option data-translate-value="Greece" value="Greece" data-code="GR">GR</option>
+							<option data-translate-value="Greenland" value="Greenland" data-code="GL">GL</option>
+							<option data-translate-value="Grenada" value="Grenada" data-code="GD">GD</option>
+							<option data-translate-value="Guadeloupe" value="Guadeloupe" data-code="GP">GP</option>
+							<option data-translate-value="Guam" value="Guam" data-code="GU">GU</option>
+							<option data-translate-value="Guatemala" value="Guatemala" data-code="GT">GT</option>
+							<option data-translate-value="Guinea" value="Guinea" data-code="GN">GN</option>
+							<option data-translate-value="Guinea-Bissau" value="Guinea-Bissau" data-code="GW">GW</option>
+							<option data-translate-value="Guyana" value="Guyana" data-code="GY">GY</option>
+							<option data-translate-value="Haiti" value="Haiti" data-code="HT">HT</option>
+							<option data-translate-value="Honduras" value="Honduras" data-code="HN">HN</option>
+							<option data-translate-value="Hong Kong" value="Hong Kong" data-code="HK">HK</option>
+							<option data-translate-value="Hungary" value="Hungary" data-code="HU">HU</option>
+							<option data-translate-value="Iceland" value="Iceland" data-code="IS">IS</option>
+							<option data-translate-value="India" value="India" data-code="IN">IN</option>
+							<option data-translate-value="Indonesia" value="Indonesia" data-code="ID">ID</option>
+							<option data-translate-value="Iran, Islamic Republic of" value="Iran, Islamic Republic of" data-code="IR">IR</option>
+							<option data-translate-value="Iraq" value="Iraq" data-code="IQ">IQ</option>
+							<option data-translate-value="Ireland" value="Ireland" data-code="IE">IE</option>
+							<option data-translate-value="Israel" value="Israel" data-code="IL">IL</option>
+							<option data-translate-value="Italy" value="Italy" data-code="IT">IT</option>
+							<option data-translate-value="Jamaica" value="Jamaica" data-code="JM">JM</option>
+							<option data-translate-value="Japan" value="Japan" data-code="JP">JP</option>
+							<option data-translate-value="Jordan" value="Jordan" data-code="JO">JO</option>
+							<option data-translate-value="Kazakhstan" value="Kazakhstan" data-code="KZ">KZ</option>
+							<option data-translate-value="Kenya" value="Kenya" data-code="KE">KE</option>
+							<option data-translate-value="Kiribati" value="Kiribati" data-code="KI">KI</option>
+							<option data-translate-value="Kuwait" value="Kuwait" data-code="KW">KW</option>
+							<option data-translate-value="Kyrgyzstan" value="Kyrgyzstan" data-code="KG">KG</option>
+							<option data-translate-value="Lao Peoples Democratic Republic" value="Lao Peoples Democratic Republic" data-code="LA">LA</option>
+							<option data-translate-value="Latvia" value="Latvia" data-code="LV">LV</option>
+							<option data-translate-value="Lebanon" value="Lebanon" data-code="LB">LB</option>
+							<option data-translate-value="Lesotho" value="Lesotho" data-code="LS">LS</option>
+							<option data-translate-value="Liberia" value="Liberia" data-code="LR">LR</option>
+							<option data-translate-value="Libyan Arab Jamahiriya" value="Libyan Arab Jamahiriya" data-code="LY">LY</option>
+							<option data-translate-value="Liechtenstein" value="Liechtenstein" data-code="LI">LI</option>
+							<option data-translate-value="Lithuania" value="Lithuania" data-code="LT">LT</option>
+							<option data-translate-value="Luxembourg" value="Luxembourg" data-code="LU">LU</option>
+							<option data-translate-value="Macao" value="Macao" data-code="MO">MO</option>
+							<option data-translate-value="Macedonia, the former Yugoslav Republic of" value="Macedonia, the former Yugoslav Republic of" data-code="MK">MK</option>
+							<option data-translate-value="Madagascar" value="Madagascar" data-code="MG">MG</option>
+							<option data-translate-value="Malawi" value="Malawi" data-code="MW">MW</option>
+							<option data-translate-value="Malaysia" value="Malaysia" data-code="MY">MY</option>
+							<option data-translate-value="Maldives" value="Maldives" data-code="MV">MV</option>
+							<option data-translate-value="Mali" value="Mali" data-code="ML">ML</option>
+							<option data-translate-value="Malta" value="Malta" data-code="MT">MT</option>
+							<option data-translate-value="Marshall Islands" value="Marshall Islands" data-code="MH">MH</option>
+							<option data-translate-value="Martinique" value="Martinique" data-code="MQ">MQ</option>
+							<option data-translate-value="Mauritania" value="Mauritania" data-code="MR">MR</option>
+							<option data-translate-value="Mauritius" value="Mauritius" data-code="MU">MU</option>
+							<option data-translate-value="Mexico" value="Mexico" data-code="MX">MX</option>
+							<option data-translate-value="Micronesia, Federated States of" value="Micronesia, Federated States of" data-code="FM">FM</option>
+							<option data-translate-value="Moldova, Republic of" value="Moldova, Republic of" data-code="MD">MD</option>
+							<option data-translate-value="Monaco" value="Monaco" data-code="MC">MC</option>
+							<option data-translate-value="Mongolia" value="Mongolia" data-code="MN">MN</option>
+							<option data-translate-value="Montenegro" value="Montenegro" data-code="ME">ME</option>
+							<option data-translate-value="Montserrat" value="Montserrat" data-code="MS">MS</option>
+							<option data-translate-value="Morocco/Western Sahara" value="Morocco/Western Sahara" data-code="MA">MA</option>
+							<option data-translate-value="Mozambique" value="Mozambique" data-code="MZ">MZ</option>
+							<option data-translate-value="Myanmar" value="Myanmar" data-code="MM">MM</option>
+							<option data-translate-value="Namibia" value="Namibia" data-code="NA">NA</option>
+							<option data-translate-value="Nauru" value="Nauru" data-code="NR">NR</option>
+							<option data-translate-value="Nepal" value="Nepal" data-code="NP">NP</option>
+							<option data-translate-value="Netherlands" value="Netherlands" data-code="NL">NL</option>
+							<option data-translate-value="New Caledonia" value="New Caledonia" data-code="NC">NC</option>
+							<option data-translate-value="New Zealand" value="New Zealand" data-code="NZ">NZ</option>
+							<option data-translate-value="Nicaragua" value="Nicaragua" data-code="NI">NI</option>
+							<option data-translate-value="Niger" value="Niger" data-code="NE">NE</option>
+							<option data-translate-value="Nigeria" value="Nigeria" data-code="NG">NG</option>
+							<option data-translate-value="Niue" value="Niue" data-code="NU">NU</option>
+							<option data-translate-value="North Korea" value="North Korea" data-code="NKO">NKO</option>
+							<option data-translate-value="Norway" value="Norway" data-code="NO">NO</option>
+							<option data-translate-value="Oman" value="Oman" data-code="OM">OM</option>
+							<option data-translate-value="Pakistan" value="Pakistan" data-code="PK">PK</option>
+							<option data-translate-value="Palau" value="Palau" data-code="PW">PW</option>
+							<option data-translate-value="Palestinian (State of)" value="Palestinian (State of)" data-code="PS">PS</option>
+							<option data-translate-value="Panama" value="Panama" data-code="PA">PA</option>
+							<option data-translate-value="Papua New Guinea" value="Papua New Guinea" data-code="PG">PG</option>
+							<option data-translate-value="Paraguay" value="Paraguay" data-code="PY">PY</option>
+							<option data-translate-value="Peru" value="Peru" data-code="PE">PE</option>
+							<option data-translate-value="Philippines" value="Philippines" data-code="PH">PH</option>
+							<option data-translate-value="Pitcairn" value="Pitcairn" data-code="PN">PN</option>
+							<option data-translate-value="Poland" value="Poland" data-code="PL">PL</option>
+							<option data-translate-value="Portugal" value="Portugal" data-code="PT">PT</option>
+							<option data-translate-value="Puerto Rico" value="Puerto Rico" data-code="PR">PR</option>
+							<option data-translate-value="Qatar" value="Qatar" data-code="QA">QA</option>
+							<option data-translate-value="Reunion" value="Reunion" data-code="RE">RE</option>
+							<option data-translate-value="Romania" value="Romania" data-code="RO">RO</option>
+							<option data-translate-value="Russian Federation" value="Russian Federation" data-code="RU">RU</option>
+							<option data-translate-value="Rwanda" value="Rwanda" data-code="RW">RW</option>
+							<option data-translate-value="Saint Kitts and Nevis" value="Saint Kitts and Nevis" data-code="KN">KN</option>
+							<option data-translate-value="Saint Lucia" value="Saint Lucia" data-code="LC">LC</option>
+							<option data-translate-value="Saint Vincent and the Grenadines" value="Saint Vincent and the Grenadines" data-code="VC">VC</option>
+							<option data-translate-value="Samoa" value="Samoa" data-code="WS">WS</option>
+							<option data-translate-value="San Marino" value="San Marino" data-code="SM">SM</option>
+							<option data-translate-value="Sao Tome and Principe" value="Sao Tome and Principe" data-code="ST">ST</option>
+							<option data-translate-value="Saudi Arabia" value="Saudi Arabia" data-code="SA">SA</option>
+							<option data-translate-value="Senegal" value="Senegal" data-code="SN">SN</option>
+							<option data-translate-value="Serbia" value="Serbia" data-code="RS">RS</option>
+							<option data-translate-value="Seychelles" value="Seychelles" data-code="SC">SC</option>
+							<option data-translate-value="Sierra Leone" value="Sierra Leone" data-code="SL">SL</option>
+							<option data-translate-value="Singapore" value="Singapore" data-code="SG">SG</option>
+							<option data-translate-value="Slovakia" value="Slovakia" data-code="SK">SK</option>
+							<option data-translate-value="Slovenia" value="Slovenia" data-code="SI">SI</option>
+							<option data-translate-value="Solomon Islands" value="Solomon Islands" data-code="SB">SB</option>
+							<option data-translate-value="Somalia" value="Somalia" data-code="SO">SO</option>
+							<option data-translate-value="South Africa" value="South Africa" data-code="ZA">ZA</option>
+							<option data-translate-value="South Korea" value="South Korea" data-code="SKO">SKO</option>
+							<option data-translate-value="South Sudan" value="South Sudan" data-code="SSD">SSD</option>
+							<option data-translate-value="Spain" value="Spain" data-code="ES">ES</option>
+							<option data-translate-value="Sri Lanka" value="Sri Lanka" data-code="LK">LK</option>
+							<option data-translate-value="Sudan" value="Sudan" data-code="SD">SD</option>
+							<option data-translate-value="Suriname" value="Suriname" data-code="SR">SR</option>
+							<option data-translate-value="Swaziland" value="Swaziland" data-code="SZ">SZ</option>
+							<option data-translate-value="Sweden" value="Sweden" data-code="SE">SE</option>
+							<option data-translate-value="Switzerland" value="Switzerland" data-code="CH">CH</option>
+							<option data-translate-value="Syrian Arab Republic" value="Syrian Arab Republic" data-code="SY">SY</option>
+							<option data-translate-value="Taiwan" value="Taiwan" data-code="TW">TW</option>
+							<option data-translate-value="Tajikistan" value="Tajikistan" data-code="TJ">TJ</option>
+							<option data-translate-value="Tanzania, United Republic of" value="Tanzania, United Republic of" data-code="TZ">TZ</option>
+							<option data-translate-value="Thailand" value="Thailand" data-code="TH">TH</option>
+							<option data-translate-value="Timor-Leste" value="Timor-Leste" data-code="TL">TL</option>
+							<option data-translate-value="Togo" value="Togo" data-code="TG">TG</option>
+							<option data-translate-value="Tonga" value="Tonga" data-code="TO">TO</option>
+							<option data-translate-value="Trinidad and Tobago" value="Trinidad and Tobago" data-code="TT">TT</option>
+							<option data-translate-value="Tunisia" value="Tunisia" data-code="TN">TN</option>
+							<option data-translate-value="Turkey" value="Turkey" data-code="TR">TR</option>
+							<option data-translate-value="Turkmenistan" value="Turkmenistan" data-code="TM">TM</option>
+							<option data-translate-value="Turks and Caicos Islands" value="Turks and Caicos Islands" data-code="TC">TC</option>
+							<option data-translate-value="Tuvalu" value="Tuvalu" data-code="TV">TV</option>
+							<option data-translate-value="Uganda" value="Uganda" data-code="UG">UG</option>
+							<option data-translate-value="Ukraine" value="Ukraine" data-code="UA">UA</option>
+							<option data-translate-value="United Arab Emirates" value="United Arab Emirates" data-code="AE">AE</option>
+							<option data-translate-value="United Kingdom" value="United Kingdom" data-code="GB">GB</option>
+							<option data-translate-value="United States" value="United States" data-code="US">US</option>
+							<option data-translate-value="Uruguay" value="Uruguay" data-code="UY">UY</option>
+							<option data-translate-value="Uzbekistan" value="Uzbekistan" data-code="UZ">UZ</option>
+							<option data-translate-value="Vanuatu" value="Vanuatu" data-code="VU">VU</option>
+							<option data-translate-value="Vatican" value="Vatican" data-code="VA">VA</option>
+							<option data-translate-value="Venezuela" value="Venezuela" data-code="VE">VE</option>
+							<option data-translate-value="Viet Nam" value="Viet Nam" data-code="VN">VN</option>
+							<option data-translate-value="Virgin Islands, British" value="Virgin Islands, British" data-code="VG">VG</option>
+							<option data-translate-value="Virgin Islands, U.S." value="Virgin Islands, U.S." data-code="VI">VI</option>
+							<option data-translate-value="Yemen" value="Yemen" data-code="YE">YE</option>
+							<option data-translate-value="Zambia" value="Zambia" data-code="ZM">ZM</option>
+							<option data-translate-value="Zimbabwe" value="Zimbabwe" data-code="ZW">ZW</option>
 						</datalist>
 					</div>
 				</div>
 				<div class="step" step="2">
-					<div class="head message">
+					<div class="head message" data-translate="HAIKU STRUCTURE">
 						A Haiku is a short, non-rhyming Japanese poem. It starts with 5 syllables, 7 syllables and then 5 syllables again.
 					</div>
 				</div>
 				<div class="step select-word" step="3">
 					<div class="middle">
-						<div class="head tips">Choose three themes you most care about.</div>
+						<div class="head tips" data-translate="Choose three themes">Choose three themes you most care about.</div>
 						<div class="selecteds"></div>
 						<div class="head prayers">Would you like to say a few words about equality?</div>
 						<div class="textarea"><textarea id="prayers" placeholder="Start typing..." maxlength="200"></textarea></div>
 						<div class="head result"></div>
 						<div class="share">
-							<div class="head txt">Share</div>
+							<div class="head txt" data-translate="Share">Share</div>
 							<div class="addthis_inline_share_toolbox"></div>
 						</div>
-						<div class="head sign-msg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+						<div class="head sign-msg" data-translate="BEFORE SIGN MSG">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
 					</div>
 					<div class="head btn next disabled" role="button">
-						<div class="inner"><div class="text">NEXT STEP</div></div>
+						<div class="inner"><div class="text" data-translate="NEXT STEP">NEXT STEP</div></div>
 					</div>
 					<div></div>
 					<div class="head btn next2" role="button">
-						<div class="inner"><div class="text">NEXT STEP</div></div>
+						<div class="inner"><div class="text" data-translate="NEXT STEP">NEXT STEP</div></div>
 					</div>
 					<div></div>
 					<div class="head btn create" role="button">
-						<div class="inner"><div class="text">CREATE HAIKU</div></div>
+						<div class="inner"><div class="text" data-translate="CREATE HAIKU">CREATE HAIKU</div></div>
 					</div>
 					<div></div>
 					<div class="head btn sign" role="button">
-						<div class="inner"><div class="text">SIGN PETITION</div></div>
+						<div class="inner"><div class="text" data-translate="SIGN PETITION">SIGN PETITION</div></div>
 					</div>
 					<div></div>
-					<div class="head create-another">CREATE ANOTHER ONE</div>
+					<div class="head create-another" data-translate="CREATE ANOTHER ONE">CREATE ANOTHER ONE</div>
 				</div>
 			</div>
+			<div id="mobileDots"></div>
 		</div>
 	</div>
 
@@ -339,10 +340,10 @@
 			<div class="pic">
 				<svg class="knot" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="0 0 100 76.6"></svg>
 				<div class="head visitor">
-					<div class="name">SAOIRSE</div>&nbsp;<div class="region">From <div class="reg">HKG</div></div>
+					<div class="name"></div>&nbsp;<div class="region" data-translate="From">From <div class="reg"></div></div>
 				</div>
 			</div>
-			<div class="lines">The west wind whispered,<br />And touched the eyelids of spring:<br />Her eyes, Primroses.</div>
+			<div class="lines"></div>
 		</div>
 	</div>
 </section>
@@ -350,18 +351,20 @@
 <!-- about -->
 <section class="about">
 	<div class="contain">
-		<h2 class="head">ABOUT HAIKU POEM</h2>
-		<p>Ahead of the Tokyo 2020 Olympics and Paralympics, we invite you to call on the Japanese government to introduce a law that protects LGBTI people from discrimination. </p>
-		<p>Japan, as the host country of the games, has not taken sufficient measures to protect lesbian, gay, bisexual, transgender and intersex (LGBTI) people who face pervasive discrimination in their daily lives.</p>
-		<p>We believe that no one should live and love under the fear of discrimination. Join us in uniting our world in diversity.</p>
+		<h2 class="head" data-translate="ABOUT TITLE">ABOUT HAIKU POEM</h2>
+		<div data-translate="ABOUT CONTENT">
+			<p>Ahead of the Tokyo 2020 Olympics and Paralympics, we invite you to call on the Japanese government to introduce a law that protects LGBTI people from discrimination. </p>
+			<p>Japan, as the host country of the games, has not taken sufficient measures to protect lesbian, gay, bisexual, transgender and intersex (LGBTI) people who face pervasive discrimination in their daily lives.</p>
+			<p>We believe that no one should live and love under the fear of discrimination. Join us in uniting our world in diversity.</p>
+		</div>
 		<br />
 		<br />
-		<div class="gosign">SIGN PETITION TO JAPAN</div>
+		<div class="gosign" data-translate="SIGN PETITION TO JAPAN">SIGN PETITION TO JAPAN</div>
 		<div class="btns">
 			<a class="link amnesty" href="https://www.amnesty.org/" target="_blank">
 				<svg xmlns="http://www.w3.org/2000/svg" width="150" viewBox="0 0 150 63.7"></svg>
 			</a>
-			<div class="head btn goback"><div class="inner"><div class="text">GO BACK</div></div></div>
+			<div class="head btn goback"><div class="inner"><div class="text" data-translate="GO BACK">GO BACK</div></div></div>
 		</div>
 	</div>
 </section>
@@ -374,7 +377,7 @@
 			<a class="link amnesty" href="https://www.amnesty.org/" target="_blank">
 				<svg xmlns="http://www.w3.org/2000/svg" width="150" viewBox="0 0 150 63.7"></svg>
 			</a>
-			<div class="head btn goback"><div class="inner"><div class="text">GO BACK</div></div></div>
+			<div class="head btn goback"><div class="inner"><div class="text" data-translate="GO BACK">GO BACK</div></div></div>
 		</div>
 	</div>
 </section>
@@ -388,7 +391,7 @@
 	<div class="head part-site">
 		<div class="part-site-identity colorful">
 			<svg class="knot" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="0 0 100 76.6"></svg>
-			<div class="part-site-name"># HAIKU POEM</div>
+			<div class="part-site-name" data-translate="# HAIKU POEM"># HAIKU POEM</div>
 		</div>
 		<div class="temp"></div>
 	</div>
@@ -397,12 +400,12 @@
 			<div class="hash-tag">#HAIKUPOEM</div>
 			<div class="hash-tag">#TOKYOOLYMPICS2020</div>
 		</div> -->
-		<div class="link about" role="button">WHAT IS THIS ALL ABOUT</div>
+		<div class="link about" role="button" data-translate="WHAT IS THIS ALL ABOUT">WHAT IS THIS ALL ABOUT</div>
 	</div>
-	<div class="head btn create"><div class="inner"><div class="text">CREATE HAIKU</div></div></div>
-	<div class="head btn goback"><div class="inner"><div class="text">GO BACK</div></div></div>
-	<div class="head btn tohome"><div class="inner"><div class="text">HOME PAGE</div></div></div>
-	<div class="head btn tosign"><div class="inner"><div class="text">SIGN PETITION</div></div></div>
+	<div class="head btn create"><div class="inner"><div class="text" data-translate="CREATE HAIKU">CREATE HAIKU</div></div></div>
+	<div class="head btn goback"><div class="inner"><div class="text" data-translate="GO BACK">GO BACK</div></div></div>
+	<div class="head btn tohome"><div class="inner"><div class="text" data-translate="HOME PAGE">HOME PAGE</div></div></div>
+	<div class="head btn tosign"><div class="inner"><div class="text" data-translate="SIGN PETITION">SIGN PETITION</div></div></div>
 	<a class="link amnesty" href="https://www.amnesty.org/" target="_blank">
 		<svg xmlns="http://www.w3.org/2000/svg" width="150" viewBox="0 0 150 63.7"></svg>
 	</a>
@@ -411,15 +414,15 @@
 <!-- landing -->
 <section class="landing">
 	<div class="contain">
-		<h1 class="head"># HAIKU POEM</h1>
-		<p class="desc">We all want to see a level playing field at the Olympics but equality is yet to come in Japan especially for LGBTI people. The Tokyo Games is an opportunity for us to call on Japan to embrace equal rights.<br /><br />Create your Haiku poem for equality.</p>
+		<h1 class="head" data-translate="# HAIKU POEM"># HAIKU POEM</h1>
+		<p class="desc" data-translate="LANDING INTRODUCTION">We all want to see a level playing field at the Olympics but equality is yet to come in Japan especially for LGBTI people. The Tokyo Games is an opportunity for us to call on Japan to embrace equal rights.<br /><br />Create your Haiku poem for equality.</p>
 		<div class="musubi">
 			<div class="line"></div>
 			<div class="line-color"></div>
 			<svg class="knot2" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="0 0 100 76.6"></svg>
 		</div>
 		<div class="head btn enter" role="button">
-			<div class="inner"><div class="text">CREATE POEM</div></div>
+			<div class="inner"><div class="text" data-translate="CREATE POEM">CREATE POEM</div></div>
 		</div>
 	</div>
 	<a class="link amnesty" href="https://www.amnesty.org/" target="_blank">
@@ -606,7 +609,7 @@ var handleurl = 'https://wanortheuropewebhaikumusubi001.azurewebsites.net/handle
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" defer></script>
 <script src="https://d3js.org/d3.v4.min.js" defer></script>
 <script src="https://d3js.org/topojson.v1.min.js" defer></script>
-<script src="javascripts/vendor-482845a3f2a02d6210d1647f7c3455e0.js" defer></script>
+<script src="javascripts/vendor-f009a214cd901c6cc53a20c858a41fdc.js" defer></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116298107-9"></script>
