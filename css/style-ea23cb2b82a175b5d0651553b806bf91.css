@@ -1,3 +1,5 @@
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+
 @font-face {
 	font-family: 'Helvetica Now';
 	src: url('../fonts/helvetica-now/bold.eot');
@@ -88,7 +90,8 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	-ms-scroll-chaining: none;
 	overscroll-behavior: none;
-	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	        box-sizing: border-box;
 }
 html.dark-mode {
 	--color-bg: #363636;
@@ -98,7 +101,8 @@ html.dark-mode {
 *,
 *::before,
 *::after {
-	box-sizing: inherit;
+	-webkit-box-sizing: inherit;
+	        box-sizing: inherit;
 }
 
 body {
@@ -113,9 +117,6 @@ body {
 	overflow: hidden;
 }
 body:-webkit-full-screen {
-	background-color: white;
-}
-body:-moz-full-screen {
 	background-color: white;
 }
 body:-ms-fullscreen {
@@ -156,6 +157,8 @@ svg {
 }
 .logo.amnesty .st0,
 .logo.amnesty .st1 {
+	-webkit-transition: fill .15s ease-out;
+	-o-transition: fill .15s ease-out;
 	transition: fill .15s ease-out;
 }
 .logo.amnesty .st0 {
@@ -197,8 +200,12 @@ html:not(.touchevents) .logo.amnesty:hover .st1 {
 .knot-shape .st2,
 .knot-shape .st3,
 .knot-shape .st4 {
+	-webkit-transition: fill 3s ease-out, stroke 3s ease-out;
+	-o-transition: fill 3s ease-out, stroke 3s ease-out;
 	transition: fill 3s ease-out, stroke 3s ease-out;
-	transition-timing-function: var(--easeOutCubic);
+	-webkit-transition-timing-function: var(--easeOutCubic);
+	     -o-transition-timing-function: var(--easeOutCubic);
+	        transition-timing-function: var(--easeOutCubic);
 	fill: #fff;
 	stroke: #525252;
 	stroke-width: .25;
@@ -227,11 +234,17 @@ html:not(.touchevents) .logo.amnesty:hover .st1 {
 /* start landing */
 section.landing {
 	background-color: var(--color-bg);
-	justify-content: center;
-	align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	text-align: center;
 	position: fixed;
 	overflow: hidden;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	height: 100vh;
 	width: 100%;
@@ -268,11 +281,21 @@ html.is-win section.landing .btn.enter .inner {
 	}
 }
 section.landing .btn.enter .inner::before {
+	-webkit-transition: -webkit-transform .25s ease-out;
+	transition: -webkit-transform .25s ease-out;
+	-o-transition: transform .25s ease-out;
 	transition: transform .25s ease-out;
-	transition-timing-function: var(--easeOutCubic);
+	transition: transform .25s ease-out, -webkit-transform .25s ease-out;
+	-webkit-transition-timing-function: var(--easeOutCubic);
+	     -o-transition-timing-function: var(--easeOutCubic);
+	        transition-timing-function: var(--easeOutCubic);
 	background-color: var(--color-fg);
-	transform-origin: bottom;
-	transform: scaleY(0);
+	-webkit-transform-origin: bottom;
+	    -ms-transform-origin: bottom;
+	        transform-origin: bottom;
+	-webkit-transform: scaleY(0);
+	    -ms-transform: scaleY(0);
+	        transform: scaleY(0);
 	position: absolute;
 	content: ' ';
 	height: 100%;
@@ -281,11 +304,17 @@ section.landing .btn.enter .inner::before {
 	top: 0;
 }
 html:not(.touchevents) section.landing .btn.enter:hover .inner::before {
-	transform: scale(1);
+	-webkit-transform: scale(1);
+	    -ms-transform: scale(1);
+	        transform: scale(1);
 }
 section.landing .btn.enter .text {
+	-webkit-transition: color .25s ease-out;
+	-o-transition: color .25s ease-out;
 	transition: color .25s ease-out;
-	transition-timing-function: var(--easeOutCubic);
+	-webkit-transition-timing-function: var(--easeOutCubic);
+	     -o-transition-timing-function: var(--easeOutCubic);
+	        transition-timing-function: var(--easeOutCubic);
 	position: relative;
 }
 html:not(.touchevents) section.landing .btn.enter:hover .text {
@@ -328,24 +357,40 @@ section.landing .musubi .line::after {
 }
 section.landing .musubi .line-color::before,
 section.landing .musubi .line-color::after {
+	-webkit-transition: -webkit-transform 1.2s ease-out;
+	transition: -webkit-transform 1.2s ease-out;
+	-o-transition: transform 1.2s ease-out;
 	transition: transform 1.2s ease-out;
-	transition-timing-function: var(--easeOutCubic);
-	transform: scaleX(0);
+	transition: transform 1.2s ease-out, -webkit-transform 1.2s ease-out;
+	-webkit-transition-timing-function: var(--easeOutCubic);
+	     -o-transition-timing-function: var(--easeOutCubic);
+	        transition-timing-function: var(--easeOutCubic);
+	-webkit-transform: scaleX(0);
+	    -ms-transform: scaleX(0);
+	        transform: scaleX(0);
 }
 section.landing .musubi .line-color::before {
 	background-image: url('../images/line-left.svg');
-	transform-origin: left;
+	-webkit-transform-origin: left;
+	    -ms-transform-origin: left;
+	        transform-origin: left;
 	right: 50%;
 }
 section.landing .musubi .line-color::after {
 	background-image: url('../images/line-right.svg');
-	transition-delay: .1s;
-	transform-origin: right;
+	-webkit-transition-delay: .1s;
+	     -o-transition-delay: .1s;
+	        transition-delay: .1s;
+	-webkit-transform-origin: right;
+	    -ms-transform-origin: right;
+	        transform-origin: right;
 	left: 50%;
 }
 section.landing .musubi.colorful .line-color::before,
 section.landing .musubi.colorful .line-color::after {
-	transform: scaleX(1);
+	-webkit-transform: scaleX(1);
+	    -ms-transform: scaleX(1);
+	        transform: scaleX(1);
 }
 section.landing .knot2 {
 	position: relative;
@@ -355,8 +400,12 @@ section.landing .knot2 .st1,
 section.landing .knot2 .st2,
 section.landing .knot2 .st3,
 section.landing .knot2 .st4 {
+	-webkit-transition: fill 3s ease-out 1.3s/*, stroke 3s ease-out 1.3s*/;
+	-o-transition: fill 3s ease-out 1.3s/*, stroke 3s ease-out 1.3s*/;
 	transition: fill 3s ease-out 1.3s/*, stroke 3s ease-out 1.3s*/;
-	transition-timing-function: var(--easeOutCubic);
+	-webkit-transition-timing-function: var(--easeOutCubic);
+	     -o-transition-timing-function: var(--easeOutCubic);
+	        transition-timing-function: var(--easeOutCubic);
 	fill: #fff;
 	stroke: #525252;
 	stroke-width: .25;
@@ -378,6 +427,8 @@ section.landing .knot-shape2 .color .st4 {
 	fill: #0085c7;
 }
 section.landing .knot-shape2 .color ellipse {
+	-webkit-transition: stroke-dashoffset 1s ease-out .8s;
+	-o-transition: stroke-dashoffset 1s ease-out .8s;
 	transition: stroke-dashoffset 1s ease-out .8s;
 	fill: none;
 }
@@ -389,7 +440,9 @@ section.landing .musubi.colorful .left-top.color ellipse {
 	stroke-dashoffset: 290;
 }
 section.landing .knot-shape2 .right-top.color ellipse {
-	transition-delay: .9s;
+	-webkit-transition-delay: .9s;
+	     -o-transition-delay: .9s;
+	        transition-delay: .9s;
 	stroke-dasharray: 200;
 	stroke-dashoffset: 290;
 }
@@ -416,7 +469,9 @@ html.landing-in #clipLeftBottom rect {
 }*/
 @media only screen and (min-width: 501px) {
 	section.landing .link {
-		transform: translateX(-50%);
+		-webkit-transform: translateX(-50%);
+		    -ms-transform: translateX(-50%);
+		        transform: translateX(-50%);
 		position: absolute;
 		bottom: 55px;
 		left: 50%;
@@ -437,16 +492,22 @@ html.landing-in #clipLeftBottom rect {
 	section.landing .musubi .line::after,
 	section.landing .musubi .line-color::before,
 	section.landing .musubi .line-color::after {
-		transform: scaleY(.82);
+		-webkit-transform: scaleY(.82);
+		    -ms-transform: scaleY(.82);
+		        transform: scaleY(.82);
 		top: -8%;
 	}
 	section.landing .musubi .line-color::before,
 	section.landing .musubi .line-color::after {
-		transform: scaleY(.82) scaleX(0);
+		-webkit-transform: scaleY(.82) scaleX(0);
+		    -ms-transform: scaleY(.82) scaleX(0);
+		        transform: scaleY(.82) scaleX(0);
 	}
 	section.landing .musubi.colorful .line-color::before,
 	section.landing .musubi.colorful .line-color::after {
-		transform: scaleY(.82) scaleX(1);
+		-webkit-transform: scaleY(.82) scaleX(1);
+		    -ms-transform: scaleY(.82) scaleX(1);
+		        transform: scaleY(.82) scaleX(1);
 	}
 	section.landing .knot2 {
 		width: 82px;
@@ -504,8 +565,12 @@ section.about .btns {
 	}
 	section.about .btns {
 		padding-top: 40px;
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		justify-content: space-between;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
 	}
 	section.about .btn.goback {
 		border: 1px solid var(--color-fg);
@@ -553,8 +618,12 @@ section.petition .btns {
 	}
 	section.petition .btns {
 		padding-top: 40px;
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
-		justify-content: space-between;
+		-webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
 	}
 	section.petition .btn.goback {
 		border: 1px solid var(--color-fg);
@@ -591,9 +660,15 @@ section.landing {
 	top: 0;
 	width: 100%;
 	height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 
 
@@ -661,6 +736,8 @@ html.is-win #parts .btn {
 }
 /*#parts .btn.create:not(.again),*/
 #parts .btn.tosign {
+	-webkit-transition: color .25s ease-out;
+	-o-transition: color .25s ease-out;
 	transition: color .25s ease-out;
 	background-color: #FFFF00;
 }
@@ -677,12 +754,22 @@ html:not(.touchevents) #parts .btn.tosign:hover {
 	height: calc(100% + 2px);
 	width: calc(100% + 2px);
 	background-color: black;
-	transform-origin: bottom;
-	transform: scaleY(0);
+	-webkit-transform-origin: bottom;
+	    -ms-transform-origin: bottom;
+	        transform-origin: bottom;
+	-webkit-transform: scaleY(0);
+	    -ms-transform: scaleY(0);
+	        transform: scaleY(0);
+	-webkit-transition: -webkit-transform .25s ease-out;
+	transition: -webkit-transform .25s ease-out;
+	-o-transition: transform .25s ease-out;
 	transition: transform .25s ease-out;
+	transition: transform .25s ease-out, -webkit-transform .25s ease-out;
 }
 html:not(.touchevents) #parts .btn.tosign:hover::before {
-	transform: scaleY(1);
+	-webkit-transform: scaleY(1);
+	    -ms-transform: scaleY(1);
+	        transform: scaleY(1);
 }
 #parts .btn.tosign {
 	top: calc(var(--edge) + 90px);
@@ -724,6 +811,8 @@ html:not(.touchevents) #parts .btn.tosign:hover::before {
 	}*/
 }
 #parts .btn.create.again {
+	-webkit-transition: color .25s ease-out;
+	-o-transition: color .25s ease-out;
 	transition: color .25s ease-out;
 }
 html:not(.touchevents) #parts .btn.create.again:hover {
@@ -737,14 +826,26 @@ html:not(.touchevents) #parts .btn.create.again:hover {
 	height: 100%;
 	width: 100%;
 	background-color: black;
-	transform-origin: bottom;
-	transform: scaleY(0);
+	-webkit-transform-origin: bottom;
+	    -ms-transform-origin: bottom;
+	        transform-origin: bottom;
+	-webkit-transform: scaleY(0);
+	    -ms-transform: scaleY(0);
+	        transform: scaleY(0);
+	-webkit-transition: -webkit-transform .25s ease-out;
+	transition: -webkit-transform .25s ease-out;
+	-o-transition: transform .25s ease-out;
 	transition: transform .25s ease-out;
+	transition: transform .25s ease-out, -webkit-transform .25s ease-out;
 }
 html:not(.touchevents) #parts .btn.create.again:hover::before {
-	transform: scaleY(1);
+	-webkit-transform: scaleY(1);
+	    -ms-transform: scaleY(1);
+	        transform: scaleY(1);
 }
 #parts .btn.tohome {
+	-webkit-transition: color .25s ease-out;
+	-o-transition: color .25s ease-out;
 	transition: color .25s ease-out;
 }
 html:not(.touchevents) #parts .btn.tohome:hover {
@@ -758,14 +859,26 @@ html:not(.touchevents) #parts .btn.tohome:hover {
 	height: 100%;
 	width: 100%;
 	background-color: black;
-	transform-origin: bottom;
-	transform: scaleY(0);
+	-webkit-transform-origin: bottom;
+	    -ms-transform-origin: bottom;
+	        transform-origin: bottom;
+	-webkit-transform: scaleY(0);
+	    -ms-transform: scaleY(0);
+	        transform: scaleY(0);
+	-webkit-transition: -webkit-transform .25s ease-out;
+	transition: -webkit-transform .25s ease-out;
+	-o-transition: transform .25s ease-out;
 	transition: transform .25s ease-out;
+	transition: transform .25s ease-out, -webkit-transform .25s ease-out;
 }
 html:not(.touchevents) #parts .btn.tohome:hover::before {
-	transform: scaleY(1);
+	-webkit-transform: scaleY(1);
+	    -ms-transform: scaleY(1);
+	        transform: scaleY(1);
 }
 #parts .btn.goback {
+	-webkit-transition: color .25s ease-out;
+	-o-transition: color .25s ease-out;
 	transition: color .25s ease-out;
 }
 html:not(.touchevents) #parts .btn.goback:hover {
@@ -779,12 +892,22 @@ html:not(.touchevents) #parts .btn.goback:hover {
 	height: 100%;
 	width: 100%;
 	background-color: white;
-	transform-origin: bottom;
-	transform: scaleY(0);
+	-webkit-transform-origin: bottom;
+	    -ms-transform-origin: bottom;
+	        transform-origin: bottom;
+	-webkit-transform: scaleY(0);
+	    -ms-transform: scaleY(0);
+	        transform: scaleY(0);
+	-webkit-transition: -webkit-transform .25s ease-out;
+	transition: -webkit-transform .25s ease-out;
+	-o-transition: transform .25s ease-out;
 	transition: transform .25s ease-out;
+	transition: transform .25s ease-out, -webkit-transform .25s ease-out;
 }
 html:not(.touchevents) #parts .btn.goback:hover::before {
-	transform: scaleY(1);
+	-webkit-transform: scaleY(1);
+	    -ms-transform: scaleY(1);
+	        transform: scaleY(1);
 }
 
 #parts .link.amnesty {
@@ -830,8 +953,12 @@ html:not(.touchevents) #parts .btn.goback:hover::before {
 	left: var(--edge);
 }
 #parts .part-site-identity {
-	align-items: flex-end;
+	-webkit-box-align: end;
+	    -ms-flex-align: end;
+	        align-items: flex-end;
 	line-height: 1;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 }
 #parts .part-site-identity .knot {
@@ -850,7 +977,9 @@ html:not(.touchevents) #parts .btn.goback:hover::before {
 }
 @media only screen and (max-width: 500px) {
 	#parts .part-site-identity {
-		align-items: center;
+		-webkit-box-align: center;
+		    -ms-flex-align: center;
+		        align-items: center;
 		/*font-size: 15.4px;*/
 	}
 	#parts .part-site-identity .knot {
@@ -874,26 +1003,37 @@ html:not(.touchevents) #parts .btn.goback:hover::before {
 
 
 #parts .part-share {
-	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	        transform: translateY(-50%);
 	left: var(--edge);
 	position: fixed;
 	top: 50%;
 }
 #parts .at-share-btn-elements {
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	display: none;
 }
 #parts .at-resp-share-element .at-share-btn {
 	background-color: #E4E4E4 !important;
 	border-radius: 100px !important;
+	-webkit-transition: none;
+	-o-transition: none;
 	transition: none;
 }
 html:not(.touchevents) #parts .at-resp-share-element .at-share-btn:hover {
 	background-color: #ddd !important;
 }
 #parts .at-resp-share-element .at-icon-wrapper {
-	transform: scale(.85);
+	-webkit-transform: scale(.85);
+	    -ms-transform: scale(.85);
+	        transform: scale(.85);
 }
 /* end parts */
 
@@ -905,7 +1045,9 @@ html:not(.touchevents) #parts .at-resp-share-element .at-share-btn:hover {
 	width: 67%;
 	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
 	overflow: hidden;
 }
 #ballhandle.out {
@@ -921,8 +1063,7 @@ html:not(.touchevents) #parts .at-resp-share-element .at-share-btn:hover {
 
 #frontSvger {
   -webkit-touch-callout: none; /* iOS Safari */
-	-webkit-user-select: none; /* Safari */
-	 -khtml-user-select: none; /* Konqueror HTML */
+	-webkit-user-select: none; /* Safari */ /* Konqueror HTML */
 	   -moz-user-select: none; /* Old versions of Firefox */
 		-ms-user-select: none; /* Internet Explorer/Edge */
 			user-select: none; /* Non-prefixed version, currently
@@ -942,7 +1083,9 @@ html:not(.touchevents) #parts .at-resp-share-element .at-share-btn:hover {
 		height: auto;
 		width: 100%;
 		left: 50%;
-		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		    -ms-transform: translate(-50%, -50%);
+		        transform: translate(-50%, -50%);
 		top: 50%;
 	}
 }
@@ -955,7 +1098,9 @@ html:not(.touchevents) #parts .at-resp-share-element .at-share-btn:hover {
 	#frontSvger {
 		position: relative;
 		top: 50%;
-		transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		    -ms-transform: translateY(-50%);
+		        transform: translateY(-50%);
 		/*width: 130%;
 		left: -15%;*/
 	}
@@ -965,7 +1110,9 @@ html:not(.touchevents) #parts .at-resp-share-element .at-share-btn:hover {
 	border-top: 5px solid red;
 	border-radius: 2000px;
 	overflow: hidden;*/
-	transform-origin: center;
+	-webkit-transform-origin: center;
+	    -ms-transform-origin: center;
+	        transform-origin: center;
 }
 #frontSvgOuter.out {
 	pointer-events: none;
@@ -995,7 +1142,9 @@ html:not(.touchevents) #parts .at-resp-share-element .at-share-btn:hover {
 }
 @media only screen and (min-height: 841px) {
 	#front {
-		transform: translate(-50%, -50%);
+		-webkit-transform: translate(-50%, -50%);
+		    -ms-transform: translate(-50%, -50%);
+		        transform: translate(-50%, -50%);
 		position: absolute;
 		left: 50%;
 		top: 50%;
@@ -1022,7 +1171,9 @@ html:not(.touchevents) #parts .at-resp-share-element .at-share-btn:hover {
 	width: 85%;
 	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
 
 	visibility: hidden;
 	display: none;
@@ -1033,7 +1184,9 @@ html:not(.touchevents) #parts .at-resp-share-element .at-share-btn:hover {
 	padding-top: 100%;
 }
 #front .knot.good {
-	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	    -ms-transform: translateX(-50%);
+	        transform: translateX(-50%);
 	visibility: hidden;
 	position: absolute;
 	left: 50%;
@@ -1051,16 +1204,22 @@ html:not(.touchevents) #parts .at-resp-share-element .at-share-btn:hover {
 }
 @media only screen and (max-width: 500px) {
 	#front .knot.good {
-		top: 32%;
+		top: 28%;
 		width: 72px;
 	}
 }
+@-webkit-keyframes tune {
+	to { -webkit-transform: rotate(-360deg); transform: rotate(-360deg); }
+}
 @keyframes tune {
-	to { transform: rotate(-360deg); }
+	to { -webkit-transform: rotate(-360deg); transform: rotate(-360deg); }
 }
 #frontSvg {
-	animation: tune 300s linear 0s infinite forwards;
-	transform-origin: center;
+	-webkit-animation: tune 300s linear 0s infinite forwards;
+	        animation: tune 300s linear 0s infinite forwards;
+	-webkit-transform-origin: center;
+	    -ms-transform-origin: center;
+	        transform-origin: center;
 	pointer-events: none;
 	vertical-align: top;
 	height: auto;
@@ -1098,8 +1257,7 @@ html:not(.touchevents) #parts .at-resp-share-element .at-share-btn:hover {
 	font-size: 14px;
 	fill: #525252;
 	-webkit-touch-callout: none; /* iOS Safari */
-	-webkit-user-select: none; /* Safari */
-	-khtml-user-select: none; /* Konqueror HTML */
+	-webkit-user-select: none; /* Safari */ /* Konqueror HTML */
 	-moz-user-select: none; /* Old versions of Firefox */
 	-ms-user-select: none; /* Internet Explorer/Edge */
 	user-select: none;
@@ -1107,6 +1265,8 @@ html:not(.touchevents) #parts .at-resp-share-element .at-share-btn:hover {
 #frontSvg .keyword {
 }
 #frontSvg .keywords:not(.disable) .keyword:not(.on) {
+	-webkit-transition: opacity .25s ease-out;
+	-o-transition: opacity .25s ease-out;
 	transition: opacity .25s ease-out;
 	pointer-events: auto;
 	cursor: pointer;
@@ -1118,11 +1278,17 @@ html:not(.touchevents) #frontSvg .keywords:not(.disable) .keyword:not(.on):hover
 	opacity: .25;
 }
 #frontSvg .keyword .text {
+	-webkit-transition: -webkit-transform .25s ease-out;
+	transition: -webkit-transform .25s ease-out;
+	-o-transition: transform .25s ease-out;
 	transition: transform .25s ease-out;
+	transition: transform .25s ease-out, -webkit-transform .25s ease-out;
 	letter-spacing: .4px;
 }
 html:not(.touchevents) #frontSvg .keywords:not(.disable) .keyword:not(.on):hover .text {
-	transform: translateX(-2px) scale(1.2);
+	-webkit-transform: translateX(-2px) scale(1.2);
+	    -ms-transform: translateX(-2px) scale(1.2);
+	        transform: translateX(-2px) scale(1.2);
 }
 @media only screen and (max-width: 500px) {
 	#frontSvg .keywords {
@@ -1132,25 +1298,59 @@ html:not(.touchevents) #frontSvg .keywords:not(.disable) .keyword:not(.on):hover
 
 
 
-@keyframes drop1 {
+@-webkit-keyframes drop1 {
 	0% {
-		transform: translate(0, 0) scale(0.8);
+		-webkit-transform: translate(0, 0) scale(0.8);
+		        transform: translate(0, 0) scale(0.8);
 	}
 	100% {
-		transform: translate(28px, 8px) scale(0);
+		-webkit-transform: translate(28px, 8px) scale(0);
+		        transform: translate(28px, 8px) scale(0);
+	}
+}
+
+
+
+@keyframes drop1 {
+	0% {
+		-webkit-transform: translate(0, 0) scale(0.8);
+		        transform: translate(0, 0) scale(0.8);
+	}
+	100% {
+		-webkit-transform: translate(28px, 8px) scale(0);
+		        transform: translate(28px, 8px) scale(0);
+	}
+}
+@-webkit-keyframes drop2 {
+	0% {
+		-webkit-transform: translate(0, 0) scale(0.7);
+		        transform: translate(0, 0) scale(0.7);
+	}
+	100% {
+		-webkit-transform: translate(28px, -8px) scale(0);
+		        transform: translate(28px, -8px) scale(0);
 	}
 }
 @keyframes drop2 {
 	0% {
-		transform: translate(0, 0) scale(0.7);
+		-webkit-transform: translate(0, 0) scale(0.7);
+		        transform: translate(0, 0) scale(0.7);
 	}
 	100% {
-		transform: translate(28px, -8px) scale(0);
+		-webkit-transform: translate(28px, -8px) scale(0);
+		        transform: translate(28px, -8px) scale(0);
+	}
+}
+@-webkit-keyframes go {
+	to {
+		-webkit-transform: translateX(-12vw);
+		        transform: translateX(-12vw);
 	}
 }
 @keyframes go {
 	to {
-		transform: translateX(-12vw);
+		-webkit-transform: translateX(-12vw);
+		        transform: translateX(-12vw);
 	}
 }
 #mobileDots {
@@ -1158,7 +1358,9 @@ html:not(.touchevents) #frontSvg .keywords:not(.disable) .keyword:not(.on):hover
 	width: 85%;
 	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -50%) rotate(30deg);
+	-webkit-transform: translate(-50%, -50%) rotate(30deg);
+	    -ms-transform: translate(-50%, -50%) rotate(30deg);
+	        transform: translate(-50%, -50%) rotate(30deg);
 	/*visibility: hidden;*/
 	overflow: hidden;
 	display: none;
@@ -1175,7 +1377,9 @@ html:not(.touchevents) #frontSvg .keywords:not(.disable) .keyword:not(.on):hover
 	position: absolute;
 }
 #mobileDots .dot {
-	transform: translateX(88vw);
+	-webkit-transform: translateX(88vw);
+	    -ms-transform: translateX(88vw);
+	        transform: translateX(88vw);
 	top: 50%;
 	left: 0;
 	width: 22px;
@@ -1185,7 +1389,8 @@ html:not(.touchevents) #frontSvg .keywords:not(.disable) .keyword:not(.on):hover
 	/*animation-play-state: paused;*/
 }
 #mobileDots .dot.go {
-	animation: go 20s linear;
+	-webkit-animation: go 20s linear;
+	        animation: go 20s linear;
 	/*animation-play-state: running;*/
 }
 #mobileDots .dot span {
@@ -1214,13 +1419,16 @@ html:not(.touchevents) #frontSvg .keywords:not(.disable) .keyword:not(.on):hover
 	top: 50%;
 	left: 50%;
 	margin: -7px 0 0 -7px;
-	box-shadow: inherit;
+	-webkit-box-shadow: inherit;
+	        box-shadow: inherit;
 }
 #mobileDots .dot span:before {
-	animation: drop1 0.8s linear infinite;
+	-webkit-animation: drop1 0.8s linear infinite;
+	        animation: drop1 0.8s linear infinite;
 }
 #mobileDots .dot span:after {
-	animation: drop2 0.8s linear infinite 0.4s;
+	-webkit-animation: drop2 0.8s linear infinite 0.4s;
+	        animation: drop2 0.8s linear infinite 0.4s;
 }
 @media only screen and (max-width: 500px) {
 	#mobileDots {
@@ -1231,13 +1439,17 @@ html:not(.touchevents) #frontSvg .keywords:not(.disable) .keyword:not(.on):hover
 
 
 #gc {
-	transform-origin: center;
+	-webkit-transform-origin: center;
+	    -ms-transform-origin: center;
+	        transform-origin: center;
 	width: 76.5%;
 	height: auto;
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -50.2%) rotate(-90deg);
+	-webkit-transform: translate(-50%, -50.2%) rotate(-90deg);
+	    -ms-transform: translate(-50%, -50.2%) rotate(-90deg);
+	        transform: translate(-50%, -50.2%) rotate(-90deg);
 }
 @media only screen and (min-height: 901px) {
 	#gc {
@@ -1247,25 +1459,45 @@ html:not(.touchevents) #frontSvg .keywords:not(.disable) .keyword:not(.on):hover
 }
 @media only screen and (max-width: 500px) {
 	#gc {
-		transform: translate(-50%, -50%) rotate(-90deg);
+		-webkit-transform: translate(-50%, -50%) rotate(-90deg);
+		    -ms-transform: translate(-50%, -50%) rotate(-90deg);
+		        transform: translate(-50%, -50%) rotate(-90deg);
 		width: 85%;
 	}
 }
 
 
 
-#front .step {
-	transform: translate(-50%, -50%);
+#front .steps {
+	-webkit-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
+	pointer-events: none;
 	position: absolute;
-	visibility: hidden;
+	width: 76%;
 	left: 50%;
 	top: 50%;
 }
+#front .steps::before {
+	content: ' ';
+	display: block;
+	padding-top: 100%;
+}
+#front .step {
+	visibility: hidden;
+	pointer-events: auto;
+}
 #front .step:not(.select-word) {
 	font-size: var(--fs-xlarge);
+	-webkit-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
+	position: absolute;
+	left: 50%;
+	top: 50%;
 }
 #front .step.select-word {
-	margin-top: 13%;
+	/*margin-top: 13%;*/
 }
 #front .step[step="0"] .question {
 	white-space: nowrap;
@@ -1285,7 +1517,8 @@ html:not(.touchevents) #frontSvg .keywords:not(.disable) .keyword:not(.on):hover
 #front .step .answer .icon-enter {
 /*	background: url('../images/enter.svg') no-repeat center center;
 	background-size: contain;*/
-	object-fit: contain;
+	-o-object-fit: contain;
+	   object-fit: contain;
 	/*visibility: hidden;*/
 	/*-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;*/
@@ -1313,7 +1546,9 @@ html.is-win #front .step .answer .icon-enter {
 	top: 100%;
 	height: 1px;
 	width: 100%;
-	transform: scaleY(1.4);
+	-webkit-transform: scaleY(1.4);
+	    -ms-transform: scaleY(1.4);
+	        transform: scaleY(1.4);
 	opacity: 0.6;
 }
 html.is-win #front .step .answer::after {
@@ -1329,8 +1564,10 @@ html.is-win #front .step .answer::after {
 	width: 100%;
 	padding: 0;
 }
-#front .step .txtbox::-webkit-calendar-picker-indicator,
 #front .step .txtbox::-webkit-list-button {
+	display: none;
+}
+#front .step .txtbox::-webkit-calendar-picker-indicator {
 	display: none;
 }
 #front .step .message p+p {
@@ -1338,19 +1575,26 @@ html.is-win #front .step .answer::after {
 }
 #front .step[step="2"] .message {
 	max-width: 390px;
+	width: 80vw;
 }
 #front .sign-msg {
-	padding-top: 15%;
 	font-size: 21px;
 	font-weight: bold;
 	visibility: hidden;
 	display: none;
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	    -ms-transform: translateX(-50%);
+	        transform: translateX(-50%);
+	width: 80%;
+	top: 48%;
 }
 @media only screen and (max-width: 500px) {
 	#front .sign-msg {
 		font-size: 18px;
-		padding-top: 40%;
 		width: 80vw;
+		top: 39%;
 	}
 }
 /* iPhone */
@@ -1368,18 +1612,24 @@ and (-webkit-min-device-pixel-ratio: 2) {
 #front .select-word .middle {
 	/*justify-content: center;
 	align-items: center;
-	display: flex;*/
-	height: 254px;
+	display: flex;
+	height: 254px;*/
 }
 #front .selecteds {
-	justify-content: center;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	/*color: var(--color-gray);*/
 	position: absolute;
-	top: 24%;
+	top: 54%;
 	width: 100%;
 	visibility: hidden;
-	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	    -ms-transform: translateY(-50%);
+	        transform: translateY(-50%);
 }
 #front .selected {
 	color: var(--color);
@@ -1403,7 +1653,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	font-size: var(--fs-mlarge);
 }
 #front .selected .close {
+	-webkit-transition: -webkit-transform .25s ease-out;
+	transition: -webkit-transform .25s ease-out;
+	-o-transition: transform .25s ease-out;
 	transition: transform .25s ease-out;
+	transition: transform .25s ease-out, -webkit-transform .25s ease-out;
 	position: absolute;
 	cursor: pointer;
 	font-size: 0;
@@ -1413,7 +1667,9 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	top: 4px;
 }
 html:not(.touchevents) #front .selected .close:hover {
-	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	    -ms-transform: scale(1.1);
+	        transform: scale(1.1);
 }
 #front .selected .close::before,
 #front .selected .close::after {
@@ -1425,19 +1681,25 @@ html:not(.touchevents) #front .selected .close:hover {
 	width: 10px;
 }
 #front .selected .close::before {
-	transform: translateY(9px) rotate(45deg);
+	-webkit-transform: translateY(9px) rotate(45deg);
+	    -ms-transform: translateY(9px) rotate(45deg);
+	        transform: translateY(9px) rotate(45deg);
 }
 #front .selected .close::after {
-	transform: translateY(-11px) rotate(-45deg);
+	-webkit-transform: translateY(-11px) rotate(-45deg);
+	    -ms-transform: translateY(-11px) rotate(-45deg);
+	        transform: translateY(-11px) rotate(-45deg);
 	margin-top: 19px;
 }
 #front .select-word .tips {
 	position: absolute;
 	color: black;
 	/*top: 41%;*/
-	top: 16%;
+	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
 	white-space: nowrap;
 	font-size: var(--fs-mlarge);
 	/*opacity: .25;*/
@@ -1445,10 +1707,10 @@ html:not(.touchevents) #front .selected .close:hover {
 }
 @media only screen and (max-width: 500px) {
 	#front .select-word .tips {
-		top: 35%;
+		/*top: 35%;*/
 	}
 	#front .selecteds {
-		top: 38%;
+		/*top: 38%;*/
 	}
 	#front .selected .close {
 		top: 0;
@@ -1467,8 +1729,12 @@ html:not(.touchevents) #front .selected .close:hover {
 	left: 0;
 }*/
 #front .select-word .btn {
+	-webkit-transition: color .25s ease-out;
+	-o-transition: color .25s ease-out;
 	transition: color .25s ease-out;
-	transition-timing-function: var(--easeOutCubic);
+	-webkit-transition-timing-function: var(--easeOutCubic);
+	     -o-transition-timing-function: var(--easeOutCubic);
+	        transition-timing-function: var(--easeOutCubic);
 	border: 1px solid black;
 	padding: 23px 15px 15px;
 	/*display: inline-block;*/
@@ -1477,7 +1743,12 @@ html:not(.touchevents) #front .selected .close:hover {
 	min-width: 150px;
 	cursor: pointer;
 	line-height: 1;
-	position: relative;
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	    -ms-transform: translateX(-50%);
+	        transform: translateX(-50%);
+	top: 64%;
 }
 html.is-win #front .select-word .btn {
 	padding-bottom: 18px;
@@ -1495,27 +1766,42 @@ html.is-win #front .select-word .btn {
 	}
 }
 #front .select-word .btn.next {
+	-webkit-transition: color .25s ease-out, opacity 2s ease-out;
+	-o-transition: color .25s ease-out, opacity 2s ease-out;
 	transition: color .25s ease-out, opacity 2s ease-out;
-	transition-timing-function: var(--easeOutCubic);
-	transform: translateY(-175%);
+	-webkit-transition-timing-function: var(--easeOutCubic);
+	     -o-transition-timing-function: var(--easeOutCubic);
+	        transition-timing-function: var(--easeOutCubic);
+	/*transform: translateY(-175%);*/
 }
 #front .select-word .btn.next2 {
-	margin-top: 70px;
+	/*margin-top: 70px;*/
+	top: 72%;
 }
 @media only screen and (max-width: 500px) {
 	#front .select-word .btn.next2 {
-		margin-top: 26px;
+		/*margin-top: 26px;*/
 	}
 }
 html:not(.touchevents) #front .select-word .btn:not(.disabled):hover {
 	color: var(--color-bg);
 }
 #front .select-word .btn::before {
+	-webkit-transition: -webkit-transform .25s ease-out;
+	transition: -webkit-transform .25s ease-out;
+	-o-transition: transform .25s ease-out;
 	transition: transform .25s ease-out;
-	transition-timing-function: var(--easeOutCubic);
+	transition: transform .25s ease-out, -webkit-transform .25s ease-out;
+	-webkit-transition-timing-function: var(--easeOutCubic);
+	     -o-transition-timing-function: var(--easeOutCubic);
+	        transition-timing-function: var(--easeOutCubic);
 	background-color: var(--color-fg);
-	transform-origin: bottom;
-	transform: scaleY(0);
+	-webkit-transform-origin: bottom;
+	    -ms-transform-origin: bottom;
+	        transform-origin: bottom;
+	-webkit-transform: scaleY(0);
+	    -ms-transform: scaleY(0);
+	        transform: scaleY(0);
 	position: absolute;
 	content: ' ';
 	height: calc(100% + 2px);
@@ -1524,7 +1810,9 @@ html:not(.touchevents) #front .select-word .btn:not(.disabled):hover {
 	top: -1px;
 }
 html:not(.touchevents) #front .select-word .btn:not(.disabled):hover::before {
-	transform: scale(1);
+	-webkit-transform: scale(1);
+	    -ms-transform: scale(1);
+	        transform: scale(1);
 }
 #front .select-word .btn .text {
 	position: relative;
@@ -1537,7 +1825,7 @@ html:not(.touchevents) #front .select-word .btn:not(.disabled):hover::before {
 	background-color: #ffff00;
 	border-color: #ffff00;
 	border-color: transparent;
-	transform: translateY(-170%);
+	/*transform: translateY(-170%);*/
 	/*margin-top: -10%;*/
 	color: black;
 }
@@ -1550,7 +1838,9 @@ html:not(.touchevents) #front .select-word .btn:not(.disabled):hover::before {
 	margin-top: 38px;
 }
 #front .select-word .btn.disabled {
-	transition-duration: .25s, .4s;
+	-webkit-transition-duration: .25s, .4s;
+	     -o-transition-duration: .25s, .4s;
+	        transition-duration: .25s, .4s;
 	cursor: default;
 	opacity: .25;
 	opacity: 0;
@@ -1559,8 +1849,14 @@ html:not(.touchevents) #front .select-word .btn:not(.disabled):hover::before {
 	display: inline-block;
 }*/
 #front .select-word .share {
-	padding-bottom: 32px;
+	position: absolute;
 	display: none;
+	left: 50%;
+    top: 63%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    white-space: nowrap;
 }
 /*#front .select-word .share.show {
 	display: block;
@@ -1580,7 +1876,9 @@ html:not(.touchevents) #front .select-word .btn:not(.disabled):hover::before {
 }
 #front .select-word .at-resp-share-element .at-share-btn {
 	border-radius: 100px !important;
-	transform: scale(.8);
+	-webkit-transform: scale(.8);
+	    -ms-transform: scale(.8);
+	        transform: scale(.8);
 	margin-bottom: 0;
 	margin-right: 5px;
 	margin-left: 5px;
@@ -1595,7 +1893,9 @@ html:not(.touchevents) #front .select-word .btn:not(.disabled):hover::before {
 	display: none;
 }
 #front .select-word .at-resp-share-element .at-share-btn .at-icon-wrapper {
-	transform: scale(.8);
+	-webkit-transform: scale(.8);
+	    -ms-transform: scale(.8);
+	        transform: scale(.8);
 }
 #front .select-word .result,
 #front .select-word .prayers,
@@ -1608,9 +1908,14 @@ html:not(.touchevents) #front .select-word .btn:not(.disabled):hover::before {
 }
 #front .select-word .result {
 	font-size: var(--fs-hlarge);
-	padding-bottom: 10%;
-	padding-top: 40%;
 	line-height: 1.2;
+	position: absolute;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	    -ms-transform: translateX(-50%);
+	        transform: translateX(-50%);
+	white-space: nowrap;
+	top: 44%;
 }
 /*#front .select-word .prayers.show,
 #front .select-word .textarea.show {
@@ -1628,9 +1933,13 @@ html:not(.touchevents) #front .select-word .btn:not(.disabled):hover::before {
 }
 @media only screen and (max-width: 500px) {
 	#front .select-word .result {
-		padding-bottom: 4%;
-		padding-top: 42%;
+		/*padding-bottom: 4%;
+		padding-top: 42%;*/
 		width: 90vw;
+		top: 33%;
+	}
+	#front .select-word .share {
+		top: 58%;
 	}
 }
 /*@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 414px) and (min-device-height: 622px) {
@@ -1653,7 +1962,9 @@ html:not(.touchevents) #front .select-word .btn:not(.disabled):hover::before {
 	visibility: hidden;
 }
 #other {
-	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
 	font-family: var(--ff-head);
 	position: absolute;
 	left: 50%;
@@ -1662,11 +1973,17 @@ html:not(.touchevents) #front .select-word .btn:not(.disabled):hover::before {
 	visibility: hidden;
 }
 #other .top {
-	justify-content: space-between;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 	padding-bottom: 10px;
 	padding-right: 15px;
 	padding-left: 16px;
-	align-items: baseline;
+	-webkit-box-align: baseline;
+	    -ms-flex-align: baseline;
+	        align-items: baseline;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 }
 #other .name {
@@ -1675,7 +1992,8 @@ html:not(.touchevents) #front .select-word .btn:not(.disabled):hover::before {
 	max-width: 100px;
 	overflow: hidden;
 	white-space: nowrap;
-	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	   text-overflow: ellipsis;
 	display: inline-block;
 }
 #other .num {
@@ -1685,13 +2003,22 @@ html:not(.touchevents) #front .select-word .btn:not(.disabled):hover::before {
 }
 #other .box {
 	background-color: rgba(255, 255, 255, .75);
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	padding: 18px;
-	flex-direction: column;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 }
 #other .pic {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	align-items: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 }
 #other .pic .knot {
 	margin-bottom: 8px;
