@@ -1371,7 +1371,7 @@ html.is-win #front .step .answer::after {
 	#front .sign-msg {
 		font-size: 18px;
 		width: 70vw;
-		top: 37%;
+		top: 38%;
 	}
 }
 /* iPhone */
@@ -1517,6 +1517,9 @@ html.is-win #front .select-word .btn {
 	html.is-win #front .select-word .btn {
 		padding-bottom: 14px;
 		padding-top: 15px;
+	}
+	#front .select-word .btn.create {
+		top: 70%;
 	}
 }
 #front .select-word .btn.next {
