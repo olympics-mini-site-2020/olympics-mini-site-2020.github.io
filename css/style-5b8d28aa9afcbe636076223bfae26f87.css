@@ -1370,8 +1370,8 @@ html.is-win #front .step .answer::after {
 @media only screen and (max-width: 500px) {
 	#front .sign-msg {
 		font-size: 18px;
-		width: 80vw;
-		top: 39%;
+		width: 70vw;
+		top: 37%;
 	}
 }
 /* iPhone */
@@ -1668,6 +1668,9 @@ html:not(.touchevents) #front .select-word .btn:not(.disabled):hover::before {
 	}
 	#front .select-word .share {
 		top: 58%;
+	}
+	#front .select-word .txt {
+		margin-top: 2px;
 	}
 }
 /*@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 414px) and (min-device-height: 622px) {
