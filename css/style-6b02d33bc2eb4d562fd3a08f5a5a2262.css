@@ -1512,7 +1512,7 @@ html.is-win #front .select-word .btn {
 		padding-bottom: 11px;
 		padding-top: 16px;
 		min-width: 110px;
-		top: 66%;
+		top: 68%;
 	}
 	html.is-win #front .select-word .btn {
 		padding-bottom: 14px;
@@ -1670,7 +1670,7 @@ html:not(.touchevents) #front .select-word .btn:not(.disabled):hover::before {
 		top: 58%;
 	}
 	#front .select-word .txt {
-		margin-top: 2px;
+		margin-top: 4px;
 	}
 }
 /*@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 414px) and (min-device-height: 622px) {
