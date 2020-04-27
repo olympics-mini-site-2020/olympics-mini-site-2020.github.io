@@ -355,25 +355,25 @@ section.landing .knot2 .st1,
 section.landing .knot2 .st2,
 section.landing .knot2 .st3,
 section.landing .knot2 .st4 {
-	transition: fill 3s ease-out 1.3s/*, stroke 3s ease-out 1.3s*/;
-	transition-timing-function: var(--easeOutCubic);
+	/*transition: fill 3s ease-out 1.3s, stroke 3s ease-out 1.3s;
+	transition-timing-function: var(--easeOutCubic);*/
 	fill: #fff;
 	stroke: #525252;
 	stroke-width: .25;
 }
-section.landing .musubi.colorful g.center .st1,
+/*section.landing .musubi.colorful g.center .st1,*/
 section.landing .knot-shape2 .color .st1 {
 	fill: #009f3d;
 }
-section.landing .musubi.colorful g.center .st2,
+/*section.landing .musubi.colorful g.center .st2,*/
 section.landing .knot-shape2 .color .st2 {
 	fill: #f4c300;
 }
-section.landing .musubi.colorful g.center .st3,
+/*section.landing .musubi.colorful g.center .st3,*/
 section.landing .knot-shape2 .color .st3 {
 	fill: #df0024;
 }
-section.landing .musubi.colorful g.center .st4,
+/*section.landing .musubi.colorful g.center .st4,*/
 section.landing .knot-shape2 .color .st4 {
 	fill: #0085c7;
 }
