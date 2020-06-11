@@ -1365,13 +1365,13 @@ html.is-win #front .step .answer::after {
 	left: 50%;
 	transform: translateX(-50%);
 	width: 80%;
-	top: 48%;
+	top: 45%;
 }
 @media only screen and (max-width: 500px) {
 	#front .sign-msg {
-		font-size: 18px;
+		font-size: 16px;
 		width: 70vw;
-		top: 38%;
+		top: 36%;
 	}
 }
 /* iPhone */
@@ -1512,7 +1512,7 @@ html.is-win #front .select-word .btn {
 		padding-bottom: 11px;
 		padding-top: 16px;
 		min-width: 110px;
-		top: 68%;
+		top: 73%;
 	}
 	html.is-win #front .select-word .btn {
 		padding-bottom: 14px;
